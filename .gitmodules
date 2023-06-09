@@ -15,3 +15,6 @@
 	path = ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
   ignore = dirty
+[submodule "zsh/plugins/zsh-vi-mode"]
+	path = zsh/plugins/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode
