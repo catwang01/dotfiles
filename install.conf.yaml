@@ -6,6 +6,6 @@
     ~/.shell:
     ~/.zshrc:
     ~/.zsh:
-    ~/.on-my-zh:
+    ~/.on-my-zsh: onmyzsh
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
