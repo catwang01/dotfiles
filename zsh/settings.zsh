@@ -126,6 +126,3 @@ bindkey '^L' autosuggest-accept
 
 
 eval $(thefuck --alias)
-
-# Created by `pipx` on 2023-04-18 11:35:28
-export PATH="$PATH:/Users/ed/.local/bin"

@@ -11,3 +11,10 @@
 [submodule "zsh/plugins/zsh-completions"]
 	path = zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
+[submodule "oh-my-zh"]
+	path = oh-my-zh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+  ignore = dirty
+[submodule "ohmyzsh"]
+	path = ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git

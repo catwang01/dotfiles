@@ -44,7 +44,7 @@ if [ -f ~/.zsh/prompt.zsh ]; then
 fi
 
 # External plugins (initialized after)
-if [ -f ~/.zsh/pubgins_after.zsh ]; then
+if [ -f ~/.zsh/plugins_after.zsh ]; then
   source ~/.zsh/plugins_after.zsh
 fi
 

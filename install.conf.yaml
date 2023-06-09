@@ -1,6 +1,11 @@
-- link
-  ~/.shell:
-  ~/.zshrc:
-  ~/.zsh:
+- defaults:
+    link:
+      create: true
+      relink: true
+- link:
+    ~/.shell:
+    ~/.zshrc:
+    ~/.zsh:
+    ~/.on-my-zh:
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
