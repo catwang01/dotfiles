@@ -21,3 +21,9 @@
 [submodule "zsh/plugins/zsh-autosuggestions"]
 	path = zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "neovim/nvchad"]
+	path = neovim/nvchad
+	url = https://gitee.com/mirrors/nvchad
+[submodule "neovim/nvim/lua/custom"]
+	path = neovim/nvim/lua/custom
+	url = git@github.com:catwang01/nvchad-custom.git
