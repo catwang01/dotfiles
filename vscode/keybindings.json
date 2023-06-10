@@ -1,0 +1,235 @@
+// Place your key bindings in this file to override the defaults
+[
+    // window navigations
+    { // make cursor back to editor
+        "key": "ctrl+k",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "panelFocus && activePanel"
+    },
+    { // make cursor back to editor
+        "key": "ctrl+h",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "panelFocus && activePanel"
+    },
+    { // window move down
+        "key": "ctrl+j",
+        "command": "vim.remap",
+        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen",
+        "args": {
+            "after": [
+                "<c-w>",
+                "j"
+            ],
+        }
+    },
+    { // window move up
+        "key": "ctrl+k",
+        "command": "vim.remap",
+        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
+        "args": {
+            "after": [
+                "<c-w>",
+                "k"
+            ],
+        }
+    },
+    { // window move left
+        "key": "ctrl+h",
+        "command": "vim.remap",
+        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
+        "args": {
+            "after": [
+                "<c-w>",
+                "h"
+            ],
+        }
+    },
+    { // window move right
+        "key": "ctrl+l",
+        "command": "vim.remap",
+        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen",
+        "args": {
+            "after": [
+                "<c-w>",
+                "l"
+            ],
+        }
+    },
+    {
+        "key": "ctrl+/",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    // file explorer enhancement
+    { // open file explorer use which key
+        "key": "e",
+        "command": "whichkey.triggerKey",
+        "when": "whichkeyVisible && sideBarVisible && explorerViewletVisible",
+        "args": {
+            "key": "e",
+            "when": "sideBarVisible && explorerViewletVisible"
+        },
+    },
+    // rename file
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    // disable old style rename shortcut
+    // by default the vscode uses enter to rename file name
+    {
+        "key": "enter",
+        "command": "-renameFile",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    // create new file 
+    // appending `/` to create folders
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    // delete file or folder
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "c",
+        "command": "filesExplorer.copy",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "x",
+        "command": "filesExplorer.cut",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "shift+p",
+        "command": "list.focusParent",
+        "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+    },
+    {
+        "key": "shift+j",
+        "command": "list.expandSelectionDown",
+        "when": "listFocus && listSupportsMultiselect && !inputFocus"
+    },
+    {
+        "key": "shift+k",
+        "command": "list.expandSelectionUp",
+        "when": "listFocus && listSupportsMultiselect && !inputFocus"
+    },
+    // debug related
+    {
+        // "key": "cmd+enter", // mac
+        "key": "ctrl+enter", // windows
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "editor.debug.action.selectionToRepl",
+                "extension.vim_escape",
+            ]
+        },
+        "when": "editorHasSelection && inDebugMode",
+    },
+    // -----suggest item start------
+    { // move down at auto completion prompt
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    // move up at auto completion prompt
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    // move up at quick open
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenNavigatePrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenNavigateNext",
+        "when": "inQuickOpen"
+    },
+    { // move down at problem open
+        "key": "ctrl+j",
+        "command": "list.focusDown",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers' "
+    },
+    { // move up at problem open
+        "key": "ctrl+k",
+        "command": "list.focusUp",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers' "
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    // {
+    // 	"key": "tab",
+    // 	"command": "selectNextSuggestion",
+    // 	"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    // },
+    // {
+    // 	"key": "shift+tab",
+    // 	"command": "selectPrevSuggestion",
+    // 	"when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    // },
+    // {
+    // 	"key": "shift+tab",
+    // 	"command": "workbench.action.quickOpenNavigatePrevious",
+    // 	"when": "inQuickOpen"
+    // },
+    {
+        "key": "ctrl+m",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "insertBestCompletion",
+        "when": "atEndOfWord && textInputFocus && !hasOtherSuggestions && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "insertNextSuggestion",
+        "when": "hasOtherSuggestions && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "editor.action.inlineSuggest.commit",
+        "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
+    },
+    // -----suggest item end------
+    // copilot related
+    {
+        "key": "ctrl+enter",
+        "command": "-github.copilot.generate",
+        // "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused && !inDebugMode"
+        "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+    },
+    // copilot related
+    // other windows
+]
