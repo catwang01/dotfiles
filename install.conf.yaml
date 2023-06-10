@@ -15,11 +15,30 @@
         path: zsh/plugins
         force: true
           
+# vscode related start
+######################
+
 - defaults:
     link:
         if: '[ `uname` = Darwin ]'
+          
 - link:
     ~/Library/Application Support/Code/User/settings.json: 
         path: vscode/settings.json
     ~/Library/Application Support/Code/User/keybindings.json: 
         path: vscode/keybindings.json
+          
+# vscode related end
+######################
+#
+# neovim related start
+######################
+
+- link:
+    ~/.config/nvim: 
+        path: neovim/nvchad
+    ~/.config/nvim/lua/custom: 
+        path: neovim/nvim/lua/custom
+
+# neovim related end
+######################
