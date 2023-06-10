@@ -20,6 +20,8 @@
 
 - defaults:
     link:
+        create: true
+        relink: true
         if: '[ `uname` = Darwin ]'
           
 - link:
@@ -28,11 +30,17 @@
     ~/Library/Application Support/Code/User/keybindings.json: 
         path: vscode/keybindings.json
           
+######################
 # vscode related end
 ######################
-#
+
+######################
 # neovim related start
 ######################
+- defaults:
+    link:
+        create: true
+        relink: true
 
 - link:
     ~/.config/nvim: 
@@ -40,5 +48,6 @@
     ~/.config/nvim/lua/custom: 
         path: neovim/nvim/lua/custom
 
+######################
 # neovim related end
 ######################
