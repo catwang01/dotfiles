@@ -1,12 +1,15 @@
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+    
+######################
+# zsh related start
+######################
+
 - defaults:
     link:
       create: true
       relink: true
         
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]
-    
-# zsh related
 - link:
     ~/.zshrc:
     ~/.zsh:
@@ -14,7 +17,12 @@
     ~/.oh-my-zsh/custom/plugins: 
         path: zsh/plugins
         force: true
+
+######################
+# zsh related end
+######################
           
+######################
 # vscode related start
 ######################
 
@@ -37,6 +45,7 @@
 ######################
 # neovim related start
 ######################
+
 - defaults:
     link:
         create: true
