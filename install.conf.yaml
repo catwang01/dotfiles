@@ -4,9 +4,12 @@
       relink: true
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+
+# zsh related
 - link:
-    ~/.shell:
     ~/.zshrc:
     ~/.zsh:
     ~/.oh-my-zsh: ohmyzsh
-    ~/.oh-my-zsh/custom/plugins: zsh/plugins
+    ~/.oh-my-zsh/custom/plugins: 
+        path: zsh/plugins
+        force: true
