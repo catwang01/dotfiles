@@ -1,0 +1,453 @@
+{
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "k",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "k",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.leader": ";",
+    // "vim.camelCaseMotion.enable": true,
+    // "vim.easymotion": true,
+    // "vim.foldfix": true, // to avoid fold open up autocamatically
+    // "vim.sneak": false,
+    // "vim.surround": true,
+    // "vim.useCtrlKeys": true,
+    // "vim.useSystemClipboard": true,
+    // "vim.vimrc.enable": true,
+    // "vim.vimrc.path": "$HOME/.vsvimrc",
+    // "vim.handleKeys": {
+    // 	"<C-a>": false,
+    // 	"<C-f>": false,
+    // 	"<C-i>": true,
+    // 	"<C-o>": true,
+    // 	"<C-r>": true,
+    // 	"<C-s>": false,
+    // 	"<C-v>": true,
+    // 	"<C-w>": true,
+    // 	"<C-u>": false,
+    // 	"<C-d>": false,
+    // },
+    // "vim.hlsearch": true,
+    // "vim.incsearch": true,
+    // // "vim.leader": ";",
+    // "vim.normalModeKeyBindings": [
+    // 	{ // which key
+    // 		"before": [
+    // 			"<space>"
+    // 		],
+    // 		"commands": [
+    // 			"whichkey.show"
+    // 		]
+    // 	}
+    // ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "whichkey.show"
+            ]
+        },
+        // gg and G jump mark
+        {
+            "before": [
+                "g",
+                "g",
+            ],
+            "after": [
+                "m",
+                "a",
+                "g",
+                "g",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "r"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "d"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ],
+            "args": [
+                {
+                    "insertSpaces": true,
+                    "tabSize": 4
+                }
+            ]
+        },
+        // tab navigations
+        {
+            "before": [
+                "H",
+            ],
+            "after": [
+                "g",
+                "T",
+            ]
+        },
+        {
+            "before": [
+                "L",
+            ],
+            "after": [
+                "g",
+                "t"
+            ]
+        },
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"f"
+        // 		],
+        // 		"commands": [
+        // 			"editor.action.formatDocument"
+        // 		]
+        // 	},
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"g",
+        // 			"q",
+        // 		],
+        // 		"commands": [
+        // 			"workbench.action.closeEditorsInGroup"
+        // 		]
+        // 	},
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"u"
+        // 		],
+        // 		"commands": [
+        // 			"editor.action.referenceSearch.trigger"
+        // 		]
+        // 	},
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"U"
+        // 		],
+        // 		"commands": [
+        // 			"references-view.findReferences"
+        // 		]
+        // 	},
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"i",
+        // 			"n"
+        // 		],
+        // 		"commands": [
+        // 			"references-view.showCallHierarchy"
+        // 		]
+        // 	},
+        // 	// -- run
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"r"
+        // 		],
+        // 		"commands": [
+        // 			"workbench.action.files.save",
+        // 			"workbench.action.debug.run"
+        // 		]
+        // 	},
+        // -- debug
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "r"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+                "workbench.action.debug.start"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.toggleBreakpoint"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "c"
+            ],
+            "commands": [
+                "editor.debug.action.conditionalBreakpoint"
+            ]
+        },
+        // 	// -- problem nav
+        // 	// fix <C-d> and <C-u>
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"d",
+        // 			"k"
+        // 		],
+        // 		"commands": [
+        // 			"editor.action.marker.prev"
+        // 		]
+        // 	},
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"d",
+        // 			"j"
+        // 		],
+        // 		"commands": [
+        // 			"editor.action.marker.next"
+        // 		]
+        // 	},
+        // 	// -- git hunk nav
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"k"
+        // 		],
+        // 		"commands": [
+        // 			"workbench.action.editor.previousChange",
+        // 			"editor.action.dirtydiff.previous"
+        // 		]
+        // 	},
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"j"
+        // 		],
+        // 		"commands": [
+        // 			"workbench.action.editor.nextChange",
+        // 			"editor.action.dirtydiff.next"
+        // 		]
+        // 	},
+        // 	// git (un)stage 
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"h",
+        // 			"s"
+        // 		],
+        // 		"commands": [
+        // 			"git.stage",
+        // 		]
+        // 	},
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"h",
+        // 			"u"
+        // 		],
+        // 		"commands": [
+        // 			"git.unstage",
+        // 		]
+        // 	},
+        // 	{
+        // 		"before": [
+        // 			"<leader>",
+        // 			"h",
+        // 			"r"
+        // 		],
+        // 		"commands": [
+        // 			"git.revertSelectedRanges",
+        // 		]
+        // 	},
+        // "vim.visualModeKeyBindings": [
+        // 	{ // which key
+        // 		"before": [
+        // 			"<space>"
+        // 		],
+        // 		"commands": [
+        // 			"whichkey.show"
+        // 		]
+        // 	},
+        // 	// repeatly indent in visual mode
+        // 	{
+        // 		"before": [
+        // 			">"
+        // 		],
+        // 		"commands": [
+        // 			"editor.action.indentLines"
+        // 		]
+        // 	},
+        // 	{
+        // 		"before": [
+        // 			"<"
+        // 		],
+        // 		"commands": [
+        // 			"editor.action.outdentLines"
+        // 		]
+        // 	}
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatSelection"
+            ]
+        },
+        { // p action will not override clipboard content
+            "before": [
+                "p"
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y",
+            ]
+        },
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "whichkey.show"
+            ]
+        }
+    ],
+    // /* vim settings end */
+    // /* which key bindings */
+    "whichkey.bindings": [
+        {
+            "key": "e",
+            "name": "Show tree/explorer view",
+            "type": "conditional",
+            "bindings": [
+                {
+                    "key": "",
+                    "name": "default",
+                    "type": "command",
+                    "command": "workbench.view.explorer"
+                },
+                {
+                    "key": "when:sideBarVisible && explorerViewletVisible",
+                    "name": "Hide explorer",
+                    "type": "command",
+                    "command": "workbench.action.toggleSidebarVisibility"
+                }
+            ],
+        },
+        {
+            "key": "o",
+            "name": "Outline",
+            "type": "command",
+            "command": "workbench.action.toggleAuxiliaryBar"
+        },
+        {
+            "key": "h",
+            "name": "bookmark",
+            "type": "command",
+            "command": "lineHighlightBookmark.toogleBookmarks"
+        },
+        {
+            "key": "g",
+            "name": "Source contrl",
+            "type": "command",
+            "command": "workbench.view.scm",
+        },
+        {
+            "command": "workbench.action.quickOpen",
+            "key": "f",
+            "name": "Find file",
+            "type": "command"
+        },
+        {
+            "command": "workbench.view.search",
+            "key": "F",
+            "name": "Search Word",
+            "type": "command"
+        },
+        {
+            "command": "search.action.openEditor",
+            "key": "w",
+            "name": "New Search Editor",
+            "type": "command"
+        },
+        {
+            "command": "workbench.action.gotoSymbol",
+            "key": "s",
+            "name": "Search document symbol",
+            "type": "command"
+        },
+        {
+            "command": "workbench.action.showAllSymbols",
+            "key": "S",
+            "name": "Search project symbol",
+            "type": "command"
+        },
+    ],
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false
+    },
+    "editor.wordWrap": "off",
+    "diffEditor.renderSideBySide": false,
+}

@@ -3,7 +3,7 @@
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
 [submodule "zsh/plugins/dircolors-solarized"]
-	path = shell/plugins/dircolors-solarized
+	path = zsh/plugins/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/plugins/zsh-syntax-highlighting
@@ -15,3 +15,9 @@
 	path = ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
   ignore = dirty
+[submodule "zsh/plugins/zsh-vi-mode"]
+	path = zsh/plugins/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
