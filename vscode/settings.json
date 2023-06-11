@@ -7,15 +7,13 @@
     "vim.incsearch": true,
     "vim.foldfix": true, // to avoid fold open up autocamatically
     "vim.handleKeys": {
-    	"<C-a>": false, // use <C-a> to select all
-    	"<C-f>": false, // use <C-s> to search
-    	"<C-s>": false, // do not hanle <C-s>, we can use <C-s> to save files
+        "<C-a>": false, // use <C-a> to select all
+        "<C-f>": false, // use <C-s> to search
+        "<C-s>": false, // do not hanle <C-s>, we can use <C-s> to save files
     },
-
     "vim.leader": ";",
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.vscvimrc",
-
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -144,58 +142,58 @@
         // 			"editor.action.marker.next"
         // 		]
         // 	},
-        // 	// -- git hunk nav
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"k"
-        // 		],
-        // 		"commands": [
-        // 			"workbench.action.editor.previousChange",
-        // 			"editor.action.dirtydiff.previous"
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"j"
-        // 		],
-        // 		"commands": [
-        // 			"workbench.action.editor.nextChange",
-        // 			"editor.action.dirtydiff.next"
-        // 		]
-        // 	},
-        // 	// git (un)stage 
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"h",
-        // 			"s"
-        // 		],
-        // 		"commands": [
-        // 			"git.stage",
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"h",
-        // 			"u"
-        // 		],
-        // 		"commands": [
-        // 			"git.unstage",
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"h",
-        // 			"r"
-        // 		],
-        // 		"commands": [
-        // 			"git.revertSelectedRanges",
-        // 		]
-        // 	},
+        // -- git hunk nav
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "k"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.editor.previousChange",
+        //         "editor.action.dirtydiff.previous"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "j"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.editor.nextChange",
+        //         "editor.action.dirtydiff.next"
+        //     ]
+        // },
+        // // git (un)stage 
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "h",
+        //         "s"
+        //     ],
+        //     "commands": [
+        //         "git.stage",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "h",
+        //         "u"
+        //     ],
+        //     "commands": [
+        //         "git.unstage",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "h",
+        //         "r"
+        //     ],
+        //     "commands": [
+        //         "git.revertSelectedRanges",
+        //     ]
+        // },
         // "vim.visualModeKeyBindings": [
         // 	{ // which key
         // 		"before": [
