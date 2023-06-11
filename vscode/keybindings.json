@@ -1,12 +1,12 @@
 // Place your key bindings in this file to override the defaults
 [
     // window navigations
-    { // make cursor back to editor
+    { // make cursor back to editor when the cursor is in the panel
         "key": "ctrl+k",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "panelFocus && activePanel"
     },
-    { // make cursor back to editor
+    { // make cursor back to editor when the cursor is in the panel
         "key": "ctrl+h",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "panelFocus && activePanel"
@@ -19,7 +19,7 @@
             "after": [
                 "<c-w>",
                 "j"
-            ],
+            ]
         }
     },
     { // window move up
@@ -30,7 +30,7 @@
             "after": [
                 "<c-w>",
                 "k"
-            ],
+            ]
         }
     },
     { // window move left
@@ -41,7 +41,7 @@
             "after": [
                 "<c-w>",
                 "h"
-            ],
+            ]
         }
     },
     { // window move right
@@ -52,14 +52,16 @@
             "after": [
                 "<c-w>",
                 "l"
-            ],
+            ]
         }
     },
+    // terminal
     {
         "key": "ctrl+/",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
+
     // file explorer enhancement
     { // open file explorer use which key
         "key": "e",
@@ -84,7 +86,7 @@
         "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
     // create new file 
-    // appending `/` to create folders
+    // if we want to create a folder, we can append `/` to create folders
     {
         "key": "a",
         "command": "explorer.newFile",
@@ -232,4 +234,10 @@
     },
     // copilot related
     // other windows
+
+    // disable existing keybindings
+    {
+        "key": "cmd+j",
+        "command": "-workbench.action.togglePanel"
+    }
 ]

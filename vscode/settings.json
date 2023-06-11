@@ -1,87 +1,19 @@
 {
     "vim.easymotion": true,
-    "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
+    "vim.surround": true,
     "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.foldfix": true, // to avoid fold open up autocamatically
     "vim.handleKeys": {
-        "<C-d>": true,
-        "<C-s>": false,
-        "<C-z>": false
+        "<C-a>": false, // use <C-a> to select all
+        "<C-f>": false, // use <C-s> to search
+        "<C-s>": false, // do not hanle <C-s>, we can use <C-s> to save files
     },
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        },
-        {
-            "before": [
-                "j",
-                "k"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        },
-        {
-            "before": [
-                "k",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        },
-        {
-            "before": [
-                "k",
-                "k"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
     "vim.leader": ";",
-    // "vim.camelCaseMotion.enable": true,
-    // "vim.easymotion": true,
-    // "vim.foldfix": true, // to avoid fold open up autocamatically
-    // "vim.sneak": false,
-    // "vim.surround": true,
-    // "vim.useCtrlKeys": true,
-    // "vim.useSystemClipboard": true,
-    // "vim.vimrc.enable": true,
-    // "vim.vimrc.path": "$HOME/.vsvimrc",
-    // "vim.handleKeys": {
-    // 	"<C-a>": false,
-    // 	"<C-f>": false,
-    // 	"<C-i>": true,
-    // 	"<C-o>": true,
-    // 	"<C-r>": true,
-    // 	"<C-s>": false,
-    // 	"<C-v>": true,
-    // 	"<C-w>": true,
-    // 	"<C-u>": false,
-    // 	"<C-d>": false,
-    // },
-    // "vim.hlsearch": true,
-    // "vim.incsearch": true,
-    // // "vim.leader": ";",
-    // "vim.normalModeKeyBindings": [
-    // 	{ // which key
-    // 		"before": [
-    // 			"<space>"
-    // 		],
-    // 		"commands": [
-    // 			"whichkey.show"
-    // 		]
-    // 	}
-    // ],
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "$HOME/.vscvimrc",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -89,19 +21,6 @@
             ],
             "commands": [
                 "whichkey.show"
-            ]
-        },
-        // gg and G jump mark
-        {
-            "before": [
-                "g",
-                "g",
-            ],
-            "after": [
-                "m",
-                "a",
-                "g",
-                "g",
             ]
         },
         {
@@ -130,44 +49,6 @@
                 }
             ]
         },
-        // tab navigations
-        {
-            "before": [
-                "H",
-            ],
-            "after": [
-                "g",
-                "T",
-            ]
-        },
-        {
-            "before": [
-                "L",
-            ],
-            "after": [
-                "g",
-                "t"
-            ]
-        },
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"f"
-        // 		],
-        // 		"commands": [
-        // 			"editor.action.formatDocument"
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"g",
-        // 			"q",
-        // 		],
-        // 		"commands": [
-        // 			"workbench.action.closeEditorsInGroup"
-        // 		]
-        // 	},
         // 	{
         // 		"before": [
         // 			"<leader>",
@@ -207,7 +88,7 @@
         // 			"workbench.action.debug.run"
         // 		]
         // 	},
-        // -- debug
+        // -- debug related
         {
             "before": [
                 "<leader>",
@@ -261,58 +142,58 @@
         // 			"editor.action.marker.next"
         // 		]
         // 	},
-        // 	// -- git hunk nav
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"k"
-        // 		],
-        // 		"commands": [
-        // 			"workbench.action.editor.previousChange",
-        // 			"editor.action.dirtydiff.previous"
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"j"
-        // 		],
-        // 		"commands": [
-        // 			"workbench.action.editor.nextChange",
-        // 			"editor.action.dirtydiff.next"
-        // 		]
-        // 	},
-        // 	// git (un)stage 
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"h",
-        // 			"s"
-        // 		],
-        // 		"commands": [
-        // 			"git.stage",
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"h",
-        // 			"u"
-        // 		],
-        // 		"commands": [
-        // 			"git.unstage",
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"h",
-        // 			"r"
-        // 		],
-        // 		"commands": [
-        // 			"git.revertSelectedRanges",
-        // 		]
-        // 	},
+        // -- git hunk nav
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "k"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.editor.previousChange",
+        //         "editor.action.dirtydiff.previous"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "j"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.editor.nextChange",
+        //         "editor.action.dirtydiff.next"
+        //     ]
+        // },
+        // // git (un)stage 
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "h",
+        //         "s"
+        //     ],
+        //     "commands": [
+        //         "git.stage",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "h",
+        //         "u"
+        //     ],
+        //     "commands": [
+        //         "git.unstage",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "h",
+        //         "r"
+        //     ],
+        //     "commands": [
+        //         "git.revertSelectedRanges",
+        //     ]
+        // },
         // "vim.visualModeKeyBindings": [
         // 	{ // which key
         // 		"before": [
@@ -344,7 +225,8 @@
         {
             "before": [
                 "<leader>",
-                "f"
+                "f",
+                "d"
             ],
             "commands": [
                 "editor.action.formatSelection"
@@ -358,7 +240,7 @@
                 "p",
                 "g",
                 "v",
-                "y",
+                "y"
             ]
         },
         {
