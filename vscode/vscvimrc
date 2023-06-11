@@ -10,8 +10,8 @@ nnoremap L gt
 
 " 文件操作相关
 " 定义快捷键关闭当前分割窗口
-nmap <leader>q :q<cr>
+nnoremap <leader>q :q<cr>
 " 定义快捷键保存当前窗口内容
-nmap <leader>w :w<cr>
+nnoremap <leader>w :w<cr>
 
 nnoremap gg magg

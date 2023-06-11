@@ -17,6 +17,8 @@
     ~/.oh-my-zsh/custom/plugins: 
         path: zsh/plugins
         force: true
+    ~/.mybashrc: shell/mybashrc
+    ~/.bashrc:
 
 ######################
 # zsh related end
