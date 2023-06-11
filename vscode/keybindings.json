@@ -19,7 +19,7 @@
             "after": [
                 "<c-w>",
                 "j"
-            ],
+            ]
         }
     },
     { // window move up
@@ -30,7 +30,7 @@
             "after": [
                 "<c-w>",
                 "k"
-            ],
+            ]
         }
     },
     { // window move left
@@ -41,7 +41,7 @@
             "after": [
                 "<c-w>",
                 "h"
-            ],
+            ]
         }
     },
     { // window move right
@@ -52,7 +52,7 @@
             "after": [
                 "<c-w>",
                 "l"
-            ],
+            ]
         }
     },
     {
@@ -232,4 +232,10 @@
     },
     // copilot related
     // other windows
+
+    // disable existing keybindings
+    {
+        "key": "cmd+j",
+        "command": "-workbench.action.togglePanel"
+    }
 ]
