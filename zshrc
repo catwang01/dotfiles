@@ -1,5 +1,10 @@
 # Settings
-if [ ~/.zsh/my_zshrc.zsh ]; then
+if [ -f ~/.mybashrc ]; then
+  source ~/.mybashrc 
+fi
+
+# Settings
+if [ -f ~/.zsh/my_zshrc.zsh ]; then
   source ~/.zsh/my_zshrc.zsh
 fi
 

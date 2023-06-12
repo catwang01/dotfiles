@@ -37,3 +37,4 @@ Thumbs.db
 # local files
 ######################
 shell_private
+my_zshrc_local.zsh

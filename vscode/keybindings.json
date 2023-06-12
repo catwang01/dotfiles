@@ -61,7 +61,6 @@
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
-
     // file explorer enhancement
     { // open file explorer use which key
         "key": "e",
@@ -142,15 +141,15 @@
         "when": "editorHasSelection && inDebugMode",
     },
     // -----suggest item start------
-    { // move down at auto completion prompt
-        "key": "ctrl+j",
-        "command": "selectNextSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-    },
     // move up at auto completion prompt
     {
         "key": "ctrl+k",
         "command": "selectPrevSuggestion",
+        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    { // move down at auto completion prompt
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
         "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
     },
     // move up at quick open
@@ -164,24 +163,24 @@
         "command": "workbench.action.quickOpenNavigateNext",
         "when": "inQuickOpen"
     },
-    { // move down at problem open
-        "key": "ctrl+j",
-        "command": "list.focusDown",
-        "when": "panelFocus && activePanel == 'workbench.panel.markers' "
-    },
     { // move up at problem open
         "key": "ctrl+k",
         "command": "list.focusUp",
         "when": "panelFocus && activePanel == 'workbench.panel.markers' "
     },
-    {
+    { // move down at problem open
         "key": "ctrl+j",
-        "command": "selectNextCodeAction",
-        "when": "codeActionMenuVisible"
+        "command": "list.focusDown",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers' "
     },
     {
         "key": "ctrl+k",
         "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextCodeAction",
         "when": "codeActionMenuVisible"
     },
     // {
@@ -200,10 +199,16 @@
     // 	"when": "inQuickOpen"
     // },
     {
-        "key": "ctrl+m",
+        "key": "ctrl+j",
         "command": "editor.action.marker.next",
         "when": "editorFocus"
     },
+    {
+        "key": "ctrl+",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
+    },
+    // use ctrl+l to accept selected suggestion
     {
         "key": "ctrl+l",
         "command": "acceptSelectedSuggestion",
@@ -234,7 +239,6 @@
     },
     // copilot related
     // other windows
-
     // disable existing keybindings
     {
         "key": "cmd+j",
