@@ -1,16 +1,17 @@
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]
+# - shell:
+#   - [git submodule update --init --recursive, Installing submodules]
     
 ######################
 # zsh related start
 ######################
 
 - defaults:
-    link:
+    crossplatform-link:
       create: true
       relink: true
-        
-- link:
+      platform: "!win32"
+
+- crossplatform-link:
     ~/.zshrc:
     ~/.zsh:
     ~/.oh-my-zsh: ohmyzsh
@@ -29,12 +30,26 @@
 ######################
 
 - defaults:
-    link:
+    crossplatform-link:
         create: true
         relink: true
-        if: '[ `uname` = Darwin ]'
+        platform: "win32"
           
-- link:
+- crossplatform-link:
+    ~/AppData/Roaming/Code/User/settings.json:
+        path: vscode/settings.json
+    ~/AppData/Roaming/Code/User/keybindings.json:
+        path: vscode/keybindings.json
+    ~/.vscvimrc:
+        path: vscode/vscvimrc
+
+- defaults:
+    crossplatform-link:
+        create: true
+        relink: true
+        platform: "darwin"
+          
+- crossplatform-link:
     ~/Library/Application Support/Code/User/settings.json: 
         path: vscode/settings.json
     ~/Library/Application Support/Code/User/keybindings.json: 
@@ -51,11 +66,24 @@
 ######################
 
 - defaults:
-    link:
-        create: true
-        relink: true
+    crossplatform-link:
+      create: true
+      relink: true
+      platform: "!win32"
 
-- link:
+- crossplatform-link:
+    ~/.config/nvim: 
+        path: neovim/nvchad
+    ~/.config/nvim/lua/custom: 
+        path: neovim/nvim/lua/custom
+
+- defaults:
+    crossplatform-link:
+      create: true
+      relink: true
+      platform: "win32"
+
+- crossplatform-link:
     ~/.config/nvim: 
         path: neovim/nvchad
     ~/.config/nvim/lua/custom: 

@@ -34,3 +34,6 @@
 	path = neovim/nvim/lua/custom
 	url = git@github.com:catwang01/nvchad-custom.git
     ignore = dirty
+[submodule "dotbot_plugins/dotbot-crossplatform"]
+	path = dotbot_plugins/dotbot-crossplatform
+	url = https://github.com/msdrigg/dotbot-crossplatform.git
