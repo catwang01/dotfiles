@@ -61,7 +61,6 @@
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
-
     // file explorer enhancement
     { // open file explorer use which key
         "key": "e",
@@ -200,8 +199,13 @@
     // 	"when": "inQuickOpen"
     // },
     {
-        "key": "ctrl+m",
+        "key": "ctrl+j",
         "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+",
+        "command": "editor.action.marker.prev",
         "when": "editorFocus"
     },
     // use ctrl+l to accept selected suggestion
@@ -235,7 +239,6 @@
     },
     // copilot related
     // other windows
-
     // disable existing keybindings
     {
         "key": "cmd+j",
