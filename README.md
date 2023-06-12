@@ -16,3 +16,29 @@ This is a repository for bootstrapping your dotfiles with [Dotbot][dotbot].
     - This is used to place some zshrc related information
 - `~/.zsh/my_zshrc_local.zsh -> .zsh/my_zshrc_local.zsh`
     - This is used to place some zshrc related private information
+
+## Scripts
+
+For windows:
+
+```bash
+.\install.ps1 -c install.conf.win32.toml
+```
+
+Do not install:
+
+```bash
+.\install.ps1 -c install.conf.win32.toml --except crossplatform-shell
+```
+
+For Linux & MacOs:
+
+```bash
+./install -c install.conf.toml
+```
+
+Do not install:
+
+```bash
+./install -c install.conf.toml --except crossplatform-shell
+```

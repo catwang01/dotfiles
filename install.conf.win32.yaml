@@ -8,33 +8,30 @@
         stderr: true
 
 ######################
-# zsh related start
+# oh-my-posh related start
 ######################
 
 - crossplatform-link:
-    ~/.zshrc:
-    ~/.zsh:
-    ~/.oh-my-zsh: ohmyzsh
-    ~/.oh-my-zsh/custom/plugins: 
-        path: zsh/plugins
-        force: true
-    ~/.mybashrc: shell/mybashrc
-    ~/.bashrc:
+    ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1: powershell/profile.ps1
+    ~/.config/profiles/profile_public.ps1: powershell/profile_public.ps1
+    ~/.config/profiles/profile_private.ps1: powershell/profile_private.ps1
+
+- crossplatform-shell:
+    - [ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://ohmyposh.dev/install.ps1')), Install oh-my-posh ]
 
 ######################
-# zsh related end
+# oh-my-posh related end
 ######################
-          
+
 ######################
 # vscode related start
 ######################
 
 - crossplatform-link:
-    ~/Library/Application Support/Code/User/: 
+    ~/AppData/Roaming/Code/User/:
         path: vscode/*
-        platform: darwin
         exclude: [ vscode/vscvimrc ]
-          
+
 ######################
 # vscode related end
 ######################
@@ -43,12 +40,15 @@
 # neovim related start
 ######################
 
+- crossplatform-shell:
+    - [ winget install neovim, Install neovim ]
+
 - crossplatform-link:
-    ~/.config/nvim: 
+    ~/AppData/Local/nvim: 
         path: neovim/nvchad
 
 - crossplatform-link:
-    ~/.config/nvim/lua/custom: 
+    ~/AppData/Local/nvim/lua/custom: 
         path: neovim/nvim/lua/custom
 
 ######################

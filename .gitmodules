@@ -36,4 +36,4 @@
     ignore = dirty
 [submodule "dotbot_plugins/dotbot-crossplatform"]
 	path = dotbot_plugins/dotbot-crossplatform
-	url = https://github.com/msdrigg/dotbot-crossplatform.git
+	url = https://github.com/catwang01/dotbot-crossplatform
