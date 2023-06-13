@@ -117,6 +117,47 @@
         "command": "list.focusParent",
         "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
     },
+
+    // split
+    {
+        "key": "shift+H",
+        "command": "workbench.action.splitEditorRight",
+        "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+    },
+    {
+        "key": "v",
+        "command": "workbench.action.splitEditorDown",
+        "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+    },
+
+    // better escape
+    {
+        "key": "shift+]",
+        "command": "list.clear",
+        "when": "listFocus && listHasSelectionOrFocus && !inputFocus"
+    },
+    {
+        "key": "shift+]",
+        "command": "list.closeFind",
+        "when": "listFocus && treeFindOpen"
+    },
+    {
+        "key": "shift+[",
+        "command": "list.clear",
+        "when": "listFocus && listHasSelectionOrFocus && !inputFocus"
+    },
+    {
+        "key": "shift+[",
+        "command": "list.closeFind",
+        "when": "listFocus && treeFindOpen"
+    },
+    
+    // open in terminal
+    {
+        "key": ".",
+        "command": "openInIntegratedTerminal",
+        "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
+    },
     {
         "key": "shift+j",
         "command": "list.expandSelectionDown",
@@ -198,16 +239,16 @@
     // 	"command": "workbench.action.quickOpenNavigatePrevious",
     // 	"when": "inQuickOpen"
     // },
-    {
-        "key": "ctrl+j",
-        "command": "editor.action.marker.next",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+",
-        "command": "editor.action.marker.prev",
-        "when": "editorFocus"
-    },
+    // {
+    //     "key": "ctrl+shfit+j",
+    //     "command": "editor.action.marker.next",
+    //     "when": "editorFocus"
+    // },
+    // {
+    //     "key": "ctrl+shift+k",
+    //     "command": "editor.action.marker.prev",
+    //     "when": "editorFocus"
+    // },
     // use ctrl+l to accept selected suggestion
     {
         "key": "ctrl+l",
