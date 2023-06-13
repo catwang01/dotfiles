@@ -34,6 +34,11 @@
         path: vscode/*
         exclude: [ vscode/vscvimrc ]
         platform: darwin
+    ~/Library/Application Support/Code - Insiders/User/: 
+        path: vscode/*
+        exclude: [ vscode/vscvimrc ]
+        platform: darwin
+    ~/.vscvimrc: vscode/vscvimrc 
           
 ######################
 # vscode related end
