@@ -38,4 +38,5 @@ Thumbs.db
 ######################
 shell_private
 my_zshrc_local.zsh
+my_bashrc_private
 profile_private.ps1
