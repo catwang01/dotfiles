@@ -13,8 +13,9 @@
 
 - crossplatform-link:
     ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1: powershell/profile.ps1
-    ~/.config/profiles/profile_public.ps1: powershell/profile_public.ps1
-    ~/.config/profiles/profile_private.ps1: powershell/profile_private.ps1
+    ~/.config/profiles/: 
+        path: powershell/*
+        exclude: [ powershell/profile.ps1 ]
 
 - crossplatform-shell:
     - [ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://ohmyposh.dev/install.ps1')), Install oh-my-posh ]
