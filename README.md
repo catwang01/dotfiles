@@ -22,23 +22,23 @@ This is a repository for bootstrapping your dotfiles with [Dotbot][dotbot].
 For windows:
 
 ```bash
-.\install.ps1 -c install.conf.win32.toml
+.\install.ps1 -c install.conf.win32.yaml
 ```
 
 Do not install:
 
 ```bash
-.\install.ps1 -c install.conf.win32.toml --except crossplatform-shell
+.\install.ps1 -c install.conf.win32.yaml --except crossplatform-shell
 ```
 
 For Linux & MacOs:
 
 ```bash
-./install -c install.conf.toml
+./install -c install.conf.yaml
 ```
 
 Do not install:
 
 ```bash
-./install -c install.conf.toml --except crossplatform-shell
+./install -c install.conf.yaml --except crossplatform-shell
 ```
