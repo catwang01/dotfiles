@@ -77,3 +77,14 @@ $env:POSH_THEMES_PATH = "$HOME\AppData\Local\Programs\oh-my-posh\themes\"
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\stelbent-compact.minimal.omp.json" | Invoke-Expression
 
 $env:Path += ";$env:ProgramFiles\Neovim\bin\"
+
+# https://docs.gitignore.io/install/command-line
+#For PowerShell v3
+Function gig {
+  param(
+    [Parameter(Mandatory=$true)]
+    [string[]]$list
+  )
+  $params = ($list | ForEach-Object { [uri]::EscapeDataString($_) }) -join ","
+  Invoke-WebRequest -Uri "https://www.toptal.com/developers/gitignore/api/$params" | select -ExpandProperty content | Out-File -FilePath $(Join-Path -path $pwd -ChildPath ".gitignore") -Encoding ascii
+}
