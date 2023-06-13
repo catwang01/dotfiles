@@ -18,7 +18,7 @@
         exclude: [ powershell/profile.ps1 ]
 
 - crossplatform-shell:
-    - [ Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://ohmyposh.dev/install.ps1')), Install oh-my-posh ]
+    - [ pwsh setup_scripts/win32/setup_oh_my_posh.ps1 , Setup oh-my-posh ]
 
 ######################
 # oh-my-posh related end
@@ -46,7 +46,10 @@
 ######################
 
 - crossplatform-shell:
-    - [ winget install neovim, Install neovim ]
+    - [ pwsh setup_scripts/win32/setup_neovim.ps1, Setup neovim ]
+
+- crossplatform-shell:
+    - [ pwsh setup_scripts/win32/setup_edge.ps1, Setup edge ]
 
 - crossplatform-link:
     ~/AppData/Local/nvim: 
