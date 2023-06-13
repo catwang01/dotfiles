@@ -32,6 +32,9 @@
     ~/AppData/Roaming/Code/User/:
         path: vscode/*
         exclude: [ vscode/vscvimrc ]
+    ~/AppData/Roaming/Code - Insiders/User/:
+        path: vscode/*
+        exclude: [ vscode/vscvimrc ]
 
 ######################
 # vscode related end
