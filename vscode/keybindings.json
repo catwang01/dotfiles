@@ -60,6 +60,7 @@
         "key": "ctrl+/",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
+
     },
     // file explorer enhancement
     { // open file explorer use which key
@@ -83,6 +84,12 @@
         "key": "enter",
         "command": "-renameFile",
         "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    // 刷新资源管理器
+    {
+        "key": "R",
+        "command": "workbench.files.action.refreshFilesExplorer",
+        "when": "RxplorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
     },
     // create new file 
     // if we want to create a folder, we can append `/` to create folders
@@ -132,22 +139,22 @@
 
     // better escape
     {
-        "key": "shift+]",
+        "key": "ctrl+]",
         "command": "list.clear",
         "when": "listFocus && listHasSelectionOrFocus && !inputFocus"
     },
     {
-        "key": "shift+]",
+        "key": "ctrl+]",
         "command": "list.closeFind",
         "when": "listFocus && treeFindOpen"
     },
     {
-        "key": "shift+[",
+        "key": "ctrl+[",
         "command": "list.clear",
         "when": "listFocus && listHasSelectionOrFocus && !inputFocus"
     },
     {
-        "key": "shift+[",
+        "key": "ctrl+[",
         "command": "list.closeFind",
         "when": "listFocus && treeFindOpen"
     },
