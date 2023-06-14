@@ -60,7 +60,6 @@
         "key": "ctrl+/",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
-
     },
     // file explorer enhancement
     { // open file explorer use which key
@@ -98,6 +97,11 @@
         "command": "explorer.newFile",
         "when": "filesExplorerFocus && !inputFocus"
     },
+    {
+        "key": "m",
+        "command": "list.toggleSelection",
+        "when": "listFocus && !inputFocus"
+    },
     // delete file or folder
     {
         "key": "d",
@@ -124,7 +128,6 @@
         "command": "list.focusParent",
         "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
     },
-
     // split
     {
         "key": "shift+H",
@@ -136,7 +139,6 @@
         "command": "workbench.action.splitEditorDown",
         "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
     },
-
     // better escape
     {
         "key": "ctrl+]",
@@ -158,7 +160,11 @@
         "command": "list.closeFind",
         "when": "listFocus && treeFindOpen"
     },
-    
+    {
+        "key": "/",
+        "command": "list.find",
+        "when": "listFocus && listSupportsFind"
+    },
     // open in terminal
     {
         "key": ".",
@@ -166,13 +172,13 @@
         "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
     },
     {
-        "key": "shift+j",
-        "command": "list.expandSelectionDown",
+        "key": "shift+k",
+        "command": "list.expandSelectionUp",
         "when": "listFocus && listSupportsMultiselect && !inputFocus"
     },
     {
-        "key": "shift+k",
-        "command": "list.expandSelectionUp",
+        "key": "shift+j",
+        "command": "list.expandSelectionDown",
         "when": "listFocus && listSupportsMultiselect && !inputFocus"
     },
     // debug related
@@ -286,7 +292,6 @@
         "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
     },
     // copilot related
-    // other windows
     // disable existing keybindings
     {
         "key": "cmd+j",
