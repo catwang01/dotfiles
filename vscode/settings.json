@@ -3,6 +3,7 @@
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.surround": true,
+    "vim.timeout": 200,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.foldfix": true, // to avoid fold open up autocamatically
@@ -31,6 +32,15 @@
             ],
             "commands": [
                 "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "e",
+            ],
+            "commands": [
+                "workbench.view.explorer"
             ]
         },
         {
@@ -362,5 +372,9 @@
             "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
         }
     },
-    "terminal.integrated.defaultProfile.windows": "Windows PowerShell"
+    "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+    "codeium.enableConfig": {
+        "*": true,
+        "log": true
+    }
 }
