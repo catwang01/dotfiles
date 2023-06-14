@@ -86,9 +86,26 @@
     },
     // 刷新资源管理器
     {
-        "key": "R",
+        "key": "shift+r",
         "command": "workbench.files.action.refreshFilesExplorer",
-        "when": "RxplorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    // use h and l to move
+    {
+        "key": "l",
+        "command": "nextCompressedFolder",
+        "when": "explorerViewletCompressedFocus && filesExplorerFocus && foldersViewVisible && !explorerViewletCompressedLastFocus && !inputFocus"
+    },
+    {
+        "key": "h",
+        "command": "previousCompressedFolder",
+        "when": "explorerViewletCompressedFocus && filesExplorerFocus && foldersViewVisible && !explorerViewletCompressedFirstFocus && !inputFocus"
+    },
+    // multi select
+    {
+        "key": "m",
+        "command": "list.toggleSelection",
+        "when": "listFocus && !inputFocus"
     },
     // create new file 
     // if we want to create a folder, we can append `/` to create folders
@@ -96,11 +113,6 @@
         "key": "a",
         "command": "explorer.newFile",
         "when": "filesExplorerFocus && !inputFocus"
-    },
-    {
-        "key": "m",
-        "command": "list.toggleSelection",
-        "when": "listFocus && !inputFocus"
     },
     // delete file or folder
     {
@@ -163,7 +175,7 @@
     {
         "key": "/",
         "command": "list.find",
-        "when": "listFocus && listSupportsFind"
+        "when": "listFocus && listSupportsFind && !inputFocus"
     },
     // open in terminal
     {
@@ -252,16 +264,16 @@
     // 	"command": "workbench.action.quickOpenNavigatePrevious",
     // 	"when": "inQuickOpen"
     // },
-    // {
-    //     "key": "ctrl+shfit+j",
-    //     "command": "editor.action.marker.next",
-    //     "when": "editorFocus"
-    // },
-    // {
-    //     "key": "ctrl+shift+k",
-    //     "command": "editor.action.marker.prev",
-    //     "when": "editorFocus"
-    // },
+    {
+        "key": "ctrl+shift+j",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
+    },
     // use ctrl+l to accept selected suggestion
     {
         "key": "ctrl+l",
@@ -296,5 +308,16 @@
     {
         "key": "cmd+j",
         "command": "-workbench.action.togglePanel"
-    }
+    },
+    // // git related
+    // {
+    //     "key": "ctrl+shift+j",
+    //     "command": "workbench.action.editor.nextChange",
+    //     "when": "editorTextFocus && !textCompareEditorActive"
+    // },
+    // {
+    //     "key": "ctrl+shift+k",
+    //     "command": "workbench.action.editor.previousChange",
+    //     "when": "editorTextFocus && !textCompareEditorActive"
+    // },
 ]
