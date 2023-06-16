@@ -325,4 +325,26 @@
     //     "command": "workbench.action.editor.previousChange",
     //     "when": "editorTextFocus && !textCompareEditorActive"
     // },
+
+    // copy active file path
+    // copy path in editor area
+    {
+        "key": "ctrl+y",
+        "command": "workbench.action.files.copyPathOfActiveFile",
+        "when": "editorTextFocus"
+    },
+
+    // copy path in file explorer
+    {
+        "key": "y p",
+        "command": "copyFilePath",
+        "when": "explorerViewletVisible && listFocus && !inputFocus"
+    },
+
+    // copy path in file explorer
+    {
+        "key": "y shift+p",
+        "command": "copyRelativeFilePath",
+        "when": "explorerViewletVisible && listFocus && !inputFocus"
+    }
 ]
