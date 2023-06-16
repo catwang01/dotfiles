@@ -9,6 +9,6 @@ if [ -f ~/.zsh/my_zshrc.zsh ]; then
 fi
 
 # Allow private customizations (not checked in to version control)
-if [ -f ~/.zsh/my_zshrc_local.zsh ]; then
-    source ~/.zsh/my_zshrc_local.zsh
+if [ -f ~/.zsh/my_zshrc_private.zsh ]; then
+    source ~/.zsh/my_zshrc_private.zsh
 fi
