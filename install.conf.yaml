@@ -11,6 +11,9 @@
 - shell:
   - [git submodule update --init --recursive, install modules]
 
+- shell:
+  - [neovim/install.sh, install neovim]
+
 ######################
 # zsh related start
 ######################

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+install_neovim() {
+  echo "neovim is not installed! Downloading neovim"
+  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  chmod u+x nvim.appimage
+  
+  echo "Move neovim into /usr/bin"
+  mv ./nvim.appimage /usr/bin/nvim
+  return 0
+}
+
+nvim -v
+if [ $? -eq 0 ]; then
+  echo "neovim is installed!"
+else
+  install_neovim
+fi
