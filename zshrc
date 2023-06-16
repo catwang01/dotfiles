@@ -1,6 +1,6 @@
 # Settings
-if [ -f ~/.mybashrc ]; then
-  source ~/.mybashrc 
+if [ -f ~/.bashrc ]; then
+  source ~/.bashrc 
 fi
 
 # Settings
