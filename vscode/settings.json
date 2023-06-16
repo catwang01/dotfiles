@@ -43,6 +43,16 @@
                 "workbench.view.explorer"
             ]
         },
+        // terminal
+        {
+            "before": [
+                "<leader>",
+                "h",
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal",
+            ]
+        },
         {
             "before": [
                 "<leader>",
