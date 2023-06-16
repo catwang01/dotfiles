@@ -65,7 +65,7 @@
     {
         "key": "ctrl+e",
         "command": "workbench.view.explorer",
-        "when": "viewContainer.workbench.view.explorer.enabled"
+        "when": "!filesExplorerFocus && foldersViewVisible && viewContainer.workbench.view.explorer.enabled"
     },
     { // open file explorer use which key
         "key": "e",
@@ -93,7 +93,7 @@
     {
         "key": "shift+r",
         "command": "workbench.files.action.refreshFilesExplorer",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
     },
     // use h and l to move
     {
