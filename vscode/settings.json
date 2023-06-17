@@ -3,7 +3,7 @@
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.surround": true,
-    "vim.timeout": 200,
+    "vim.timeout": 400,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.foldfix": true, // to avoid fold open up autocamatically
@@ -386,5 +386,28 @@
     "codeium.enableConfig": {
         "*": true,
         "log": true
-    }
+    },
+    
+    // python related
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    // "python.linting.pylintPath": "backend/.venv/bin/pylint",
+    // use the following ways to disable checkings you don't want to have
+    "python.linting.pylintArgs": [
+        "--max-line-length=120",
+        "--disable=C0103,C0114,C0115,C0116,W1203,W0621,C0304"
+    ],
+
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--ignore-missing-imports",
+        "--show-column-numbers",
+        "--check-untyped-defs" ,
+    ],
+    // "python.linting.mypyPath": "backend/.venv/bin/mypy",
+
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none"
 }
