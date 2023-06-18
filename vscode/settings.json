@@ -3,7 +3,7 @@
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.surround": true,
-    "vim.timeout": 400,
+    "vim.timeout": 600,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.foldfix": true, // to avoid fold open up autocamatically
@@ -107,18 +107,6 @@
         // 			"references-view.showCallHierarchy"
         // 		]
         // 	},
-        // 	// -- run
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"r"
-        // 		],
-        // 		"commands": [
-        // 			"workbench.action.files.save",
-        // 			"workbench.action.debug.run"
-        // 		]
-        // 	},
-
         // -- debug related
         {
             "before": [
@@ -160,7 +148,37 @@
                 "c"
             ],
             "commands": [
-                "editor.debug.action.continue"  
+                "workbench.action.debug.continue",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "i"
+            ],
+            "commands": [
+                "workbench.action.debug.stepInto"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "o",
+            ],
+            "commands": [
+                "workbench.action.debug.stepOut"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "n",
+            ],
+            "commands": [
+                "workbench.action.debug.stepOver"
             ]
         },
         // -- problem nav
@@ -428,5 +446,12 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    "python.formatting.provider": "none"
+    "python.formatting.provider": "none",
+    "files.watcherExclude": {
+        "**/.venv/**": true,
+        "**/node_modules/**": true,
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/.hg/store/**": true
+    }
 }
