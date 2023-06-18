@@ -55,12 +55,14 @@
             ]
         }
     },
+
     // terminal
     {
         "key": "ctrl+/",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
+
     // file explorer enhancement
     {
         "key": "ctrl+e",
@@ -336,7 +338,7 @@
         "when": "explorerViewletVisible && listFocus && !inputFocus",
     },
 
-    // problem window
+    // problem window related
     { // move up at problem open
         "key": "k",
         "command": "list.focusUp",
@@ -352,10 +354,21 @@
         "command": "problems.action.open",
         "when": "problemFocus"
     },
+    // collapse and uncollapse
     {
         "key": "o",
         "command": "list.select",
-        "when": "listFocus && !inputFocus",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers'"
+    },
+    {
+        "key": "shift+g",
+        "command": "list.focusLast",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers'"
+    },
+    {
+        "key": "g g",
+        "command": "list.focusFirst",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers'"
     },
     {
         "key": "ctrl+[",

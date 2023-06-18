@@ -118,6 +118,7 @@
         // 			"workbench.action.debug.run"
         // 		]
         // 	},
+
         // -- debug related
         {
             "before": [
@@ -128,6 +129,18 @@
             "commands": [
                 "workbench.action.files.save",
                 "workbench.action.debug.start"
+            ]
+        },
+        // -- debug restart
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+                "workbench.action.debug.restart"
             ]
         },
         {
@@ -147,10 +160,19 @@
                 "c"
             ],
             "commands": [
-                "editor.debug.action.conditionalBreakpoint"
+                "editor.debug.action.continue"  
             ]
         },
-        // 	// -- problem nav
+        // -- problem nav
+        {
+            "before": [
+                "<leader>",
+                "p",
+            ],
+            "commands": [
+                "workbench.actions.view.problems",
+            ]
+        },
         // 	// fix <C-d> and <C-u>
         // 	{
         // 		"before": [
@@ -387,7 +409,6 @@
         "*": true,
         "log": true
     },
-    
     // python related
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
@@ -397,15 +418,13 @@
         "--max-line-length=120",
         "--disable=C0103,C0114,C0115,C0116,W1203,W0621,C0304"
     ],
-
     "python.linting.mypyEnabled": true,
     "python.linting.mypyArgs": [
         "--ignore-missing-imports",
         "--show-column-numbers",
-        "--check-untyped-defs" ,
+        "--check-untyped-defs",
     ],
     // "python.linting.mypyPath": "backend/.venv/bin/mypy",
-
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
