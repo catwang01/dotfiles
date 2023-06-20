@@ -3,7 +3,7 @@
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.surround": true,
-    "vim.timeout": 200,
+    "vim.timeout": 600,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.foldfix": true, // to avoid fold open up autocamatically
@@ -107,17 +107,6 @@
         // 			"references-view.showCallHierarchy"
         // 		]
         // 	},
-        // 	// -- run
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"r"
-        // 		],
-        // 		"commands": [
-        // 			"workbench.action.files.save",
-        // 			"workbench.action.debug.run"
-        // 		]
-        // 	},
         // -- debug related
         {
             "before": [
@@ -128,6 +117,18 @@
             "commands": [
                 "workbench.action.files.save",
                 "workbench.action.debug.start"
+            ]
+        },
+        // -- debug restart
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.files.save",
+                "workbench.action.debug.restart"
             ]
         },
         {
@@ -147,10 +148,49 @@
                 "c"
             ],
             "commands": [
-                "editor.debug.action.conditionalBreakpoint"
+                "workbench.action.debug.continue",
             ]
         },
-        // 	// -- problem nav
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "i"
+            ],
+            "commands": [
+                "workbench.action.debug.stepInto"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "o",
+            ],
+            "commands": [
+                "workbench.action.debug.stepOut"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "n",
+            ],
+            "commands": [
+                "workbench.action.debug.stepOver"
+            ]
+        },
+        // -- problem nav
+        {
+            "before": [
+                "<leader>",
+                "p",
+            ],
+            "commands": [
+                "workbench.actions.view.problems",
+            ]
+        },
         // 	// fix <C-d> and <C-u>
         // 	{
         // 		"before": [
@@ -386,5 +426,32 @@
     "codeium.enableConfig": {
         "*": true,
         "log": true
+    },
+    // python related
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    // "python.linting.pylintPath": "backend/.venv/bin/pylint",
+    // use the following ways to disable checkings you don't want to have
+    "python.linting.pylintArgs": [
+        "--max-line-length=120",
+        "--disable=C0103,C0114,C0115,C0116,W1203,W0621,C0304"
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--ignore-missing-imports",
+        "--show-column-numbers",
+        "--check-untyped-defs",
+    ],
+    // "python.linting.mypyPath": "backend/.venv/bin/mypy",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.formatting.provider": "none",
+    "files.watcherExclude": {
+        "**/.venv/**": true,
+        "**/node_modules/**": true,
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/.hg/store/**": true
     }
 }

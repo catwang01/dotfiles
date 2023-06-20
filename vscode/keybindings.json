@@ -55,12 +55,14 @@
             ]
         }
     },
+
     // terminal
     {
         "key": "ctrl+/",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
+
     // file explorer enhancement
     {
         "key": "ctrl+e",
@@ -234,16 +236,7 @@
         "command": "workbench.action.quickOpenNavigateNext",
         "when": "inQuickOpen"
     },
-    { // move up at problem open
-        "key": "ctrl+k",
-        "command": "list.focusUp",
-        "when": "panelFocus && activePanel == 'workbench.panel.markers' "
-    },
-    { // move down at problem open
-        "key": "ctrl+j",
-        "command": "list.focusDown",
-        "when": "panelFocus && activePanel == 'workbench.panel.markers' "
-    },
+
     {
         "key": "ctrl+k",
         "command": "selectPrevCodeAction",
@@ -325,7 +318,6 @@
     //     "command": "workbench.action.editor.previousChange",
     //     "when": "editorTextFocus && !textCompareEditorActive"
     // },
-
     // copy active file path
     // copy path in editor area
     {
@@ -333,18 +325,60 @@
         "command": "workbench.action.files.copyPathOfActiveFile",
         "when": "editorTextFocus"
     },
-
     // copy path in file explorer
     {
         "key": "y p",
         "command": "copyFilePath",
         "when": "explorerViewletVisible && listFocus && !inputFocus"
     },
-
     // copy path in file explorer
     {
         "key": "y shift+p",
         "command": "copyRelativeFilePath",
-        "when": "explorerViewletVisible && listFocus && !inputFocus"
-    }
+        "when": "explorerViewletVisible && listFocus && !inputFocus",
+    },
+
+    // problem window related
+    { // move up at problem open
+        "key": "k",
+        "command": "list.focusUp",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers' "
+    },
+    { // move down at problem open
+        "key": "j",
+        "command": "list.focusDown",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers' "
+    },
+    { // open
+        "key": "o",
+        "command": "problems.action.open",
+        "when": "problemFocus"
+    },
+    // collapse and uncollapse
+    {
+        "key": "o",
+        "command": "list.select",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers'"
+    },
+    {
+        "key": "shift+g",
+        "command": "list.focusLast",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers'"
+    },
+    {
+        "key": "g g",
+        "command": "list.focusFirst",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers'"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "problems.action.clearFilterText",
+        "when": "problemsFilterFocus || problemFocus"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "problems.action.clearFilterText",
+        "when": "problemsFilterFocus || problemFocus"
+    },
+    // problem window end
 ]
