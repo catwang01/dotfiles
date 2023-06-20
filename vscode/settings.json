@@ -1,9 +1,20 @@
 {
+    // vim-like cursor
+    "workbench.colorCustomizations": {
+        // 光标的颜色设置
+        "editorCursor.foreground": "#16C60C",
+        // 当前行的背景颜色设置
+        "editor.lineHighlightBackground": "#292e42",
+        // 状态栏颜色设置
+        "statusBar.background": "#1e1e1e",
+        "statusBar.foreground": "#9b9b8f",
+        "statusBar.border": "#333a48",
+    },
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.surround": true,
-    "vim.timeout": 600,
+    "vim.timeout": 500,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.foldfix": true, // to avoid fold open up autocamatically
@@ -191,6 +202,17 @@
                 "workbench.actions.view.problems",
             ]
         },
+        {
+            "before": [
+                "leader",
+                "f"
+            ],
+            "commands": [
+                {
+                    "command": "revealInExplorer"
+                }
+            ]
+        },
         // 	// fix <C-d> and <C-u>
         // 	{
         // 		"before": [
@@ -233,27 +255,27 @@
         //         "editor.action.dirtydiff.next"
         //     ]
         // },
-        // // git (un)stage 
-        // {
-        //     "before": [
-        //         "<leader>",
-        //         "h",
-        //         "s"
-        //     ],
-        //     "commands": [
-        //         "git.stage",
-        //     ]
-        // },
-        // {
-        //     "before": [
-        //         "<leader>",
-        //         "h",
-        //         "u"
-        //     ],
-        //     "commands": [
-        //         "git.unstage",
-        //     ]
-        // },
+        // git (un)stage 
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "s"
+            ],
+            "commands": [
+                "git.stage",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "u"
+            ],
+            "commands": [
+                "git.unstage",
+            ]
+        },
         // {
         //     "before": [
         //         "<leader>",
@@ -453,5 +475,5 @@
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/.hg/store/**": true
-    }
+    },
 }
