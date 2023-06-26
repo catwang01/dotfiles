@@ -11,6 +11,12 @@ else {
     Set-PSReadLineOption -PredictionSource History
 }
 
+
+if ($host.Version.Major -eq 7) {
+    #change the key to accept suggestions (default is right arrow)
+    Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'ctrl+l'
+}
+
 Set-PSReadLineOption -EditMode vi
 
 $ESC = "$([char]0x1b)"
@@ -42,8 +48,6 @@ Set-PSReadLineKeyHandler -Chord 'j' -ScriptBlock {
 
 #add background color to the prediction preview
 Set-PSReadLineOption -Colors @{InlinePrediction = "$([char]0x1b)[36;7;238m]" }
-#change the key to accept suggestions (default is right arrow)
-Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'ctrl+l'
 
 #For PowerShell v3
 Function gig {
