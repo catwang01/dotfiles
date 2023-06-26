@@ -8,7 +8,7 @@
         // 状态栏颜色设置
         "statusBar.background": "#1e1e1e",
         "statusBar.foreground": "#9b9b8f",
-        "statusBar.border": "#333a48",
+        "statusBar.border": "#333a48"
     },
     "editor.cursorBlinking": "smooth",
     "editor.cursorSmoothCaretAnimation": "on",
@@ -478,5 +478,7 @@
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/.hg/store/**": true
-    }
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "editor.guides.bracketPairs": true
 }
