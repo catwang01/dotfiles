@@ -10,6 +10,8 @@
         "statusBar.foreground": "#9b9b8f",
         "statusBar.border": "#333a48",
     },
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
@@ -445,25 +447,6 @@
     },
     "editor.wordWrap": "off",
     "diffEditor.renderSideBySide": false,
-    
-            "source": "PowerShell",
-            "icon": "terminal-powershell"
-        },
-        "Command Prompt": {
-            "path": [
-                "${env:windir}\\Sysnative\\cmd.exe",
-                "${env:windir}\\System32\\cmd.exe"
-            ],
-            "args": [],
-            "icon": "terminal-cmd"
-        },
-        "Git Bash": {
-            "source": "Git Bash"
-        },
-        "Windows PowerShell": {
-            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-        }
-    },
     "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
     "codeium.enableConfig": {
         "*": true,
