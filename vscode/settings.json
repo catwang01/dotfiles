@@ -235,26 +235,26 @@
         // 		]
         // 	},
         // -- git hunk nav
-        // {
-        //     "before": [
-        //         "<leader>",
-        //         "k"
-        //     ],
-        //     "commands": [
-        //         "workbench.action.editor.previousChange",
-        //         "editor.action.dirtydiff.previous"
-        //     ]
-        // },
-        // {
-        //     "before": [
-        //         "<leader>",
-        //         "j"
-        //     ],
-        //     "commands": [
-        //         "workbench.action.editor.nextChange",
-        //         "editor.action.dirtydiff.next"
-        //     ]
-        // },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "k"
+            ],
+            "commands": [
+                "workbench.action.editor.previousChange",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "j"
+            ],
+            "commands": [
+                "workbench.action.editor.nextChange",
+            ]
+        },
         // git (un)stage 
         {
             "before": [
@@ -276,16 +276,6 @@
                 "git.unstage",
             ]
         },
-        // {
-        //     "before": [
-        //         "<leader>",
-        //         "h",
-        //         "r"
-        //     ],
-        //     "commands": [
-        //         "git.revertSelectedRanges",
-        //     ]
-        // },
         // "vim.visualModeKeyBindings": [
         // 	{ // which key
         // 		"before": [
@@ -342,7 +332,38 @@
             "commands": [
                 "whichkey.show"
             ]
-        }
+        },
+        // git related
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "r"
+            ],
+            "commands": [
+                "git.revertSelectedRanges",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "s"
+            ],
+            "commands": [
+                "git.stageSelectedRanges"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "u"
+            ],
+            "commands": [
+                "unstageSelectedRanges"
+            ]
+        },
     ],
     // /* vim settings end */
     // /* which key bindings */
@@ -424,8 +445,7 @@
     },
     "editor.wordWrap": "off",
     "diffEditor.renderSideBySide": false,
-    "terminal.integrated.profiles.windows": {
-        "PowerShell": {
+    
             "source": "PowerShell",
             "icon": "terminal-powershell"
         },

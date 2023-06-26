@@ -12,6 +12,9 @@
 ######################
 
 - crossplatform-link:
+# for new versions of powershell
+    ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1: powershell/profile.ps1
+# for old versions of powershell
     ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1: powershell/profile.ps1
     ~/.config/profiles/: 
         path: powershell/*
