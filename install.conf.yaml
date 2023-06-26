@@ -4,7 +4,7 @@
         create: true
         relink: true
         glob: true
-    crossplatform-shell:
+    shell:
         stdout: true
         stderr: true
 
@@ -12,11 +12,14 @@
   - [git submodule update --init --recursive, install modules]
 
 - shell:
-  - [neovim/install.sh, install neovim]
+  - [setup_scripts/linux/setup_neovim.sh, install neovim]
 
 ######################
 # zsh related start
 ######################
+
+- shell:
+    - [cat ~/.bashrc >> ~/.bash/my_bashrc_private, copy bashrc to private]
 
 - crossplatform-link:
     ~/.zshrc:
@@ -27,6 +30,9 @@
         force: true
     ~/.bash/: bash/*
     ~/.bashrc:
+
+- shell:
+    - [sudo chsh -s `which zsh`, Use zsh as default shell]
 
 ######################
 # zsh related end

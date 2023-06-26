@@ -14,5 +14,6 @@ nvim -v
 if [ $? -eq 0 ]; then
   echo "neovim is installed!"
 else
+  echo "neovim is not installed, installing neovim..."
   install_neovim
 fi
