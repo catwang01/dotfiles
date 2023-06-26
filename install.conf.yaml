@@ -19,7 +19,7 @@
 ######################
 
 - shell:
-    - [cat ~/.bashrc >> ~/.bash/my_bashrc_private, copy bashrc to private]
+    - [setup_scripts/linux/setup_bash.sh, Backup bashrc to private]
 
 - crossplatform-link:
     ~/.zshrc:
@@ -52,6 +52,14 @@
         exclude: [ vscode/vscvimrc ]
         platform: darwin
     ~/.vscvimrc: vscode/vscvimrc 
+
+- vscodefile:
+    file: vscode/vscodefiles/vscodefiles
+    insiders: true
+
+- vscodefile:
+    file: vscode/vscodefiles/vscodefiles
+    insiders: false
           
 ######################
 # vscode related end

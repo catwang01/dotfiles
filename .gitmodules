@@ -37,3 +37,9 @@
 [submodule "dotbot_plugins/dotbot-crossplatform"]
 	path = dotbot_plugins/dotbot-crossplatform
 	url = https://github.com/catwang01/dotbot-crossplatform
+[submodule "dotbot-vscode"]
+	path = dotbot_plugins/dotbot-vscode
+	url = https://github.com/catwang01/dotbot-vscode
+[submodule "dotbot_plugins/dotbot-vscode"]
+	path = dotbot_plugins/dotbot-vscode
+	url = https://github.com/catwang01/dotbot-vscode

@@ -15,7 +15,10 @@ foreach ($PYTHON in ('python', 'python3', 'python2')) {
     if (& { $ErrorActionPreference = "SilentlyContinue"
             ![string]::IsNullOrEmpty((&$PYTHON -V))
             $ErrorActionPreference = "Stop" }) {
-        &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c $CONFIG --plugin-dir dotbot_plugins/dotbot-crossplatform $Args
+        &$PYTHON $(Join-Path $BASEDIR -ChildPath $DOTBOT_DIR | Join-Path -ChildPath $DOTBOT_BIN) -d $BASEDIR -c $CONFIG `
+                --plugin-dir dotbot_plugins/dotbot-crossplatform `
+                --plugin-dir dotbot_plugins/dotbot-vscode `
+                $Args
         return
     }
 }

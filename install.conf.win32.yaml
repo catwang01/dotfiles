@@ -40,6 +40,14 @@
         exclude: [ vscode/vscvimrc ]
     ~/.vscvimrc: vscode/vscvimrc
 
+- vscodefile:
+    file: vscode/vscodefiles/vscodefiles
+    insiders: true
+
+- vscodefile:
+    file: vscode/vscodefiles/vscodefiles
+    insiders: false
+
 ######################
 # vscode related end
 ######################
