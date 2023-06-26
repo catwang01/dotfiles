@@ -55,14 +55,22 @@
             ]
         }
     },
-
     // terminal
     {
         "key": "ctrl+/",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
-
+    {
+        "key": "alt+j",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+    },
     // file explorer enhancement
     {
         "key": "ctrl+e",
@@ -236,7 +244,6 @@
         "command": "workbench.action.quickOpenNavigateNext",
         "when": "inQuickOpen"
     },
-
     {
         "key": "ctrl+k",
         "command": "selectPrevCodeAction",
@@ -337,7 +344,6 @@
         "command": "copyRelativeFilePath",
         "when": "explorerViewletVisible && listFocus && !inputFocus",
     },
-
     // problem window related
     { // move up at problem open
         "key": "k",
