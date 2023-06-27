@@ -6,6 +6,7 @@
     crossplatform-shell:
         stdout: true
         stderr: true
+        shell: powershell
 
 ######################
 # oh-my-posh related start
