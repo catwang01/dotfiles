@@ -715,6 +715,12 @@
                     "command": "git.commit"
                 },
                 {
+                    "key": "p",
+                    "name": "Git: Push",
+                    "type": "command",
+                    "command": "git.push"
+                },
+                {
                     "key": "j",
                     "name": "Go to Next Git Hunk Change",
                     "type": "command",
