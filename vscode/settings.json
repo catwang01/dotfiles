@@ -695,6 +695,12 @@
                         }
                     ]
                 },
+                {
+                    "key": "a",
+                    "name": "Outline",
+                    "type": "command",
+                    "command": "workbench.action.toggleAuxiliaryBar"
+                },
             ]
         },
         {
