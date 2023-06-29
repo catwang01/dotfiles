@@ -25,7 +25,7 @@
         "<C-f>": false, // use <C-s> to search
         "<C-s>": false, // do not hanle <C-s>, we can use <C-s> to save files
     },
-    "vim.leader": "<space>",
+    "vim.leader": ",",
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.vscvimrc",
     "vim.normalModeKeyBindingsNonRecursive": [
@@ -37,7 +37,43 @@
                 "whichkey.show"
             ]
         },
-        // {
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "<leader>",
+                "e"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g"
+            ],
+            "commands": [
+                "workbench.view.scm"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
         //     "before": [
         //         "<leader>",
         //         "r",
@@ -357,36 +393,34 @@
             ]
         },
         // git related
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "r"
-            ],
-            "commands": [
-                "git.revertSelectedRanges",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "s"
-            ],
-            "commands": [
-                "git.stageSelectedRanges"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "u"
-            ],
-            "commands": [
-                "unstageSelectedRanges"
-            ]
-        }
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "g",
+        //         "r"
+        //     ],
+        //     "commands": [
+        //         "git.revertSelectedRanges",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //     ],
+        //     "commands": [
+        //         "git.stageSelectedRanges"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "g",
+        //         "u"
+        //     ],
+        //     "commands": [
+        //         "unstageSelectedRanges"
+        //     ]
+        // }
     ],
     // /* vim settings end */
     // /* which key bindings */
@@ -530,44 +564,6 @@
             ]
         },
         {
-            "key": "e",
-            "name": "Show tree/explorer view",
-            "type": "conditional",
-            "bindings": [
-                {
-                    "key": "",
-                    "name": "default",
-                    "type": "command",
-                    "command": "workbench.view.explorer"
-                },
-                {
-                    "key": "when:sideBarVisible && explorerViewletVisible",
-                    "name": "Hide explorer",
-                    "type": "command",
-                    "command": "workbench.action.toggleSidebarVisibility"
-                }
-            ]
-        },
-        {
-            "key": "h",
-            "name": "Toggle Terminal",
-            "type": "command",
-            "command": "workbench.action.terminal.toggleTerminal"
-        },
-        {
-            "key": "e",
-            "name": "Format",
-            "type": "bindings",
-            "bindings": [
-                {
-                    "key": "r",
-                    "name": "Sort Python Imports",
-                    "type": "command",
-                    "command": "python.sortImports"
-                }
-            ]
-        },
-        {
             "key": "f",
             "name": "Format code",
             "type": "bindings",
@@ -655,7 +651,50 @@
                     "name": "Show Problems",
                     "type": "command",
                     "command": "workbench.actions.view.problems"
-                }
+                },
+                {
+                    "key": "o",
+                    "name": "Show output",
+                    "type": "command",
+                    "command": "workbench.action.output.toggleOutput"
+                },
+                {
+                    "key": "d",
+                    "name": "Show debug",
+                    "type": "command",
+                    "command": "workbench.debug.action.toggleRepl"
+                },
+                {
+                    "key": "g",
+                    "name": "Show source control",
+                    "type": "command",
+                    "command": "workbench.view.scm"
+                },
+                {
+                    "key": "h",
+                    "name": "Toggle Terminal",
+                    "type": "command",
+                    "command": "workbench.action.terminal.toggleTerminal"
+                },
+                {
+                    "key": "e",
+                    "name": "Show tree/explorer view",
+                    "type": "conditional",
+                    "bindings": [
+                        {
+                            "key": "",
+                            "name": "default",
+                            "type": "command",
+                            "command": "workbench.view.explorer"
+                        },
+                        {
+                            "key": "when:sideBarVisible && explorerViewletVisible",
+                            "name": "Hide explorer",
+                            "type": "command",
+                            "command": "workbench.action.toggleSidebarVisibility"
+                        }
+                    ]
+                },
             ]
         },
         {
@@ -684,22 +723,48 @@
                 {
                     "key": "s",
                     "name": "Git stage",
-                    "type": "command",
-                    "command": "git.stage"
+                    "type": "bindings",
+                    "bindings": [
+                        {
+                            "key": "s",
+                            "name": "Git stage selection",
+                            "type": "command",
+                            "command": "git.stageSelectedRanges"
+                        },
+                        {
+                            "key": "a",
+                            "name": "Git stage all",
+                            "type": "command",
+                            "command": "git.stage"
+                        }
+                    ]
                 },
                 {
                     "key": "u",
                     "name": "Git unstage",
-                    "type": "command",
-                    "command": "git.unstage"
+                    "type": "bindings",
+                    "bindings": [
+                        {
+                            "key": "s",
+                            "name": "Git unstage",
+                            "type": "bindings",
+                            "command": "git.unstageSelectedRanges"
+                        },
+                        {
+                            "key": "a",
+                            "name": "Git unstage all",
+                            "type": "bindings",
+                            "command": "git.unstage"
+                        }
+                    ]
                 },
                 {
                     "key": "r",
                     "name": "Git revert",
-                    "type": "conditional",
+                    "type": "bindings",
                     "bindings": [
                         {
-                            "key": "",
+                            "key": "s",
                             "name": "Git revert selection",
                             "type": "command",
                             "commands": [
@@ -707,7 +772,7 @@
                             ]
                         },
                         {
-                            "key": "when:!editorHasSelection",
+                            "key": "a",
                             "name": "Git revert all",
                             "type": "command",
                             "commands": [
@@ -718,6 +783,6 @@
                     ]
                 }
             ]
-        },
+        }
     ]
 }
