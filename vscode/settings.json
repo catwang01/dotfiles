@@ -278,6 +278,27 @@
                 "git.unstage",
             ]
         },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.selectAll",
+                "git.revertSelectedRanges"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "c"
+            ],
+            "commands": [
+                "git.commit"
+            ]
+        },
         // "vim.visualModeKeyBindings": [
         // 	{ // which key
         // 		"before": [
