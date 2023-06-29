@@ -11,7 +11,7 @@
         "statusBar.border": "#333a48"
     },
     "editor.cursorBlinking": "smooth",
-    "editor.cursorSmoothCaretAnimation": "on",
+    // "editor.cursorSmoothCaretAnimation": "on",
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
@@ -31,7 +31,7 @@
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
-                "<space>"
+                ","
             ],
             "commands": [
                 "whichkey.show"

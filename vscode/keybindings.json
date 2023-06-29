@@ -71,6 +71,34 @@
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
+
+    // list related started
+
+    // selection
+    {
+        "key": "shift+k",
+        "command": "list.expandSelectionUp",
+        "when": "listFocus && listSupportsMultiselect && !inputFocus"
+    },
+    {
+        "key": "shift+j",
+        "command": "list.expandSelectionDown",
+        "when": "listFocus && listSupportsMultiselect && !inputFocus"
+    },
+
+    // multi selection
+    {
+        "key": "m",
+        "command": "list.toggleSelection",
+        "when": "listFocus && !inputFocus"
+    },
+
+    {
+        "key": "w",
+        "command": "list.collapseAll",
+        "when": "listFocus && !inputFocus"
+    }
+
     // file explorer enhancement
     {
         "key": "ctrl+e",
@@ -86,6 +114,35 @@
             "when": "sideBarVisible && explorerViewletVisible"
         },
     },
+
+    // better escape
+    {
+        "key": "ctrl+]",
+        "command": "list.clear",
+        "when": "listFocus && listHasSelectionOrFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "list.closeFind",
+        "when": "listFocus && treeFindOpen"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "list.clear",
+        "when": "listFocus && listHasSelectionOrFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "list.closeFind",
+        "when": "listFocus && treeFindOpen"
+    },
+    {
+        "key": "/",
+        "command": "list.find",
+        "when": "listFocus && listSupportsFind && !inputFocus"
+    },
+    // list related end
+
     // rename file
     {
         "key": "r",
@@ -103,8 +160,9 @@
     {
         "key": "shift+r",
         "command": "workbench.files.action.refreshFilesExplorer",
-        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+        "when": "explorerViewletVisible && !inputFocus"
     },
+
     // use h and l to move
     {
         "key": "l",
@@ -116,12 +174,7 @@
         "command": "previousCompressedFolder",
         "when": "explorerViewletCompressedFocus && filesExplorerFocus && foldersViewVisible && !explorerViewletCompressedFirstFocus && !inputFocus"
     },
-    // multi select
-    {
-        "key": "m",
-        "command": "list.toggleSelection",
-        "when": "listFocus && !inputFocus"
-    },
+
     // create new file 
     // if we want to create a folder, we can append `/` to create folders
     {
@@ -166,48 +219,13 @@
         "command": "workbench.action.splitEditorDown",
         "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
     },
-    // better escape
-    {
-        "key": "ctrl+]",
-        "command": "list.clear",
-        "when": "listFocus && listHasSelectionOrFocus && !inputFocus"
-    },
-    {
-        "key": "ctrl+]",
-        "command": "list.closeFind",
-        "when": "listFocus && treeFindOpen"
-    },
-    {
-        "key": "ctrl+[",
-        "command": "list.clear",
-        "when": "listFocus && listHasSelectionOrFocus && !inputFocus"
-    },
-    {
-        "key": "ctrl+[",
-        "command": "list.closeFind",
-        "when": "listFocus && treeFindOpen"
-    },
-    {
-        "key": "/",
-        "command": "list.find",
-        "when": "listFocus && listSupportsFind && !inputFocus"
-    },
     // open in terminal
     {
         "key": ".",
         "command": "openInIntegratedTerminal",
         "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
     },
-    {
-        "key": "shift+k",
-        "command": "list.expandSelectionUp",
-        "when": "listFocus && listSupportsMultiselect && !inputFocus"
-    },
-    {
-        "key": "shift+j",
-        "command": "list.expandSelectionDown",
-        "when": "listFocus && listSupportsMultiselect && !inputFocus"
-    },
+
     // debug related
     {
         // "key": "cmd+enter", // mac
