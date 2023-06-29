@@ -25,280 +25,280 @@
         "<C-f>": false, // use <C-s> to search
         "<C-s>": false, // do not hanle <C-s>, we can use <C-s> to save files
     },
-    "vim.leader": ";",
+    "vim.leader": "<space>",
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.vscvimrc",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
-                ","
+                ";"
             ],
             "commands": [
                 "whichkey.show"
             ]
         },
-        {
-            "before": [
-                "<leader>",
-                "r",
-                "r"
-            ],
-            "commands": [
-                "editor.action.rename"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "e",
-            ],
-            "commands": [
-                "workbench.view.explorer"
-            ]
-        },
-        // terminal
-        {
-            "before": [
-                "<leader>",
-                "h",
-            ],
-            "commands": [
-                "workbench.action.terminal.toggleTerminal",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "e",
-                "r"
-            ],
-            "commands": [
-                "python.sortImports"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "d"
-            ],
-            "commands": [
-                "editor.action.formatDocument"
-            ],
-            "args": [
-                {
-                    "insertSpaces": true,
-                    "tabSize": 4
-                }
-            ]
-        },
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"u"
-        // 		],
-        // 		"commands": [
-        // 			"editor.action.referenceSearch.trigger"
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"U"
-        // 		],
-        // 		"commands": [
-        // 			"references-view.findReferences"
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"i",
-        // 			"n"
-        // 		],
-        // 		"commands": [
-        // 			"references-view.showCallHierarchy"
-        // 		]
-        // 	},
-        // -- debug related
-        {
-            "before": [
-                "<leader>",
-                "d",
-                "r"
-            ],
-            "commands": [
-                "workbench.action.files.save",
-                "workbench.action.debug.start"
-            ]
-        },
-        // -- debug restart
-        {
-            "before": [
-                "<leader>",
-                "d",
-                "a"
-            ],
-            "commands": [
-                "workbench.action.files.save",
-                "workbench.action.debug.restart"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d",
-                "b"
-            ],
-            "commands": [
-                "editor.debug.action.toggleBreakpoint"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d",
-                "c"
-            ],
-            "commands": [
-                "workbench.action.debug.continue",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d",
-                "i"
-            ],
-            "commands": [
-                "workbench.action.debug.stepInto"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d",
-                "o",
-            ],
-            "commands": [
-                "workbench.action.debug.stepOut"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "d",
-                "n",
-            ],
-            "commands": [
-                "workbench.action.debug.stepOver"
-            ]
-        },
-        // -- problem nav
-        {
-            "before": [
-                "<leader>",
-                "p",
-            ],
-            "commands": [
-                "workbench.actions.view.problems",
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "f"
-            ],
-            "commands": [
-                {
-                    "command": "revealInExplorer"
-                }
-            ]
-        },
-        // 	// fix <C-d> and <C-u>
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"d",
-        // 			"k"
-        // 		],
-        // 		"commands": [
-        // 			"editor.action.marker.prev"
-        // 		]
-        // 	},
-        // 	{
-        // 		"before": [
-        // 			"<leader>",
-        // 			"d",
-        // 			"j"
-        // 		],
-        // 		"commands": [
-        // 			"editor.action.marker.next"
-        // 		]
-        // 	},
-        // -- git hunk nav
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "k"
-            ],
-            "commands": [
-                "workbench.action.editor.previousChange",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "j"
-            ],
-            "commands": [
-                "workbench.action.editor.nextChange",
-            ]
-        },
-        // git (un)stage 
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "s"
-            ],
-            "commands": [
-                "git.stage",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "u"
-            ],
-            "commands": [
-                "git.unstage",
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "r"
-            ],
-            "commands": [
-                "editor.action.selectAll",
-                "git.revertSelectedRanges"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "g",
-                "c"
-            ],
-            "commands": [
-                "git.commit"
-            ]
-        },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "r",
+        //         "r"
+        //     ],
+        //     "commands": [
+        //         "editor.action.rename"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "e",
+        //     ],
+        //     "commands": [
+        //         "workbench.view.explorer"
+        //     ]
+        // },
+        // // terminal
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "h",
+        //     ],
+        //     "commands": [
+        //         "workbench.action.terminal.toggleTerminal",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "e",
+        //         "r"
+        //     ],
+        //     "commands": [
+        //         "python.sortImports"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "f",
+        //         "d"
+        //     ],
+        //     "commands": [
+        //         "editor.action.formatDocument"
+        //     ],
+        //     "args": [
+        //         {
+        //             "insertSpaces": true,
+        //             "tabSize": 4
+        //         }
+        //     ]
+        // },
+        // // 	{
+        // // 		"before": [
+        // // 			"<leader>",
+        // // 			"u"
+        // // 		],
+        // // 		"commands": [
+        // // 			"editor.action.referenceSearch.trigger"
+        // // 		]
+        // // 	},
+        // // 	{
+        // // 		"before": [
+        // // 			"<leader>",
+        // // 			"U"
+        // // 		],
+        // // 		"commands": [
+        // // 			"references-view.findReferences"
+        // // 		]
+        // // 	},
+        // // 	{
+        // // 		"before": [
+        // // 			"<leader>",
+        // // 			"i",
+        // // 			"n"
+        // // 		],
+        // // 		"commands": [
+        // // 			"references-view.showCallHierarchy"
+        // // 		]
+        // // 	},
+        // // -- debug related
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "d",
+        //         "r"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.files.save",
+        //         "workbench.action.debug.start"
+        //     ]
+        // },
+        // // -- debug restart
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "d",
+        //         "a"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.files.save",
+        //         "workbench.action.debug.restart"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "d",
+        //         "b"
+        //     ],
+        //     "commands": [
+        //         "editor.debug.action.toggleBreakpoint"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "d",
+        //         "c"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.debug.continue",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "d",
+        //         "i"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.debug.stepInto"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "d",
+        //         "o",
+        //     ],
+        //     "commands": [
+        //         "workbench.action.debug.stepOut"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "d",
+        //         "n",
+        //     ],
+        //     "commands": [
+        //         "workbench.action.debug.stepOver"
+        //     ]
+        // },
+        // // -- problem related started
+        // {
+        //     "before": [
+        //         ",",
+        //         "p",
+        //     ],
+        //     "commands": [
+        //         "workbench.actions.view.problems",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "d",
+        //         "k"
+        //     ],
+        //     "commands": [
+        //         "editor.action.marker.prev"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "d",
+        //         "j"
+        //     ],
+        //     "commands": [
+        //         "editor.action.marker.next"
+        //     ]
+        // },
+        // // -- problems related end
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "f"
+        //     ],
+        //     "commands": [
+        //         {
+        //             "command": "revealInExplorer"
+        //         }
+        //     ]
+        // },
+        // // -- git hunk nav
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "g",
+        //         "k"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.editor.previousChange",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "g",
+        //         "j"
+        //     ],
+        //     "commands": [
+        //         "workbench.action.editor.nextChange",
+        //     ]
+        // },
+        // // git (un)stage 
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "g",
+        //         "s"
+        //     ],
+        //     "commands": [
+        //         "git.stage",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "g",
+        //         "u"
+        //     ],
+        //     "commands": [
+        //         "git.unstage",
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "g",
+        //         "r"
+        //     ],
+        //     "commands": [
+        //         "editor.action.selectAll",
+        //         "git.revertSelectedRanges"
+        //     ]
+        // },
+        // {
+        //     "before": [
+        //         "<leader>",
+        //         "g",
+        //         "c"
+        //     ],
+        //     "commands": [
+        //         "git.commit"
+        //     ]
+        // },
         // "vim.visualModeKeyBindings": [
         // 	{ // which key
         // 		"before": [
@@ -350,7 +350,7 @@
         },
         {
             "before": [
-                "<space>"
+                ";"
             ],
             "commands": [
                 "whichkey.show"
@@ -386,79 +386,79 @@
             "commands": [
                 "unstageSelectedRanges"
             ]
-        },
+        }
     ],
     // /* vim settings end */
     // /* which key bindings */
-    "whichkey.bindings": [
-        {
-            "key": "e",
-            "name": "Show tree/explorer view",
-            "type": "conditional",
-            "bindings": [
-                {
-                    "key": "",
-                    "name": "default",
-                    "type": "command",
-                    "command": "workbench.view.explorer"
-                },
-                {
-                    "key": "when:sideBarVisible && explorerViewletVisible",
-                    "name": "Hide explorer",
-                    "type": "command",
-                    "command": "workbench.action.toggleSidebarVisibility"
-                }
-            ],
-        },
-        {
-            "key": "o",
-            "name": "Outline",
-            "type": "command",
-            "command": "workbench.action.toggleAuxiliaryBar"
-        },
-        {
-            "key": "h",
-            "name": "bookmark",
-            "type": "command",
-            "command": "lineHighlightBookmark.toogleBookmarks"
-        },
-        {
-            "key": "g",
-            "name": "Source contrl",
-            "type": "command",
-            "command": "workbench.view.scm",
-        },
-        {
-            "command": "workbench.action.quickOpen",
-            "key": "f",
-            "name": "Find file",
-            "type": "command"
-        },
-        {
-            "command": "workbench.view.search",
-            "key": "F",
-            "name": "Search Word",
-            "type": "command"
-        },
-        {
-            "command": "search.action.openEditor",
-            "key": "w",
-            "name": "New Search Editor",
-            "type": "command"
-        },
-        {
-            "command": "workbench.action.gotoSymbol",
-            "key": "s",
-            "name": "Search document symbol",
-            "type": "command"
-        },
-        {
-            "command": "workbench.action.showAllSymbols",
-            "key": "S",
-            "name": "Search project symbol",
-            "type": "command"
-        },
-    ],
+    // "whichkey.bindings": [
+    //     {
+    //         "key": "e",
+    //         "name": "Show tree/explorer view",
+    //         "type": "conditional",
+    //         "bindings": [
+    //             {
+    //                 "key": "",
+    //                 "name": "default",
+    //                 "type": "command",
+    //                 "command": "workbench.view.explorer"
+    //             },
+    //             {
+    //                 "key": "when:sideBarVisible && explorerViewletVisible",
+    //                 "name": "Hide explorer",
+    //                 "type": "command",
+    //                 "command": "workbench.action.toggleSidebarVisibility"
+    //             }
+    //         ],
+    //     },
+    //     {
+    //         "key": "o",
+    //         "name": "Outline",
+    //         "type": "command",
+    //         "command": "workbench.action.toggleAuxiliaryBar"
+    //     },
+    //     {
+    //         "key": "h",
+    //         "name": "bookmark",
+    //         "type": "command",
+    //         "command": "lineHighlightBookmark.toogleBookmarks"
+    //     },
+    //     {
+    //         "key": "g",
+    //         "name": "Source contrl",
+    //         "type": "command",
+    //         "command": "workbench.view.scm",
+    //     },
+    //     {
+    //         "command": "workbench.action.quickOpen",
+    //         "key": "f",
+    //         "name": "Find file",
+    //         "type": "command"
+    //     },
+    //     {
+    //         "command": "workbench.view.search",
+    //         "key": "F",
+    //         "name": "Search Word",
+    //         "type": "command"
+    //     },
+    //     {
+    //         "command": "search.action.openEditor",
+    //         "key": "w",
+    //         "name": "New Search Editor",
+    //         "type": "command"
+    //     },
+    //     {
+    //         "command": "workbench.action.gotoSymbol",
+    //         "key": "s",
+    //         "name": "Search document symbol",
+    //         "type": "command"
+    //     },
+    //     {
+    //         "command": "workbench.action.showAllSymbols",
+    //         "key": "S",
+    //         "name": "Search project symbol",
+    //         "type": "command"
+    //     },
+    // ],
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
         "*": true,
@@ -501,5 +501,223 @@
         "**/.hg/store/**": true
     },
     "workbench.iconTheme": "vscode-icons",
-    "editor.guides.bracketPairs": true
+    "editor.guides.bracketPairs": true,
+    "whichkey.bindings": [
+        {
+            "key": "r",
+            "name": "Refactoring",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "r",
+                    "name": "rename",
+                    "type": "command",
+                    "command": "editor.action.rename"
+                },
+                {
+                    "key": "s",
+                    "name": "Sort Python Imports",
+                    "type": "conditional",
+                    "bindings": [
+                        {
+                            "key": "languageId:python",
+                            "name": "Sort Python Imports",
+                            "type": "command",
+                            "command": "python.sortImports"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "e",
+            "name": "Show tree/explorer view",
+            "type": "conditional",
+            "bindings": [
+                {
+                    "key": "",
+                    "name": "default",
+                    "type": "command",
+                    "command": "workbench.view.explorer"
+                },
+                {
+                    "key": "when:sideBarVisible && explorerViewletVisible",
+                    "name": "Hide explorer",
+                    "type": "command",
+                    "command": "workbench.action.toggleSidebarVisibility"
+                }
+            ]
+        },
+        {
+            "key": "h",
+            "name": "Toggle Terminal",
+            "type": "command",
+            "command": "workbench.action.terminal.toggleTerminal"
+        },
+        {
+            "key": "e",
+            "name": "Format",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "r",
+                    "name": "Sort Python Imports",
+                    "type": "command",
+                    "command": "python.sortImports"
+                }
+            ]
+        },
+        {
+            "key": "f",
+            "name": "Format code",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "d",
+                    "name": "Format Document",
+                    "type": "command",
+                    "command": "editor.action.formatDocument",
+                    "args": {
+                        "insertSpaces": true,
+                        "tabSize": 4
+                    }
+                }
+            ]
+        },
+        {
+            "key": "d",
+            "name": "Debug...",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "r",
+                    "name": "Save and Start Debugging",
+                    "type": "command",
+                    "command": "workbench.action.files.save; workbench.action.debug.start"
+                },
+                {
+                    "key": "a",
+                    "name": "Save and Restart Debugging",
+                    "type": "command",
+                    "command": "workbench.action.files.save; workbench.action.debug.restart"
+                },
+                {
+                    "key": "b",
+                    "name": "Toggle Breakpoint",
+                    "type": "command",
+                    "command": "editor.debug.action.toggleBreakpoint"
+                },
+                {
+                    "key": "c",
+                    "name": "Continue Debugging",
+                    "type": "command",
+                    "command": "workbench.action.debug.continue"
+                },
+                {
+                    "key": "n",
+                    "name": "Step Over Debugging",
+                    "type": "command",
+                    "command": "workbench.action.debug.stepOver"
+                },
+                {
+                    "key": "o",
+                    "name": "Step Out of Debugging",
+                    "type": "command",
+                    "command": "workbench.action.debug.stepOut"
+                },
+                {
+                    "key": "i",
+                    "name": "Step Into Debugging",
+                    "type": "command",
+                    "command": "workbench.action.debug.stepInto"
+                },
+                {
+                    "key": "k",
+                    "name": "Go to Previous Problem Marker",
+                    "type": "command",
+                    "command": "editor.action.marker.prev"
+                },
+                {
+                    "key": "j",
+                    "name": "Go to Next Problem Marker",
+                    "type": "command",
+                    "command": "editor.action.marker.next"
+                }
+            ]
+        },
+        {
+            "key": "o",
+            "name": "Open...",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "p",
+                    "name": "Show Problems",
+                    "type": "command",
+                    "command": "workbench.actions.view.problems"
+                }
+            ]
+        },
+        {
+            "key": "g",
+            "name": "Git..",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "c",
+                    "name": "Git: Commit",
+                    "type": "command",
+                    "command": "git.commit"
+                },
+                {
+                    "key": "j",
+                    "name": "Go to Next Git Hunk Change",
+                    "type": "command",
+                    "command": "workbench.action.editor.nextChange"
+                },
+                {
+                    "key": "k",
+                    "name": "Go to Previous Git Hunk Change",
+                    "type": "command",
+                    "command": "workbench.action.editor.previousChange"
+                },
+                {
+                    "key": "s",
+                    "name": "Git stage",
+                    "type": "command",
+                    "command": "git.stage"
+                },
+                {
+                    "key": "u",
+                    "name": "Git unstage",
+                    "type": "command",
+                    "command": "git.unstage"
+                },
+                {
+                    "key": "r",
+                    "name": "Git revert",
+                    "type": "conditional",
+                    "bindings": [
+                        {
+                            "key": "",
+                            "name": "Git revert selection",
+                            "type": "command",
+                            "commands": [
+                                "git.revertSelectedRanges"
+                            ]
+                        },
+                        {
+                            "key": "when:!editorHasSelection",
+                            "name": "Git revert all",
+                            "type": "command",
+                            "commands": [
+                                "editor.action.selectAll",
+                                "git.revertSelectedRanges"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+    ]
 }
