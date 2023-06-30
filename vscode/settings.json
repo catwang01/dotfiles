@@ -537,6 +537,7 @@
     "workbench.iconTheme": "vscode-icons",
     "editor.guides.bracketPairs": true,
     "whichkey.bindings": [
+        // refactor
         {
             "key": "r",
             "name": "Refactoring",
@@ -563,6 +564,7 @@
                 }
             ]
         },
+        // f
         {
             "key": "f",
             "name": "Format code",
@@ -580,9 +582,11 @@
                 }
             ]
         },
+        // debug
         {
             "key": "d",
             "name": "Debug...",
+            "icon": "bug",
             "type": "bindings",
             "bindings": [
                 {
@@ -641,71 +645,98 @@
                 }
             ]
         },
+        // e
         {
-            "key": "o",
-            "name": "Open...",
+            "key": "e",
+            "name": "+Errors",
+            "icon": "error",
             "type": "bindings",
             "bindings": [
                 {
-                    "key": "p",
-                    "name": "Show Problems",
-                    "type": "command",
-                    "command": "workbench.actions.view.problems"
-                },
-                {
-                    "key": "o",
-                    "name": "Show output",
-                    "type": "command",
-                    "command": "workbench.action.output.toggleOutput"
-                },
-                {
-                    "key": "d",
-                    "name": "Show debug",
-                    "type": "command",
-                    "command": "workbench.debug.action.toggleRepl"
-                },
-                {
-                    "key": "g",
-                    "name": "Show source control",
-                    "type": "command",
-                    "command": "workbench.view.scm"
-                },
-                {
-                    "key": "h",
-                    "name": "Toggle Terminal",
-                    "type": "command",
-                    "command": "workbench.action.terminal.toggleTerminal"
-                },
-                {
-                    "key": "e",
-                    "name": "Show tree/explorer view",
-                    "type": "conditional",
+                    "key": ".",
+                    "name": "Error transient",
+                    "icon": "window",
+                    "type": "transient",
                     "bindings": [
                         {
-                            "key": "",
-                            "name": "default",
+                            "key": "f",
+                            "name": "Fix error",
+                            "icon": "lightbulb-autofix",
                             "type": "command",
-                            "command": "workbench.view.explorer"
+                            "command": "editor.action.quickFix"
                         },
                         {
-                            "key": "when:sideBarVisible && explorerViewletVisible",
-                            "name": "Hide explorer",
+                            "key": "n",
+                            "name": "Next error",
+                            "icon": "arrow-down",
                             "type": "command",
-                            "command": "workbench.action.toggleSidebarVisibility"
+                            "command": "editor.action.marker.nextInFiles"
+                        },
+                        {
+                            "key": "p",
+                            "name": "Previous error",
+                            "icon": "arrow-up",
+                            "type": "command",
+                            "command": "editor.action.marker.prevInFiles"
+                        },
+                        {
+                            "key": "N",
+                            "name": "Previous error",
+                            "icon": "arrow-up",
+                            "type": "command",
+                            "command": "editor.action.marker.prevInFiles"
                         }
                     ]
                 },
                 {
-                    "key": "a",
-                    "name": "Outline",
+                    "key": "e",
+                    "name": "Show error",
+                    "icon": "error",
                     "type": "command",
-                    "command": "workbench.action.toggleAuxiliaryBar"
+                    "command": "editor.action.showHover"
                 },
+                {
+                    "key": "f",
+                    "name": "Fix error",
+                    "icon": "lightbulb-autofix",
+                    "type": "command",
+                    "command": "editor.action.quickFix"
+                },
+                {
+                    "key": "l",
+                    "name": "List errors",
+                    "icon": "list-flat",
+                    "type": "command",
+                    "command": "workbench.actions.view.problems"
+                },
+                {
+                    "key": "n",
+                    "name": "Next error",
+                    "icon": "arrow-down",
+                    "type": "command",
+                    "command": "editor.action.marker.nextInFiles"
+                },
+                {
+                    "key": "p",
+                    "name": "Previous error",
+                    "icon": "arrow-up",
+                    "type": "command",
+                    "command": "editor.action.marker.prevInFiles"
+                },
+                {
+                    "key": "N",
+                    "name": "Previous error",
+                    "icon": "arrow-up",
+                    "type": "command",
+                    "command": "editor.action.marker.prevInFiles"
+                }
             ]
         },
+        // g
         {
             "key": "g",
             "name": "Git..",
+            "icon": "git-merge",
             "type": "bindings",
             "bindings": [
                 {
@@ -793,8 +824,71 @@
                             ]
                         }
                     ]
-                }
+                },
             ]
-        }
+        },
+        // o
+        {
+            "key": "o",
+            "name": "Open...",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "p",
+                    "name": "Show Problems",
+                    "type": "command",
+                    "command": "workbench.actions.view.problems"
+                },
+                {
+                    "key": "o",
+                    "name": "Show output",
+                    "type": "command",
+                    "command": "workbench.action.output.toggleOutput"
+                },
+                {
+                    "key": "d",
+                    "name": "Show debug",
+                    "type": "command",
+                    "command": "workbench.debug.action.toggleRepl"
+                },
+                {
+                    "key": "g",
+                    "name": "Show source control",
+                    "type": "command",
+                    "command": "workbench.view.scm"
+                },
+                {
+                    "key": "h",
+                    "name": "Toggle Terminal",
+                    "type": "command",
+                    "command": "workbench.action.terminal.toggleTerminal"
+                },
+                {
+                    "key": "e",
+                    "name": "Show tree/explorer view",
+                    "type": "conditional",
+                    "bindings": [
+                        {
+                            "key": "",
+                            "name": "default",
+                            "type": "command",
+                            "command": "workbench.view.explorer"
+                        },
+                        {
+                            "key": "when:sideBarVisible && explorerViewletVisible",
+                            "name": "Hide explorer",
+                            "type": "command",
+                            "command": "workbench.action.toggleSidebarVisibility"
+                        }
+                    ]
+                },
+                {
+                    "key": "a",
+                    "name": "Outline",
+                    "type": "command",
+                    "command": "workbench.action.toggleAuxiliaryBar"
+                },
+            ]
+        },
     ]
 }

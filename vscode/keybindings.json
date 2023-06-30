@@ -71,9 +71,7 @@
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
-
     // list related started
-
     // selection
     {
         "key": "shift+k",
@@ -85,20 +83,17 @@
         "command": "list.expandSelectionDown",
         "when": "listFocus && listSupportsMultiselect && !inputFocus"
     },
-
     // multi selection
     {
         "key": "m",
         "command": "list.toggleSelection",
         "when": "listFocus && !inputFocus"
     },
-
     {
         "key": "w",
         "command": "list.collapseAll",
         "when": "listFocus && !inputFocus"
     }
-
     // file explorer enhancement
     {
         "key": "ctrl+e",
@@ -114,7 +109,6 @@
             "when": "sideBarVisible && explorerViewletVisible"
         },
     },
-
     // better escape
     {
         "key": "ctrl+]",
@@ -142,7 +136,6 @@
         "when": "listFocus && listSupportsFind && !inputFocus"
     },
     // list related end
-
     // rename file
     {
         "key": "r",
@@ -162,7 +155,6 @@
         "command": "workbench.files.action.refreshFilesExplorer",
         "when": "explorerViewletVisible && !inputFocus"
     },
-
     // use h and l to move
     {
         "key": "l",
@@ -174,7 +166,6 @@
         "command": "previousCompressedFolder",
         "when": "explorerViewletCompressedFocus && filesExplorerFocus && foldersViewVisible && !explorerViewletCompressedFirstFocus && !inputFocus"
     },
-
     // create new file 
     // if we want to create a folder, we can append `/` to create folders
     {
@@ -225,7 +216,6 @@
         "command": "openInIntegratedTerminal",
         "when": "filesExplorerFocus && foldersViewVisible && !inputFocus"
     },
-
     // debug related
     {
         // "key": "cmd+enter", // mac
@@ -404,5 +394,10 @@
         "command": "problems.action.clearFilterText",
         "when": "problemsFilterFocus || problemFocus"
     },
+
     // problem window end
+    {
+        "key": "ctrl+;",
+        "command": "whichkey.show",
+    },
 ]
