@@ -570,6 +570,16 @@
             "type": "bindings",
             "bindings": [
                 {
+                    "key": "r",
+                    "name": "Last active buffer",
+                    "icon": "go-to-file",
+                    "type": "commands",
+                    "commands": [
+                        "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+                        "list.select"
+                    ]
+                },
+                {
                     "key": "$",
                     "name": "Last buffer in window",
                     "icon": "arrow-both",
@@ -825,24 +835,31 @@
             "bindings": [
                 {
                     "key": "c",
-                    "name": "Commands",
+                    "name": "Found in all commands",
                     "icon": "rocket",
                     "type": "command",
                     "command": "workbench.action.showCommands"
                 },
                 {
                     "key": "t",
-                    "name": "Search in project",
+                    "name": "Found text in project",
                     "icon": "search",
                     "type": "command",
                     "command": "workbench.action.findInFiles"
                 },
                 {
                     "key": "f",
-                    "name": "Search file by name",
+                    "name": "Found file by name",
                     "icon": "file",
                     "type": "command",
                     "command": "workbench.action.quickOpen"
+                },
+                {
+                    "key": "b",
+                    "name": "Found in all buffers",
+                    "icon": "files",
+                    "type": "command",
+                    "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
                 },
             ]
         },
