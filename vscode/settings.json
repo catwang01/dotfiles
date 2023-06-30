@@ -505,7 +505,8 @@
     "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
     "codeium.enableConfig": {
         "*": true,
-        "log": true
+        "log": true,
+        "jsonc": false
     },
     // python related
     "python.linting.enabled": true,
@@ -537,6 +538,7 @@
     "workbench.iconTheme": "vscode-icons",
     "editor.guides.bracketPairs": true,
     "whichkey.bindings": [
+        // #region others
         {
             "key": "*",
             "name": "Search in project with selection",
@@ -549,12 +551,11 @@
             ]
         },
         {
-            "key": ".",
-            "name": "Repeat most recent action",
-            "icon": "redo",
+            "key": ";",
+            "name": "Commands",
+            "icon": "rocket",
             "type": "command",
-            "command": "whichkey.repeatMostRecent",
-            "args": "vspacecode.bindings"
+            "command": "workbench.action.showCommands"
         },
         {
             "key": "/",
@@ -563,6 +564,18 @@
             "type": "command",
             "command": "workbench.action.findInFiles"
         },
+        {
+            "key": "\t",
+            "name": "Last buffer",
+            "icon": "go-to-file",
+            "type": "commands",
+            "commands": [
+                "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+                "list.select"
+            ]
+        },
+        // #endregion
+        // #region +Buffers
         {
             "key": "b",
             "name": "+Buffers",
@@ -790,7 +803,8 @@
                 }
             ]
         },
-        // refactor
+        // #endregion
+        // #region refactor
         {
             "key": "r",
             "name": "Refactoring",
@@ -827,10 +841,12 @@
                 }
             ]
         },
-        // f
+        // #endregion
+        // #region found
         {
             "key": "f",
             "name": "Found...",
+            "icon": "search",
             "type": "bindings",
             "bindings": [
                 {
@@ -863,7 +879,8 @@
                 }
             ]
         },
-        // debug
+        // #endregion
+        // #region debug
         {
             "key": "d",
             "name": "Debug...",
@@ -932,7 +949,8 @@
                 }
             ]
         },
-        // e
+        // #endregion
+        // #region Errors
         {
             "key": "e",
             "name": "+Errors",
@@ -1019,7 +1037,8 @@
                 }
             ]
         },
-        // g
+        // #endregion
+        // #region Git
         {
             "key": "g",
             "name": "Git..",
@@ -1138,7 +1157,33 @@
                 }
             ]
         },
-        // o
+        // #endregion
+        // #region Smart select/expand region
+        {
+            "key": "v",
+            "name": "Smart select/expand region",
+            "icon": "selection",
+            "type": "transient",
+            "command": "editor.action.smartSelect.grow",
+            "bindings": [
+                {
+                    "key": "v",
+                    "name": "Grow selection",
+                    "icon": "add",
+                    "type": "command",
+                    "command": "editor.action.smartSelect.grow"
+                },
+                {
+                    "key": "V",
+                    "name": "Shrink selection",
+                    "icon": "remove",
+                    "type": "command",
+                    "command": "editor.action.smartSelect.shrink"
+                }
+            ]
+        },
+        // #endregion
+        // #region Open
         {
             "key": "o",
             "name": "Open...",
@@ -1199,6 +1244,104 @@
                     "type": "command",
                     "command": "workbench.action.toggleAuxiliaryBar"
                 }
+            ]
+        },
+        // #endregion
+        // #region Fold
+        {
+            "key": "z",
+            "name": "+Fold",
+            "icon": "fold",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "a",
+                    "name": "Toggle: around a point",
+                    "icon": "selection",
+                    "type": "command",
+                    "command": "editor.toggleFold"
+                },
+                {
+                    "key": "b",
+                    "name": "Close: all block comments",
+                    "icon": "fold",
+                    "type": "command",
+                    "command": "editor.foldAllBlockComments"
+                },
+                {
+                    "key": "c",
+                    "name": "Close: at a point",
+                    "icon": "fold",
+                    "type": "command",
+                    "command": "editor.fold"
+                },
+                {
+                    "key": "g",
+                    "name": "Close: all regions",
+                    "icon": "fold",
+                    "type": "command",
+                    "command": "editor.foldAllMarkerRegions"
+                },
+                {
+                    "key": "m",
+                    "name": "Close: all",
+                    "icon": "fold",
+                    "type": "command",
+                    "command": "editor.foldAll"
+                },
+                {
+                    "key": "o",
+                    "name": "Open: at a point",
+                    "icon": "unfold",
+                    "type": "command",
+                    "command": "editor.unfold"
+                },
+                {
+                    "key": "r",
+                    "name": "Open: all",
+                    "icon": "unfold",
+                    "type": "command",
+                    "command": "editor.unfoldAll"
+                },
+                {
+                    "key": "G",
+                    "name": "Open: all regions",
+                    "icon": "unfold",
+                    "type": "command",
+                    "command": "editor.unfoldAllMarkerRegions"
+                },
+                {
+                    "key": "O",
+                    "name": "Open: recursively",
+                    "icon": "unfold",
+                    "type": "command",
+                    "command": "editor.unfoldRecursively"
+                }
+            ]
+        },
+        // endregion
+        {
+            "key": "t",
+            "name": "Terminal",
+            "icon": "terminal",
+            "type": "bindings",
+            "bindings": [
+                // #region Terminal related
+                {
+                    "key": "f",
+                    "name": "Focus terminal",
+                    "icon": "terminal",
+                    "type": "command",
+                    "command": "workbench.action.terminal.focus"
+                },
+                {
+                    "key": "n",
+                    "name": "Open new terminal",
+                    "icon": "chevron-right",
+                    "type": "command",
+                    "command": "workbench.action.terminal.new"
+                },
+                // #endregion
             ]
         }
     ],
