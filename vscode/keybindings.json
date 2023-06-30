@@ -93,7 +93,7 @@
         "key": "w",
         "command": "list.collapseAll",
         "when": "listFocus && !inputFocus"
-    }
+    },
     // file explorer enhancement
     {
         "key": "ctrl+e",
@@ -135,6 +135,39 @@
         "command": "list.find",
         "when": "listFocus && listSupportsFind && !inputFocus"
     },
+    // quickOpen
+    {
+        "key": "ctrl+[",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+    // find widget
+    {
+        "key": "ctrl+[",
+        "command": "closeFindWidget",
+        "when": "editorFocus && findWidgetVisible && !isComposing"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "closeFindWidget",
+        "when": "editorFocus && findWidgetVisible && !isComposing"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "hideCodeActionWidget",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "hideCodeActionWidget",
+        "when": "codeActionMenuVisible"
+    },
+    // better escape end
     // list related end
     // rename file
     {
@@ -394,10 +427,9 @@
         "command": "problems.action.clearFilterText",
         "when": "problemsFilterFocus || problemFocus"
     },
-
     // problem window end
     {
         "key": "ctrl+;",
-        "command": "whichkey.show",
+        "command": "whichkey.show"
     },
 ]
