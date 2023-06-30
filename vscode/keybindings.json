@@ -107,7 +107,7 @@
         "args": {
             "key": "e",
             "when": "sideBarVisible && explorerViewletVisible"
-        },
+        }
     },
     // better escape
     {
@@ -257,10 +257,10 @@
         "args": {
             "sequence": [
                 "editor.debug.action.selectionToRepl",
-                "extension.vim_escape",
+                "extension.vim_escape"
             ]
         },
-        "when": "editorHasSelection && inDebugMode",
+        "when": "editorHasSelection && inDebugMode"
     },
     // -----suggest item start------
     // move up at auto completion prompt
@@ -383,7 +383,7 @@
     {
         "key": "y shift+p",
         "command": "copyRelativeFilePath",
-        "when": "explorerViewletVisible && listFocus && !inputFocus",
+        "when": "explorerViewletVisible && listFocus && !inputFocus"
     },
     // problem window related
     { // move up at problem open
@@ -431,5 +431,5 @@
     {
         "key": "ctrl+;",
         "command": "whichkey.show"
-    },
+    }
 ]

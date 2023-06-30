@@ -73,7 +73,7 @@
             "commands": [
                 "workbench.view.explorer"
             ]
-        },
+        }
         //     "before": [
         //         "<leader>",
         //         "r",
@@ -391,7 +391,7 @@
             "commands": [
                 "whichkey.show"
             ]
-        },
+        }
         // git related
         // {
         //     "before": [
@@ -520,7 +520,7 @@
     "python.linting.mypyArgs": [
         "--ignore-missing-imports",
         "--show-column-numbers",
-        "--check-untyped-defs",
+        "--check-untyped-defs"
     ],
     // "python.linting.mypyPath": "backend/.venv/bin/mypy",
     "[python]": {
@@ -860,7 +860,7 @@
                     "icon": "files",
                     "type": "command",
                     "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
-                },
+                }
             ]
         },
         // debug
@@ -1135,7 +1135,7 @@
                             ]
                         }
                     ]
-                },
+                }
             ]
         },
         // o
@@ -1198,9 +1198,9 @@
                     "name": "Outline",
                     "type": "command",
                     "command": "workbench.action.toggleAuxiliaryBar"
-                },
+                }
             ]
-        },
+        }
     ],
     "remote.SSH.remotePlatform": {
         "ljie-gpuhost": "linux",
