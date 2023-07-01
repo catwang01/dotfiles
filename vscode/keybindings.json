@@ -1,6 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
-    // window navigations
+    // #region window navigations
     { // make cursor back to editor when the cursor is in the panel
         "key": "ctrl+k",
         "command": "workbench.action.focusActiveEditorGroup",
@@ -14,7 +14,7 @@
     { // window move down
         "key": "ctrl+j",
         "command": "vim.remap",
-        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen",
+        "when": "(vim.mode == 'Normal' or vim.mode == 'Visual') && !suggestWidgetVisible && !inQuickOpen",
         "args": {
             "after": [
                 "<c-w>",
@@ -36,7 +36,7 @@
     { // window move left
         "key": "ctrl+h",
         "command": "vim.remap",
-        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
+        "when": "(vim.mode == 'Normal' or vim.mode == 'Visual') && !suggestWidgetVisible && !inQuickOpen && !panelFocus",
         "args": {
             "after": [
                 "<c-w>",
@@ -47,7 +47,7 @@
     { // window move right
         "key": "ctrl+l",
         "command": "vim.remap",
-        "when": "vim.mode == 'Normal' && !suggestWidgetVisible && !inQuickOpen",
+        "when": "(vim.mode == 'Normal' or vim.mode == 'Visual')&& !suggestWidgetVisible && !inQuickOpen",
         "args": {
             "after": [
                 "<c-w>",
@@ -55,7 +55,8 @@
             ]
         }
     },
-    // terminal
+    // #endregion
+    // #region terminal
     {
         "key": "ctrl+/",
         "command": "workbench.action.terminal.toggleTerminal",
@@ -71,6 +72,7 @@
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
     },
+    // #endregion
     // list related started
     // selection
     {

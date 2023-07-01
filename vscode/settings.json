@@ -423,7 +423,6 @@
         // }
     ],
     // #endregion
-
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
         "*": true,
@@ -431,8 +430,7 @@
         "markdown": true,
         "scminput": false
     },
-    "editor.wordWrap": "off",
-    "diffEditor.renderSideBySide": false,
+    "editor.wordWrap": "on",
     "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
     "codeium.enableConfig": {
         "*": true,
@@ -807,11 +805,18 @@
                     "icon": "files",
                     "type": "command",
                     "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
+                },
+                {
+                    "key": "r",
+                    "name": "Reveal in explorer",
+                    "icon": "files",
+                    "type": "command",
+                    "command": "revealInExplorer"
                 }
             ]
         },
         // #endregion
-        // #region debug
+        // #region Debug
         {
             "key": "d",
             "name": "Debug...",
@@ -820,7 +825,8 @@
             "bindings": [
                 {
                     "key": "r",
-                    "name": "Save and Start Debugging",
+                    "name": "Save and Run Debugging",
+                    "icon": "debug-start",
                     "type": "command",
                     "commands": [
                         "workbench.action.files.save",
@@ -830,6 +836,7 @@
                 {
                     "key": "a",
                     "name": "Save and Restart Debugging",
+                    "icon": "debug-restart",
                     "type": "command",
                     "commands": [
                         "workbench.action.files.save",
@@ -837,8 +844,23 @@
                     ]
                 },
                 {
+                    "key": "p",
+                    "name": "Pause debug",
+                    "icon": "debug-pause",
+                    "type": "command",
+                    "command": "workbench.action.debug.pause"
+                },
+                {
+                    "key": "s",
+                    "name": "Stop debugging",
+                    "icon": "debug-stop",
+                    "type": "command",
+                    "command": "workbench.action.debug.stop"
+                },
+                {
                     "key": "b",
                     "name": "Toggle Breakpoint",
+                    "icon": "activate-breakpoints",
                     "type": "command",
                     "command": "editor.debug.action.toggleBreakpoint"
                 },
@@ -850,33 +872,83 @@
                 },
                 {
                     "key": "n",
-                    "name": "Step Over Debugging",
+                    "name": "Step Over",
+                    "icon": "debug-step-over",
                     "type": "command",
                     "command": "workbench.action.debug.stepOver"
                 },
                 {
                     "key": "o",
-                    "name": "Step Out of Debugging",
+                    "name": "Step Out",
+                    "icon": "debug-step-out",
                     "type": "command",
                     "command": "workbench.action.debug.stepOut"
                 },
                 {
                     "key": "i",
-                    "name": "Step Into Debugging",
+                    "name": "Step Into",
+                    "icon": "debug-step-into",
                     "type": "command",
                     "command": "workbench.action.debug.stepInto"
                 },
+                // #region Debug Step
                 {
-                    "key": "k",
-                    "name": "Go to Previous Problem Marker",
-                    "type": "command",
-                    "command": "editor.action.marker.prev"
+                    "key": ".",
+                    "name": "Debug Step...",
+                    "icon": "debug",
+                    "type": "transient",
+                    "bindings": [
+                        {
+                            "key": "n",
+                            "name": "Step Over",
+                            "icon": "debug-step-over",
+                            "type": "command",
+                            "command": "workbench.action.debug.stepOver"
+                        },
+                        {
+                            "key": "o",
+                            "name": "Step Out",
+                            "icon": "debug-step-out",
+                            "type": "command",
+                            "command": "workbench.action.debug.stepOut"
+                        },
+                        {
+                            "key": "i",
+                            "name": "Step Into",
+                            "icon": "debug-step-into",
+                            "type": "command",
+                            "command": "workbench.action.debug.stepInto"
+                        },
+                    ]
                 },
+                // #endregion
                 {
                     "key": "j",
-                    "name": "Go to Next Problem Marker",
+                    "name": "Jump to cursor",
+                    "icon": "debug-continue",
                     "type": "command",
-                    "command": "editor.action.marker.next"
+                    "command": "editor.debug.action.runToCursor"
+                },
+                {
+                    "key": "D",
+                    "name": "Delete all breakpoints",
+                    "icon": "trash",
+                    "type": "command",
+                    "command": "workbench.debug.viewlet.action.removeAllBreakpoints"
+                },
+                {
+                    "key": "E",
+                    "name": "Enable all breakpoints",
+                    "icon": "expand-all",
+                    "type": "command",
+                    "command": "workbench.debug.viewlet.action.enableAllBreakpoints"
+                },
+                {
+                    "key": "S",
+                    "name": "Disable all breakpoints",
+                    "icon": "collapse-all",
+                    "type": "command",
+                    "command": "workbench.debug.viewlet.action.disableAllBreakpoints"
                 }
             ]
         },
