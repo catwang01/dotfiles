@@ -422,77 +422,8 @@
         //     ]
         // }
     ],
-    // /* vim settings end */
-    // /* which key bindings */
-    // "whichkey.bindings": [
-    //     {
-    //         "key": "e",
-    //         "name": "Show tree/explorer view",
-    //         "type": "conditional",
-    //         "bindings": [
-    //             {
-    //                 "key": "",
-    //                 "name": "default",
-    //                 "type": "command",
-    //                 "command": "workbench.view.explorer"
-    //             },
-    //             {
-    //                 "key": "when:sideBarVisible && explorerViewletVisible",
-    //                 "name": "Hide explorer",
-    //                 "type": "command",
-    //                 "command": "workbench.action.toggleSidebarVisibility"
-    //             }
-    //         ],
-    //     },
-    //     {
-    //         "key": "o",
-    //         "name": "Outline",
-    //         "type": "command",
-    //         "command": "workbench.action.toggleAuxiliaryBar"
-    //     },
-    //     {
-    //         "key": "h",
-    //         "name": "bookmark",
-    //         "type": "command",
-    //         "command": "lineHighlightBookmark.toogleBookmarks"
-    //     },
-    //     {
-    //         "key": "g",
-    //         "name": "Source contrl",
-    //         "type": "command",
-    //         "command": "workbench.view.scm",
-    //     },
-    //     {
-    //         "command": "workbench.action.quickOpen",
-    //         "key": "f",
-    //         "name": "Find file",
-    //         "type": "command"
-    //     },
-    //     {
-    //         "command": "workbench.view.search",
-    //         "key": "F",
-    //         "name": "Search Word",
-    //         "type": "command"
-    //     },
-    //     {
-    //         "command": "search.action.openEditor",
-    //         "key": "w",
-    //         "name": "New Search Editor",
-    //         "type": "command"
-    //     },
-    //     {
-    //         "command": "workbench.action.gotoSymbol",
-    //         "key": "s",
-    //         "name": "Search document symbol",
-    //         "type": "command"
-    //     },
-    //     {
-    //         "command": "workbench.action.showAllSymbols",
-    //         "key": "S",
-    //         "name": "Search project symbol",
-    //         "type": "command"
-    //     },
-    // ],
+    // #endregion
+
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
         "*": true,
@@ -1320,13 +1251,13 @@
             ]
         },
         // endregion
+        // #region Terminal
         {
             "key": "t",
             "name": "Terminal",
             "icon": "terminal",
             "type": "bindings",
             "bindings": [
-                // #region Terminal related
                 {
                     "key": "f",
                     "name": "Focus terminal",
@@ -1340,13 +1271,9 @@
                     "icon": "chevron-right",
                     "type": "command",
                     "command": "workbench.action.terminal.new"
-                },
-                // #endregion
+                }
             ]
+            // #endregion
         }
-    ],
-    "remote.SSH.remotePlatform": {
-        "ljie-gpuhost": "linux",
-        "10.172.127.29": "linux"
-    }
+    ]
 }
