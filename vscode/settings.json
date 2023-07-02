@@ -14,20 +14,22 @@
     // "editor.cursorSmoothCaretAnimation": "on",
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
     "vim.surround": true,
     "vim.timeout": 500,
     "vim.hlsearch": true,
     "vim.incsearch": true,
-    "vim.foldfix": true, // to avoid fold open up autocamatically
+    // to avoid fold open up autocamatically
+    "vim.foldfix": true, 
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "$HOME/.vscvimrc",
+    // #region VimKeybindings
+    "vim.useCtrlKeys": true,
     "vim.handleKeys": {
         "<C-a>": false, // use <C-a> to select all
         "<C-f>": false, // use <C-s> to search
         "<C-s>": false // do not hanle <C-s>, we can use <C-s> to save files
     },
     "vim.leader": ",",
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "$HOME/.vscvimrc",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -437,7 +439,7 @@
         "log": true,
         "jsonc": false
     },
-    // python related
+    // #region python related
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     // "python.linting.pylintPath": "backend/.venv/bin/pylint",
@@ -456,7 +458,8 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.python"
     },
-    "python.formatting.provider": "none",
+    "python.formatting.provider": "black",
+    // #endregion
     "files.watcherExclude": {
         "**/.venv/**": true,
         "**/node_modules/**": true,
@@ -466,6 +469,7 @@
     },
     "workbench.iconTheme": "vscode-icons",
     "editor.guides.bracketPairs": true,
+    // #region whichkey
     "whichkey.bindings": [
         // #region others
         {
@@ -746,28 +750,47 @@
                     "command": "editor.action.rename"
                 },
                 {
+                    "key": "f",
+                    "name": "refactor",
+                    "type": "command",
+                    "command": "editor.action.refactor"
+                },
+                // #region Sort imports
+                {
                     "key": "s",
-                    "name": "Sort Python Imports",
+                    "name": "Sort imports",
                     "type": "conditional",
                     "bindings": [
                         {
                             "key": "languageId:python",
                             "name": "Sort Python Imports",
                             "type": "command",
-                            "command": "python.sortImports"
+                            "commands": [
+                                "editor.action.organizeImports",
+                                "python.sortImports"
+                            ]
+                        },
+                        {
+                            "key": "languageId:javascript",
+                            "name": "Sort js Imports",
+                            "type": "command",
+                            "commands": [
+                                "editor.action.organizeImports",
+                                "javascript.sortImports"
+                            ]
+                        },
+                        {
+                            "key": "languageId:javascriptreact",
+                            "name": "Sort js Imports",
+                            "type": "command",
+                            "commands": [
+                                "editor.action.organizeImports",
+                                "javascript.sortImports"
+                            ]
                         }
                     ]
-                },
-                {
-                    "key": "f",
-                    "name": "Format Document",
-                    "type": "command",
-                    "command": "editor.action.formatDocument",
-                    "args": {
-                        "insertSpaces": true,
-                        "tabSize": 4
-                    }
                 }
+                // #endregion
             ]
         },
         // #endregion
@@ -786,8 +809,8 @@
                     "command": "workbench.action.showCommands"
                 },
                 {
-                    "key": "t",
-                    "name": "Found text in project",
+                    "key": "s",
+                    "name": "Search text in project",
                     "icon": "search",
                     "type": "command",
                     "command": "workbench.action.findInFiles"
@@ -867,6 +890,7 @@
                 {
                     "key": "c",
                     "name": "Continue Debugging",
+                    "icon": "debug-continue",
                     "type": "command",
                     "command": "workbench.action.debug.continue"
                 },
@@ -1076,7 +1100,7 @@
                 },
                 {
                     "key": ".",
-                    "name": "Error transient",
+                    "name": "Git transient",
                     "icon": "window",
                     "type": "transient",
                     "bindings": [
@@ -1102,6 +1126,12 @@
                     "type": "bindings",
                     "bindings": [
                         {
+                            "key": ".",
+                            "name": "Git stage this file",
+                            "type": "command",
+                            "command": "git.stage"
+                        },
+                        {
                             "key": "s",
                             "name": "Git stage selection",
                             "type": "command",
@@ -1111,7 +1141,7 @@
                             "key": "a",
                             "name": "Git stage all",
                             "type": "command",
-                            "command": "git.stage"
+                            "command": "git.stageAll"
                         }
                     ]
                 },
@@ -1121,8 +1151,14 @@
                     "type": "bindings",
                     "bindings": [
                         {
+                            "key": ".",
+                            "name": "Git unstage this file",
+                            "type": "command",
+                            "command": "git.unstage"
+                        },
+                        {
                             "key": "s",
-                            "name": "Git unstage",
+                            "name": "Git unstage selection",
                             "type": "bindings",
                             "command": "git.unstageSelectedRanges"
                         },
@@ -1130,7 +1166,7 @@
                             "key": "a",
                             "name": "Git unstage all",
                             "type": "bindings",
-                            "command": "git.unstage"
+                            "command": "git.unstageAll"
                         }
                     ]
                 },
@@ -1140,19 +1176,19 @@
                     "type": "bindings",
                     "bindings": [
                         {
-                            "key": "s",
-                            "name": "Git revert selection",
+                            "key": ".",
+                            "name": "Git revert this file",
                             "type": "command",
                             "commands": [
+                                "editor.action.selectAll",
                                 "git.revertSelectedRanges"
                             ]
                         },
                         {
-                            "key": "a",
-                            "name": "Git revert all",
+                            "key": "s",
+                            "name": "Git revert selection",
                             "type": "command",
                             "commands": [
-                                "editor.action.selectAll",
                                 "git.revertSelectedRanges"
                             ]
                         }
@@ -1217,7 +1253,7 @@
                     "command": "workbench.view.scm"
                 },
                 {
-                    "key": "h",
+                    "key": "t",
                     "name": "Toggle Terminal",
                     "type": "command",
                     "command": "workbench.action.terminal.toggleTerminal"
@@ -1345,7 +1381,60 @@
                     "command": "workbench.action.terminal.new"
                 }
             ]
-            // #endregion
+        },
+        // #endregion
+        // #region Format
+        {
+            "key": "=",
+            "name": "+Format",
+            "icon": "list-flat",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "=",
+                    "name": "Format region or buffer",
+                    "icon": "list-flat",
+                    "type": "command",
+                    "command": "editor.action.format"
+                },
+                {
+                    "key": "b",
+                    "name": "Format buffer",
+                    "icon": "file",
+                    "type": "command",
+                    "command": "editor.action.formatDocument"
+                },
+                {
+                    "key": "c",
+                    "name": "Format changes",
+                    "icon": "diff",
+                    "type": "command",
+                    "command": "editor.action.formatChanges"
+                },
+                {
+                    "key": "s",
+                    "name": "Format selection",
+                    "icon": "selection",
+                    "type": "command",
+                    "command": "editor.action.formatSelection"
+                },
+                {
+                    "key": "B",
+                    "name": "+Format buffer with formatter",
+                    "icon": "file",
+                    "type": "command",
+                    "command": "editor.action.formatDocument.multiple"
+                },
+                {
+                    "key": "S",
+                    "name": "+Format selection with formatter",
+                    "icon": "selection",
+                    "type": "command",
+                    "command": "editor.action.formatSelection.multiple"
+                }
+            ]
         }
+        // #endregion
     ]
+    // #endregion
 }
