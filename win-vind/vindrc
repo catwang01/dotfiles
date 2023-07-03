@@ -1,0 +1,18 @@
+noremap <esc-h> <esc-left>
+inoremap <esc-h> <esc-left>
+rnoremap <esc-h> <esc-left>
+
+noremap <esc-l> <esc-right>
+inoremap <esc-l> <esc-right>
+rnoremap <esc-l> <esc-right>
+
+noremap <esc-j> <esc-down>
+inoremap <esc-j> <esc-down>
+rnoremap <esc-j> <esc-down>
+
+noremap s :sw<cr>
+
+noremap H <snap_current_window_to_left>
+noremap L <snap_current_window_to_right>
+noremap K <snap_current_window_to_top>
+noremap J <snap_current_window_to_bottom>

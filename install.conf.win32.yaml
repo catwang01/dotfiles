@@ -74,3 +74,15 @@
 ######################
 # neovim related end
 ######################
+
+
+######################
+# win-vind related begin
+######################
+
+- crossplatform-link:
+    .\.win-vind\.vindrc: win-vind/vindrc
+
+######################
+# win-vind related end
+######################
