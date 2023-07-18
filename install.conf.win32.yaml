@@ -81,7 +81,7 @@
 ######################
 
 - crossplatform-link:
-    .\.win-vind\.vindrc: win-vind/vindrc
+    ~/.win-vind/.vindrc: win-vind/vindrc
 
 ######################
 # win-vind related end
