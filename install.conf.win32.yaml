@@ -1,3 +1,5 @@
+#region general settings
+
 - defaults:
     crossplatform-link:
         create: true
@@ -7,30 +9,16 @@
         stdout: true
         stderr: true
         shell: powershell
+#endregion
 
-######################
-# oh-my-posh related start
-######################
-
-- crossplatform-link:
-# for new versions of powershell
-    ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1: powershell/profile.ps1
-# for old versions of powershell
-    ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1: powershell/profile.ps1
-    ~/.config/profiles/: 
-        path: powershell/*
-        exclude: [ powershell/profile.ps1 ]
+#region oh-my-posh
 
 - crossplatform-shell:
     - [ pwsh setup_scripts/win32/setup_oh_my_posh.ps1 , Setup oh-my-posh ]
 
-######################
-# oh-my-posh related end
-######################
+#endregion
 
-######################
-# vscode related start
-######################
+#region vscode
 
 - crossplatform-link:
     ~/AppData/Roaming/Code/User/:
@@ -49,14 +37,9 @@
     file: vscode/vscodefiles/vscodefiles
     insiders: false
 
-######################
-# vscode related end
-######################
+#endregion
 
-######################
-# neovim related start
-######################
-
+#region neovim
 - crossplatform-shell:
     - [ pwsh setup_scripts/win32/setup_neovim.ps1, Setup neovim ]
 
@@ -71,18 +54,30 @@
     ~/AppData/Local/nvim/lua/custom: 
         path: neovim/nvim/lua/custom
 
-######################
-# neovim related end
-######################
+#endregion
 
-
-######################
-# win-vind related begin
-######################
-
+#region win-vind
 - crossplatform-link:
     ~/.win-vind/.vindrc: win-vind/vindrc
 
-######################
-# win-vind related end
-######################
+# endregion
+
+#region z-location
+
+- crossplatform-shell:
+    - [ Install-Module ZLocation -Scope CurrentUser -Force, Setup z-location ]
+
+#endregion
+
+#region powershell
+
+- crossplatform-link:
+# for new versions of powershell
+    ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1: powershell/profile.ps1
+# for old versions of powershell
+    ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1: powershell/profile.ps1
+    ~/.config/profiles/: 
+        path: powershell/*
+        exclude: [ powershell/profile.ps1 ]
+
+#endregion
