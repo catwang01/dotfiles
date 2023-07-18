@@ -94,4 +94,7 @@ Function gig {
 }
 
 
-Import-Module ZLocation;
+if (Get-Module ZLocation)
+{
+    Import-Module ZLocation;
+}
