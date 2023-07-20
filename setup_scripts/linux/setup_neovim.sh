@@ -6,7 +6,7 @@ install_neovim() {
   chmod u+x nvim.appimage
   
   echo "Move neovim into /usr/bin"
-  mv ./nvim.appimage /usr/bin/nvim
+  sudo mv ./nvim.appimage /usr/bin/nvim
   return 0
 }
 
