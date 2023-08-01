@@ -1282,6 +1282,12 @@
                     "name": "Outline",
                     "type": "command",
                     "command": "workbench.action.toggleAuxiliaryBar"
+                },
+                {
+                    "key": "f",
+                    "name": "This file",
+                    "type": "command",
+                    "command": "git.openFile"
                 }
             ]
         },
