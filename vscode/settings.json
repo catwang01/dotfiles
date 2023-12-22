@@ -19,7 +19,7 @@
     "vim.hlsearch": true,
     "vim.incsearch": true,
     // to avoid fold open up autocamatically
-    "vim.foldfix": true, 
+    "vim.foldfix": true,
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "$HOME/.vscvimrc",
     // #region VimKeybindings
@@ -446,6 +446,7 @@
     // use the following ways to disable checkings you don't want to have
     "python.linting.pylintArgs": [
         "--max-line-length=120",
+        // disable docstring checking
         "--disable=C0103,C0114,C0115,C0116,W1203,W0621,C0304"
     ],
     "python.linting.mypyEnabled": true,
@@ -456,7 +457,7 @@
     ],
     // "python.linting.mypyPath": "backend/.venv/bin/mypy",
     "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "ms-python.autopep8"
     },
     "python.formatting.provider": "black",
     // #endregion
@@ -469,6 +470,35 @@
     },
     "workbench.iconTheme": "vscode-icons",
     "editor.guides.bracketPairs": true,
+    // #region multi command
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.python.sortImports",
+            "interval": 1000,
+            "sequence": [
+                {
+                    "command": "editor.action.codeAction",
+                    "args": {
+                        "kind": "source.unusedImports",
+                    },
+                },
+                "editor.action.organizeImports",
+            ]
+        },
+        {
+            "command": "multiCommand.refactor",
+            "interval": 300,
+            "sequence": [
+                {
+                    "command": "editor.action.refactor",
+                },
+                {
+                    "command": "editor.action.quickFix",
+                },
+            ]
+        }
+    ],
+    // #endregion multi command
     // #region whichkey
     "whichkey.bindings": [
         // #region others
@@ -750,10 +780,14 @@
                     "command": "editor.action.rename"
                 },
                 {
-                    "key": "f",
+                    "key": "e",
                     "name": "refactor",
                     "type": "command",
-                    "command": "editor.action.refactor"
+                    // "command": "editor.action.refactor"
+                    "command": "extension.multiCommand.execute",
+                    "args": {
+                        "command": "multiCommand.refactor"
+                    }
                 },
                 // #region Sort imports
                 {
@@ -765,10 +799,19 @@
                             "key": "languageId:python",
                             "name": "Sort Python Imports",
                             "type": "command",
-                            "commands": [
-                                "editor.action.organizeImports",
-                                "python.sortImports"
-                            ]
+                            "command": "extension.multiCommand.execute",
+                            "args": {
+                                "command": "multiCommand.python.sortImports"
+                            },
+                            // "commands": [
+                            //     "editor.action.organizeImports",
+                            //     {
+                            //         "command": "editor.action.codeAction",
+                            //         "args": {
+                            //             "kind": "source.unusedImports",
+                            //         }
+                            //     }
+                            // ]
                         },
                         {
                             "key": "languageId:javascript",
@@ -776,7 +819,8 @@
                             "type": "command",
                             "commands": [
                                 "editor.action.organizeImports",
-                                "javascript.sortImports"
+                                "javascript.sortImports",
+                                "javascript.removeUnusedImports"
                             ]
                         },
                         {
@@ -1441,6 +1485,7 @@
             ]
         }
         // #endregion
-    ]
+    ],
+    "gitlens.views.worktrees.files.layout": "list"
     // #endregion
 }
