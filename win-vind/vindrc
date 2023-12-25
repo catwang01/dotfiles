@@ -16,6 +16,8 @@ noremap L <snap_current_window_to_right>
 noremap K <snap_current_window_to_top>
 noremap J <snap_current_window_to_bottom>
 
+gvnoremap a <click_right>
+
 "EasyClick 字体设置. 改为类似Vimium的黑黄配色 
 set easyclick_fontsize=16
 set easyclick_fontweight=800

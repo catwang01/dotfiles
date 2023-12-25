@@ -1,2 +1,2 @@
 . "$PSScriptRoot\utils.ps1"
-winget-install neovim
+winget-install snipaste

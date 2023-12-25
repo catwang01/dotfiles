@@ -1,0 +1,114 @@
+" set backspace=indent,eol,start 退格键设置
+" 默认的剪切寄存器
+set clipboard=unnamed 
+let mapleader=";" 
+
+" set ignorecase 忽略大小写
+
+vnoremap ci :s/^/\/\/<cr>
+vnoremap cu :s/\/\//<cr>
+nnoremap ci :s/^/\/\/<cr>
+nnoremap cu :s/\/\//<cr>
+
+" 单文件
+" 退出插入模式
+inoremap jj <esc>
+inoremap jk <esc>
+inoremap kj <esc>
+inoremap kk <esc>
+
+" 跳转到定义
+nnoremap gd <c-]>zz
+
+" line up line down
+" inoremap <tab> <esc>:vsc Edit.LineDown<CR>i
+" inoremap <shift-tab> <esc>:vsc Edit.LineUp<CR>i
+
+" Refactor
+nnoremap <leader>rr :vsc Refactor.Rename<CR>
+nnoremap <leader>re :vsc EditorContextMenus.CodeWindow.QuickActionsForPosition<CR>
+
+nnoremap <C-Space> :vsc Edit.CompleteWord<CR>
+nnoremap <leader>ei :vsc Edit.QuickInfo<CR>
+nnoremap <leader>ep :vsc Edit.ParameterInfo<CR>
+nnoremap <leader>ef :vsc Edit.FindAllReferences<CR>
+
+" 代码格式format
+nnoremap <leader>== :vsc Edit.FormatDocument<CR>
+" nnoremap gq ==
+" vnoremap gq ==
+
+" debug
+nnoremap <leader>od :vsc Debug.Immediate<CR>
+
+" debug related
+nnoremap <leader>db :vsc Debug.ToggleBreakpoint<CR>
+nnoremap <leader>da :vsc Debug.Restart<CR>
+" nnoremap <leader>dr :vsc Debug.Start<CR>
+nnoremap <leader>dj :vsc Debug.RunToCursor<CR>
+nnoremap <leader>dr :vsc TestExplorer.DebugAllTestsInContext<CR>
+nnoremap <leader>dc :vsc Debug.Start<CR>
+nnoremap <leader>dn :vsc Debug.StepOver<CR>
+nnoremap <leader>di :vsc Debug.StepInto<CR>
+nnoremap <leader>ds :vsc Debug.StopDebugging<CR>
+
+" test related
+noremap <leader>rt :vsc TestExplorer.RunAllTestsInContext<CR>
+" Create unit tests
+noremap <leader>ct :vsc TestExplorer.RunAllTestsInContext<CR>
+
+" Remove and sort uings
+nnoremap <leader>rs :vsc Edit.RemoveAndSort<CR>
+
+"折叠
+noremap <space> za
+"打开所在文件夹"
+nnoremap cm :vsc File.OpenContainingFolder<CR>
+" find in all files
+nnoremap <leader>fs :vsc Edit.FindinFiles<CR>
+
+" open solution explorer
+nnoremap <leader>o :vsc View.SolutionExplorer<CR>
+
+" open solution explorer
+nnoremap <c-l> :vsc View.SolutionExplorer<CR>
+
+" go to edit area
+nnoremap <c-h> :vsc Window.ActivateDocumentWindow<CR>
+
+" source
+nnoremap <leader>s :source ~/.vsvimrc<CR>
+
+" commentation
+nmap gc :vsc Edit.ToggleLineComment<CR>
+vmap gc :vsc Edit.ToggleLineComment<CR>
+
+"visual模式中的查找"
+":vnoremap * "/y/<C-r>/<CR>
+":vnoremap # "/y?<C-r>/<CR>
+
+".多文件
+" ctrl + o and ctrl + i by default are handled by vs. We need to config them to be handled by vsvim.
+nnoremap <c-o> :vsc View.NavigateBackward<CR>
+nnoremap <c-i> :vsc View.NavigateForward<CR>
+
+" VAssistX
+"打开查看类的对话框
+nnoremap cs :vsc VAssistX.FindSymbolDialog<CR>
+"打开查看文件的对话框
+nnoremap cf :vsc VAssistX.OpenFileInSolutionDialog<CR>
+"open VAOutline
+nnoremap co :vsc VAssistX.VAOutline<CR>
+"函数列表"
+nnoremap zm :vsc VAssistX.ListMethodsInCurrentFile<CR>
+"当前文件中的引用"
+nnoremap cj :vsc VAssistX.FindReferencesinFile<CR>
+"查看所有引用"
+nnoremap ca :vsc VAssistX.FindReferences<CR>
+"实现接口"
+nnoremap zp :vsc VAssistX.RefactorImplementInterface<CR>
+
+nnoremap <leader>; :vsc Window.ActivateQuickLaunch<CR>
+
+" end
+echo 'vsvimrc is loaded'

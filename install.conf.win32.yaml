@@ -11,10 +11,17 @@
         shell: powershell
 #endregion
 
+#region PSReadLine
+
+- crossplatform-shell:
+    - [Install-Module PSReadLine -MinimumVersion 2.2.6 -Force, Setup PSReadLine]
+
+#endregion
+
 #region oh-my-posh
 
 - crossplatform-shell:
-    - [ pwsh setup_scripts/win32/setup_oh_my_posh.ps1 , Setup oh-my-posh ]
+    - [ powershell.exe setup_scripts/win32/setup_oh_my_posh.ps1 , Setup oh-my-posh ]
 
 #endregion
 
@@ -39,18 +46,23 @@
 
 #endregion
 
+#region visualstudio
+
+- crossplatform-link:
+    ~/.vsvimrc: visualstudio/vsvim/.vsvimrc
+
+#endregion 
+
 #region neovim
 - crossplatform-shell:
-    - [ pwsh setup_scripts/win32/setup_neovim.ps1, Setup neovim ]
+    - [ powershell.exe setup_scripts/win32/setup_neovim.ps1, Setup neovim ]
 
 - crossplatform-shell:
-    - [ pwsh setup_scripts/win32/setup_edge.ps1, Setup edge ]
+    - [ powershell.exe setup_scripts/win32/setup_edge.ps1, Setup edge ]
 
 - crossplatform-link:
     ~/AppData/Local/nvim: 
         path: neovim/nvchad
-
-- crossplatform-link:
     ~/AppData/Local/nvim/lua/custom: 
         path: neovim/nvim/lua/custom
 
@@ -65,12 +77,12 @@
 #region z-location
 
 - crossplatform-shell:
+    - [ Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force ]
     - [ Install-Module ZLocation -Scope CurrentUser -Force, Setup z-location ]
 
 #endregion
 
 #region powershell
-
 - crossplatform-link:
 # for new versions of powershell
     ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1: powershell/profile.ps1
@@ -79,5 +91,13 @@
     ~/.config/profiles/: 
         path: powershell/*
         exclude: [ powershell/profile.ps1 ]
-
 #endregion
+
+- crossplatform-shell:
+    - [powershell.exe setup_scripts/win32/setup_snipaste.ps1, "Setup snipaste"]
+    
+- crossplatform-shell:
+    - [powershell.exe setup_scripts/win32/setup_listary.ps1, "Setup listary"]
+
+- crossplatform-shell:
+    - [powershell.exe setup_scripts/win32/setup_obsidian.ps1, "Setup obsidian"]

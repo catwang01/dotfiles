@@ -3,14 +3,21 @@ $env:Path += ";$env:ProgramFiles\Git\usr\bin"
 
 # PSReadLine
 Import-Module PSReadline
-if ($host.Version.Major -eq 7) {
-    #only PS 7 supports HistoryAndPlug
-    Set-PSReadLineOption -PredictionSource HistoryAndPlugin
-}
-else {
-    Set-PSReadLineOption -PredictionSource History
-}
+try{
+  if ($host.Version.Major -eq 7) {
+      #only PS 7 supports HistoryAndPlug
+      Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+  }
+  else {
+      Set-PSReadLineOption -PredictionSource History
+  }
 
+  #add background color to the prediction preview
+  Set-PSReadLineOption -Colors @{InlinePrediction = "$([char]0x1b)[36;7;238m]" }
+}
+catch {
+  # Write-Error "run into error"
+}
 
 Set-PSReadLineOption -EditMode vi
 
@@ -28,21 +35,27 @@ $OnViModeChange = [scriptblock] {
 
 Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
 
-Set-PSReadLineKeyHandler -Chord 'j' -ScriptBlock {
-    if ([Microsoft.PowerShell.PSConsoleReadLine]::InViInsertMode()) {
-        $key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-        if ($key.Character -eq 'k') {
-            [Microsoft.PowerShell.PSConsoleReadLine]::ViCommandMode()
-        }
-        else {
-            [Microsoft.Powershell.PSConsoleReadLine]::Insert('j')
-            [Microsoft.Powershell.PSConsoleReadLine]::Insert($key.Character)
-        }
-    }
-}
-
-#add background color to the prediction preview
-Set-PSReadLineOption -Colors @{InlinePrediction = "$([char]0x1b)[36;7;238m]" }
+$global:prevKeyPressTime = 0  
+  
+Set-PSReadLineKeyHandler -Chord 'j' -ScriptBlock {  
+  $currentTime = [System.DateTime]::Now.Ticks  
+  $timeDifference = $currentTime - $global:prevKeyPressTime  
+  $global:prevKeyPressTime = $currentTime  
+  
+  if ([Microsoft.PowerShell.PSConsoleReadLine]::InViInsertMode() -and $timeDifference -gt 1000000) {  
+    $key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")  
+    if ($key.Character -eq 'k') {  
+      [Microsoft.PowerShell.PSConsoleReadLine]::ViCommandMode()  
+    }  
+    else {  
+      [Microsoft.Powershell.PSConsoleReadLine]::Insert('j')  
+      [Microsoft.Powershell.PSConsoleReadLine]::Insert($key.Character)  
+    }  
+  }  
+  else {  
+    [Microsoft.Powershell.PSConsoleReadLine]::Insert('j')  
+  }  
+}  
 
 if ($host.Version.Major -eq 7) {
     #change the key to accept suggestions (default is right arrow)
@@ -98,3 +111,11 @@ if (Get-Module ZLocation)
 {
     Import-Module ZLocation;
 }
+
+# Anaconda3
+$env:ANACONDA3_HOME = "$HOME\Anaconda3"
+$env:Path += ";$env:ANACONDA3_HOME"
+
+# unison
+$env:UNISON_HOME = "$HOME\source\Notes\Softwares\unison"
+$env:Path += ";$env:UNISON_HOME\bin"

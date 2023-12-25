@@ -1,6 +1,10 @@
 # Settings
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc 
+if [ -f ~/.bash/my_bashrc ]; then
+  source ~/.bash/my_bashrc
+fi
+
+if [ -f ~/.bash/my_bashrc_private ]; then
+  source ~/.bash/my_bashrc_private
 fi
 
 # Settings
@@ -12,7 +16,3 @@ fi
 if [ -f ~/.zsh/my_zshrc_private.zsh ]; then
     source ~/.zsh/my_zshrc_private.zsh
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
