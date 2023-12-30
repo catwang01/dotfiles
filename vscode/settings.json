@@ -456,7 +456,7 @@
     ],
     // "python.linting.mypyPath": "backend/.venv/bin/mypy",
     "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "ms-python.autopep8"
     },
     "python.formatting.provider": "black",
     // #endregion
@@ -495,6 +495,20 @@
                     },
                 },
                 "editor.action.organizeImports",
+            ]
+        },
+        {
+            "command": "multiCommand.typescript.sortImports",
+            "interval": 1000,
+            "sequence": [
+                {
+                    "command": "editor.action.codeAction",
+                    "args": {
+                        "kind": "source.unusedImports",
+                    },
+                },
+                "editor.action.organizeImports",
+                "typescript.sortImports"
             ]
         },
         {
@@ -829,667 +843,672 @@
                             "name": "Sort js Imports",
                             "type": "command",
                             "command": "multiCommand.js.sortImports"
-                        ]
-                    },
-                    {
-                        "key": "languageId:javascriptreact",
-                        "name": "Sort js Imports",
-                        "type": "command",
-                        "command": "multiCommand.js.sortImports"
-                    }
-                ]
-            }
-            // #endregion
-        ]
-    },
-    // #endregion
-    // #region found
-    {
-        "key": "f",
-        "name": "Found...",
-        "icon": "search",
-        "type": "bindings",
-        "bindings": [
-            {
-                "key": "c",
-                "name": "Found in all commands",
-                "icon": "rocket",
-                "type": "command",
-                "command": "workbench.action.showCommands"
-            },
-            {
-                "key": "s",
-                "name": "Search text in project",
-                "icon": "search",
-                "type": "command",
-                "command": "workbench.action.findInFiles"
-            },
-            {
-                "key": "f",
-                "name": "Found file by name",
-                "icon": "file",
-                "type": "command",
-                "command": "workbench.action.quickOpen"
-            },
-            {
-                "key": "b",
-                "name": "Found in all buffers",
-                "icon": "files",
-                "type": "command",
-                "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
-            },
-            {
-                "key": "r",
-                "name": "Reveal in explorer",
-                "icon": "files",
-                "type": "command",
-                "command": "revealInExplorer"
-            }
-        ]
-    },
-    // #endregion
-    // #region Debug
-    {
-        "key": "d",
-        "name": "Debug...",
-        "icon": "bug",
-        "type": "bindings",
-        "bindings": [
-            {
-                "key": "r",
-                "name": "Save and Run Debugging",
-                "icon": "debug-start",
-                "type": "command",
-                "commands": [
-                    "workbench.action.files.save",
-                    "workbench.action.debug.start"
-                ]
-            },
-            {
-                "key": "a",
-                "name": "Save and Restart Debugging",
-                "icon": "debug-restart",
-                "type": "command",
-                "commands": [
-                    "workbench.action.files.save",
-                    "workbench.action.debug.restart"
-                ]
-            },
-            {
-                "key": "p",
-                "name": "Pause debug",
-                "icon": "debug-pause",
-                "type": "command",
-                "command": "workbench.action.debug.pause"
-            },
-            {
-                "key": "s",
-                "name": "Stop debugging",
-                "icon": "debug-stop",
-                "type": "command",
-                "command": "workbench.action.debug.stop"
-            },
-            {
-                "key": "b",
-                "name": "Toggle Breakpoint",
-                "icon": "activate-breakpoints",
-                "type": "command",
-                "command": "editor.debug.action.toggleBreakpoint"
-            },
-            {
-                "key": "c",
-                "name": "Continue Debugging",
-                "icon": "debug-continue",
-                "type": "command",
-                "command": "workbench.action.debug.continue"
-            },
-            {
-                "key": "n",
-                "name": "Step Over",
-                "icon": "debug-step-over",
-                "type": "command",
-                "command": "workbench.action.debug.stepOver"
-            },
-            {
-                "key": "o",
-                "name": "Step Out",
-                "icon": "debug-step-out",
-                "type": "command",
-                "command": "workbench.action.debug.stepOut"
-            },
-            {
-                "key": "i",
-                "name": "Step Into",
-                "icon": "debug-step-into",
-                "type": "command",
-                "command": "workbench.action.debug.stepInto"
-            },
-            // #region Debug Step
-            {
-                "key": ".",
-                "name": "Debug Step...",
-                "icon": "debug",
-                "type": "transient",
-                "bindings": [
-                    {
-                        "key": "n",
-                        "name": "Step Over",
-                        "icon": "debug-step-over",
-                        "type": "command",
-                        "command": "workbench.action.debug.stepOver"
-                    },
-                    {
-                        "key": "o",
-                        "name": "Step Out",
-                        "icon": "debug-step-out",
-                        "type": "command",
-                        "command": "workbench.action.debug.stepOut"
-                    },
-                    {
-                        "key": "i",
-                        "name": "Step Into",
-                        "icon": "debug-step-into",
-                        "type": "command",
-                        "command": "workbench.action.debug.stepInto"
-                    },
-                ]
-            },
-            // #endregion
-            {
-                "key": "j",
-                "name": "Jump to cursor",
-                "icon": "debug-continue",
-                "type": "command",
-                "command": "editor.debug.action.runToCursor"
-            },
-            {
-                "key": "D",
-                "name": "Delete all breakpoints",
-                "icon": "trash",
-                "type": "command",
-                "command": "workbench.debug.viewlet.action.removeAllBreakpoints"
-            },
-            {
-                "key": "E",
-                "name": "Enable all breakpoints",
-                "icon": "expand-all",
-                "type": "command",
-                "command": "workbench.debug.viewlet.action.enableAllBreakpoints"
-            },
-            {
-                "key": "S",
-                "name": "Disable all breakpoints",
-                "icon": "collapse-all",
-                "type": "command",
-                "command": "workbench.debug.viewlet.action.disableAllBreakpoints"
-            }
-        ]
-    },
-    // #endregion
-    // #region Errors
-    {
-        "key": "e",
-        "name": "+Errors",
-        "icon": "error",
-        "type": "bindings",
-        "bindings": [
-            {
-                "key": ".",
-                "name": "Error transient",
-                "icon": "window",
-                "type": "transient",
-                "bindings": [
-                    {
-                        "key": "f",
-                        "name": "Fix error",
-                        "icon": "lightbulb-autofix",
-                        "type": "command",
-                        "command": "editor.action.quickFix"
-                    },
-                    {
-                        "key": "n",
-                        "name": "Next error",
-                        "icon": "arrow-down",
-                        "type": "command",
-                        "command": "editor.action.marker.nextInFiles"
-                    },
-                    {
-                        "key": "p",
-                        "name": "Previous error",
-                        "icon": "arrow-up",
-                        "type": "command",
-                        "command": "editor.action.marker.prevInFiles"
-                    },
-                    {
-                        "key": "N",
-                        "name": "Previous error",
-                        "icon": "arrow-up",
-                        "type": "command",
-                        "command": "editor.action.marker.prevInFiles"
-                    }
-                ]
-            },
-            {
-                "key": "e",
-                "name": "Show error",
-                "icon": "error",
-                "type": "command",
-                "command": "editor.action.showHover"
-            },
-            {
-                "key": "f",
-                "name": "Fix error",
-                "icon": "lightbulb-autofix",
-                "type": "command",
-                "command": "editor.action.quickFix"
-            },
-            {
-                "key": "l",
-                "name": "List errors",
-                "icon": "list-flat",
-                "type": "command",
-                "command": "workbench.actions.view.problems"
-            },
-            {
-                "key": "n",
-                "name": "Next error",
-                "icon": "arrow-down",
-                "type": "command",
-                "command": "editor.action.marker.nextInFiles"
-            },
-            {
-                "key": "p",
-                "name": "Previous error",
-                "icon": "arrow-up",
-                "type": "command",
-                "command": "editor.action.marker.prevInFiles"
-            },
-            {
-                "key": "N",
-                "name": "Previous error",
-                "icon": "arrow-up",
-                "type": "command",
-                "command": "editor.action.marker.prevInFiles"
-            }
-        ]
-    },
-    // #endregion
-    // #region Git
-    {
-        "key": "g",
-        "name": "Git..",
-        "icon": "git-merge",
-        "type": "bindings",
-        "bindings": [
-            {
-                "key": "c",
-                "name": "Git: Commit",
-                "type": "command",
-                "command": "git.commit"
-            },
-            {
-                "key": "p",
-                "name": "Git: Push",
-                "type": "command",
-                "command": "git.push"
-            },
-            {
-                "key": "n",
-                "name": "Jump to next change",
-                "icon": "arrow-down",
-                "type": "command",
-                "command": "workbench.action.editor.nextChange"
-            },
-            {
-                "key": "p",
-                "name": "Jump to previous change",
-                "icon": "arrow-up",
-                "type": "command",
-                "command": "workbench.action.editor.previousChange"
-            },
-            {
-                "key": ".",
-                "name": "Git transient",
-                "icon": "window",
-                "type": "transient",
-                "bindings": [
-                    {
-                        "key": "n",
-                        "name": "Jump to next change",
-                        "icon": "arrow-down",
-                        "type": "command",
-                        "command": "workbench.action.editor.nextChange"
-                    },
-                    {
-                        "key": "p",
-                        "name": "Jump to previous change",
-                        "icon": "arrow-up",
-                        "type": "command",
-                        "command": "workbench.action.editor.previousChange"
-                    }
-                ]
-            },
-            {
-                "key": "s",
-                "name": "Git stage",
-                "type": "bindings",
-                "bindings": [
-                    {
-                        "key": ".",
-                        "name": "Git stage this file",
-                        "type": "command",
-                        "command": "git.stage"
-                    },
-                    {
-                        "key": "s",
-                        "name": "Git stage selection",
-                        "type": "command",
-                        "command": "git.stageSelectedRanges"
-                    },
-                    {
-                        "key": "a",
-                        "name": "Git stage all",
-                        "type": "command",
-                        "command": "git.stageAll"
-                    }
-                ]
-            },
-            {
-                "key": "u",
-                "name": "Git unstage",
-                "type": "bindings",
-                "bindings": [
-                    {
-                        "key": ".",
-                        "name": "Git unstage this file",
-                        "type": "command",
-                        "command": "git.unstage"
-                    },
-                    {
-                        "key": "s",
-                        "name": "Git unstage selection",
-                        "type": "bindings",
-                        "command": "git.unstageSelectedRanges"
-                    },
-                    {
-                        "key": "a",
-                        "name": "Git unstage all",
-                        "type": "bindings",
-                        "command": "git.unstageAll"
-                    }
-                ]
-            },
-            {
-                "key": "r",
-                "name": "Git revert",
-                "type": "bindings",
-                "bindings": [
-                    {
-                        "key": ".",
-                        "name": "Git revert this file",
-                        "type": "command",
-                        "commands": [
-                            "editor.action.selectAll",
-                            "git.revertSelectedRanges"
-                        ]
-                    },
-                    {
-                        "key": "s",
-                        "name": "Git revert selection",
-                        "type": "command",
-                        "commands": [
-                            "git.revertSelectedRanges"
-                        ]
-                    }
-                ]
-            }
-        ]
-    },
-    // #endregion
-    // #region Smart select/expand region
-    {
-        "key": "v",
-        "name": "Smart select/expand region",
-        "icon": "selection",
-        "type": "transient",
-        "command": "editor.action.smartSelect.grow",
-        "bindings": [
-            {
-                "key": "v",
-                "name": "Grow selection",
-                "icon": "add",
-                "type": "command",
-                "command": "editor.action.smartSelect.grow"
-            },
-            {
-                "key": "V",
-                "name": "Shrink selection",
-                "icon": "remove",
-                "type": "command",
-                "command": "editor.action.smartSelect.shrink"
-            }
-        ]
-    },
-    // #endregion
-    // #region Open
-    {
-        "key": "o",
-        "name": "Open...",
-        "type": "bindings",
-        "bindings": [
-            {
-                "key": "p",
-                "name": "Show Problems",
-                "type": "command",
-                "command": "workbench.actions.view.problems"
-            },
-            {
-                "key": "o",
-                "name": "Show output",
-                "type": "command",
-                "command": "workbench.action.output.toggleOutput"
-            },
-            {
-                "key": "d",
-                "name": "Show debug",
-                "type": "command",
-                "command": "workbench.debug.action.toggleRepl"
-            },
-            {
-                "key": "g",
-                "name": "Show source control",
-                "type": "command",
-                "command": "workbench.view.scm"
-            },
-            {
-                "key": "t",
-                "name": "Toggle Terminal",
-                "type": "command",
-                "command": "workbench.action.terminal.toggleTerminal"
-            },
-            {
-                "key": "e",
-                "name": "Show tree/explorer view",
-                "type": "conditional",
-                "bindings": [
-                    {
-                        "key": "",
-                        "name": "default",
-                        "type": "command",
-                        "command": "workbench.view.explorer"
-                    },
-                    {
-                        "key": "when:sideBarVisible && explorerViewletVisible",
-                        "name": "Hide explorer",
-                        "type": "command",
-                        "command": "workbench.action.toggleSidebarVisibility"
-                    }
-                ]
-            },
-            {
-                "key": "a",
-                "name": "Outline",
-                "type": "command",
-                "command": "workbench.action.toggleAuxiliaryBar"
-            },
-            {
-                "key": "f",
-                "name": "This file",
-                "type": "command",
-                "command": "git.openFile"
-            }
-        ]
-    },
-    // #endregion
-    // #region Fold
-    {
-        "key": "z",
-        "name": "+Fold",
-        "icon": "fold",
-        "type": "bindings",
-        "bindings": [
-            {
-                "key": "a",
-                "name": "Toggle: around a point",
-                "icon": "selection",
-                "type": "command",
-                "command": "editor.toggleFold"
-            },
-            {
-                "key": "b",
-                "name": "Close: all block comments",
-                "icon": "fold",
-                "type": "command",
-                "command": "editor.foldAllBlockComments"
-            },
-            {
-                "key": "c",
-                "name": "Close: at a point",
-                "icon": "fold",
-                "type": "command",
-                "command": "editor.fold"
-            },
-            {
-                "key": "g",
-                "name": "Close: all regions",
-                "icon": "fold",
-                "type": "command",
-                "command": "editor.foldAllMarkerRegions"
-            },
-            {
-                "key": "m",
-                "name": "Close: all",
-                "icon": "fold",
-                "type": "command",
-                "command": "editor.foldAll"
-            },
-            {
-                "key": "o",
-                "name": "Open: at a point",
-                "icon": "unfold",
-                "type": "command",
-                "command": "editor.unfold"
-            },
-            {
-                "key": "r",
-                "name": "Open: all",
-                "icon": "unfold",
-                "type": "command",
-                "command": "editor.unfoldAll"
-            },
-            {
-                "key": "G",
-                "name": "Open: all regions",
-                "icon": "unfold",
-                "type": "command",
-                "command": "editor.unfoldAllMarkerRegions"
-            },
-            {
-                "key": "O",
-                "name": "Open: recursively",
-                "icon": "unfold",
-                "type": "command",
-                "command": "editor.unfoldRecursively"
-            }
-        ]
-    },
-    // endregion
-    // #region Terminal
-    {
-        "key": "t",
-        "name": "Terminal",
-        "icon": "terminal",
-        "type": "bindings",
-        "bindings": [
-            {
-                "key": "f",
-                "name": "Focus terminal",
-                "icon": "terminal",
-                "type": "command",
-                "command": "workbench.action.terminal.focus"
-            },
-            {
-                "key": "n",
-                "name": "Open new terminal",
-                "icon": "chevron-right",
-                "type": "command",
-                "command": "workbench.action.terminal.new"
-            }
-        ]
-    },
-    // #endregion
-    // #region Format
-    {
-        "key": "=",
-        "name": "+Format",
-        "icon": "list-flat",
-        "type": "bindings",
-        "bindings": [
-            {
-                "key": "=",
-                "name": "Format region or buffer",
-                "icon": "list-flat",
-                "type": "command",
-                "command": "editor.action.format"
-            },
-            {
-                "key": "b",
-                "name": "Format buffer",
-                "icon": "file",
-                "type": "command",
-                "command": "editor.action.formatDocument"
-            },
-            {
-                "key": "c",
-                "name": "Format changes",
-                "icon": "diff",
-                "type": "command",
-                "command": "editor.action.formatChanges"
-            },
-            {
-                "key": "s",
-                "name": "Format selection",
-                "icon": "selection",
-                "type": "command",
-                "command": "editor.action.formatSelection"
-            },
-            {
-                "key": "B",
-                "name": "+Format buffer with formatter",
-                "icon": "file",
-                "type": "command",
-                "command": "editor.action.formatDocument.multiple"
-            },
-            {
-                "key": "S",
-                "name": "+Format selection with formatter",
-                "icon": "selection",
-                "type": "command",
-                "command": "editor.action.formatSelection.multiple"
-            }
-        ]
-    }
-    // #endregion
+                        },
+                        {
+                            "key": "languageId:javascriptreact",
+                            "name": "Sort js Imports",
+                            "type": "command",
+                            "command": "multiCommand.js.sortImports"
+                        },
+                        {
+                            "key": "languageId:typescript",
+                            "name": "Sort typescript Imports",
+                            "type": "command",
+                            "command": "multiCommand.typescript.sortImports"
+                        }
+                    ]
+                }
+                // #endregion
+            ]
+        },
+        // #endregion
+        // #region found
+        {
+            "key": "f",
+            "name": "Found...",
+            "icon": "search",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "c",
+                    "name": "Found in all commands",
+                    "icon": "rocket",
+                    "type": "command",
+                    "command": "workbench.action.showCommands"
+                },
+                {
+                    "key": "s",
+                    "name": "Search text in project",
+                    "icon": "search",
+                    "type": "command",
+                    "command": "workbench.action.findInFiles"
+                },
+                {
+                    "key": "f",
+                    "name": "Found file by name",
+                    "icon": "file",
+                    "type": "command",
+                    "command": "workbench.action.quickOpen"
+                },
+                {
+                    "key": "b",
+                    "name": "Found in all buffers",
+                    "icon": "files",
+                    "type": "command",
+                    "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
+                },
+                {
+                    "key": "r",
+                    "name": "Reveal in explorer",
+                    "icon": "files",
+                    "type": "command",
+                    "command": "revealInExplorer"
+                }
+            ]
+        },
+        // #endregion
+        // #region Debug
+        {
+            "key": "d",
+            "name": "Debug...",
+            "icon": "bug",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "r",
+                    "name": "Save and Run Debugging",
+                    "icon": "debug-start",
+                    "type": "command",
+                    "commands": [
+                        "workbench.action.files.save",
+                        "workbench.action.debug.start"
+                    ]
+                },
+                {
+                    "key": "a",
+                    "name": "Save and Restart Debugging",
+                    "icon": "debug-restart",
+                    "type": "command",
+                    "commands": [
+                        "workbench.action.files.save",
+                        "workbench.action.debug.restart"
+                    ]
+                },
+                {
+                    "key": "p",
+                    "name": "Pause debug",
+                    "icon": "debug-pause",
+                    "type": "command",
+                    "command": "workbench.action.debug.pause"
+                },
+                {
+                    "key": "s",
+                    "name": "Stop debugging",
+                    "icon": "debug-stop",
+                    "type": "command",
+                    "command": "workbench.action.debug.stop"
+                },
+                {
+                    "key": "b",
+                    "name": "Toggle Breakpoint",
+                    "icon": "activate-breakpoints",
+                    "type": "command",
+                    "command": "editor.debug.action.toggleBreakpoint"
+                },
+                {
+                    "key": "c",
+                    "name": "Continue Debugging",
+                    "icon": "debug-continue",
+                    "type": "command",
+                    "command": "workbench.action.debug.continue"
+                },
+                {
+                    "key": "n",
+                    "name": "Step Over",
+                    "icon": "debug-step-over",
+                    "type": "command",
+                    "command": "workbench.action.debug.stepOver"
+                },
+                {
+                    "key": "o",
+                    "name": "Step Out",
+                    "icon": "debug-step-out",
+                    "type": "command",
+                    "command": "workbench.action.debug.stepOut"
+                },
+                {
+                    "key": "i",
+                    "name": "Step Into",
+                    "icon": "debug-step-into",
+                    "type": "command",
+                    "command": "workbench.action.debug.stepInto"
+                },
+                // #region Debug Step
+                {
+                    "key": ".",
+                    "name": "Debug Step...",
+                    "icon": "debug",
+                    "type": "transient",
+                    "bindings": [
+                        {
+                            "key": "n",
+                            "name": "Step Over",
+                            "icon": "debug-step-over",
+                            "type": "command",
+                            "command": "workbench.action.debug.stepOver"
+                        },
+                        {
+                            "key": "o",
+                            "name": "Step Out",
+                            "icon": "debug-step-out",
+                            "type": "command",
+                            "command": "workbench.action.debug.stepOut"
+                        },
+                        {
+                            "key": "i",
+                            "name": "Step Into",
+                            "icon": "debug-step-into",
+                            "type": "command",
+                            "command": "workbench.action.debug.stepInto"
+                        },
+                    ]
+                },
+                // #endregion
+                {
+                    "key": "j",
+                    "name": "Jump to cursor",
+                    "icon": "debug-continue",
+                    "type": "command",
+                    "command": "editor.debug.action.runToCursor"
+                },
+                {
+                    "key": "D",
+                    "name": "Delete all breakpoints",
+                    "icon": "trash",
+                    "type": "command",
+                    "command": "workbench.debug.viewlet.action.removeAllBreakpoints"
+                },
+                {
+                    "key": "E",
+                    "name": "Enable all breakpoints",
+                    "icon": "expand-all",
+                    "type": "command",
+                    "command": "workbench.debug.viewlet.action.enableAllBreakpoints"
+                },
+                {
+                    "key": "S",
+                    "name": "Disable all breakpoints",
+                    "icon": "collapse-all",
+                    "type": "command",
+                    "command": "workbench.debug.viewlet.action.disableAllBreakpoints"
+                }
+            ]
+        },
+        // #endregion
+        // #region Errors
+        {
+            "key": "e",
+            "name": "+Errors",
+            "icon": "error",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": ".",
+                    "name": "Error transient",
+                    "icon": "window",
+                    "type": "transient",
+                    "bindings": [
+                        {
+                            "key": "f",
+                            "name": "Fix error",
+                            "icon": "lightbulb-autofix",
+                            "type": "command",
+                            "command": "editor.action.quickFix"
+                        },
+                        {
+                            "key": "n",
+                            "name": "Next error",
+                            "icon": "arrow-down",
+                            "type": "command",
+                            "command": "editor.action.marker.nextInFiles"
+                        },
+                        {
+                            "key": "p",
+                            "name": "Previous error",
+                            "icon": "arrow-up",
+                            "type": "command",
+                            "command": "editor.action.marker.prevInFiles"
+                        },
+                        {
+                            "key": "N",
+                            "name": "Previous error",
+                            "icon": "arrow-up",
+                            "type": "command",
+                            "command": "editor.action.marker.prevInFiles"
+                        }
+                    ]
+                },
+                {
+                    "key": "e",
+                    "name": "Show error",
+                    "icon": "error",
+                    "type": "command",
+                    "command": "editor.action.showHover"
+                },
+                {
+                    "key": "f",
+                    "name": "Fix error",
+                    "icon": "lightbulb-autofix",
+                    "type": "command",
+                    "command": "editor.action.quickFix"
+                },
+                {
+                    "key": "l",
+                    "name": "List errors",
+                    "icon": "list-flat",
+                    "type": "command",
+                    "command": "workbench.actions.view.problems"
+                },
+                {
+                    "key": "n",
+                    "name": "Next error",
+                    "icon": "arrow-down",
+                    "type": "command",
+                    "command": "editor.action.marker.nextInFiles"
+                },
+                {
+                    "key": "p",
+                    "name": "Previous error",
+                    "icon": "arrow-up",
+                    "type": "command",
+                    "command": "editor.action.marker.prevInFiles"
+                },
+                {
+                    "key": "N",
+                    "name": "Previous error",
+                    "icon": "arrow-up",
+                    "type": "command",
+                    "command": "editor.action.marker.prevInFiles"
+                }
+            ]
+        },
+        // #endregion
+        // #region Git
+        {
+            "key": "g",
+            "name": "Git..",
+            "icon": "git-merge",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "c",
+                    "name": "Git: Commit",
+                    "type": "command",
+                    "command": "git.commit"
+                },
+                {
+                    "key": "p",
+                    "name": "Git: Push",
+                    "type": "command",
+                    "command": "git.push"
+                },
+                {
+                    "key": "n",
+                    "name": "Jump to next change",
+                    "icon": "arrow-down",
+                    "type": "command",
+                    "command": "workbench.action.editor.nextChange"
+                },
+                {
+                    "key": "p",
+                    "name": "Jump to previous change",
+                    "icon": "arrow-up",
+                    "type": "command",
+                    "command": "workbench.action.editor.previousChange"
+                },
+                {
+                    "key": ".",
+                    "name": "Git transient",
+                    "icon": "window",
+                    "type": "transient",
+                    "bindings": [
+                        {
+                            "key": "n",
+                            "name": "Jump to next change",
+                            "icon": "arrow-down",
+                            "type": "command",
+                            "command": "workbench.action.editor.nextChange"
+                        },
+                        {
+                            "key": "p",
+                            "name": "Jump to previous change",
+                            "icon": "arrow-up",
+                            "type": "command",
+                            "command": "workbench.action.editor.previousChange"
+                        }
+                    ]
+                },
+                {
+                    "key": "s",
+                    "name": "Git stage",
+                    "type": "bindings",
+                    "bindings": [
+                        {
+                            "key": ".",
+                            "name": "Git stage this file",
+                            "type": "command",
+                            "command": "git.stage"
+                        },
+                        {
+                            "key": "s",
+                            "name": "Git stage selection",
+                            "type": "command",
+                            "command": "git.stageSelectedRanges"
+                        },
+                        {
+                            "key": "a",
+                            "name": "Git stage all",
+                            "type": "command",
+                            "command": "git.stageAll"
+                        }
+                    ]
+                },
+                {
+                    "key": "u",
+                    "name": "Git unstage",
+                    "type": "bindings",
+                    "bindings": [
+                        {
+                            "key": ".",
+                            "name": "Git unstage this file",
+                            "type": "command",
+                            "command": "git.unstage"
+                        },
+                        {
+                            "key": "s",
+                            "name": "Git unstage selection",
+                            "type": "bindings",
+                            "command": "git.unstageSelectedRanges"
+                        },
+                        {
+                            "key": "a",
+                            "name": "Git unstage all",
+                            "type": "bindings",
+                            "command": "git.unstageAll"
+                        }
+                    ]
+                },
+                {
+                    "key": "r",
+                    "name": "Git revert",
+                    "type": "bindings",
+                    "bindings": [
+                        {
+                            "key": ".",
+                            "name": "Git revert this file",
+                            "type": "command",
+                            "commands": [
+                                "editor.action.selectAll",
+                                "git.revertSelectedRanges"
+                            ]
+                        },
+                        {
+                            "key": "s",
+                            "name": "Git revert selection",
+                            "type": "command",
+                            "commands": [
+                                "git.revertSelectedRanges"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        // #endregion
+        // #region Smart select/expand region
+        {
+            "key": "v",
+            "name": "Smart select/expand region",
+            "icon": "selection",
+            "type": "transient",
+            "command": "editor.action.smartSelect.grow",
+            "bindings": [
+                {
+                    "key": "v",
+                    "name": "Grow selection",
+                    "icon": "add",
+                    "type": "command",
+                    "command": "editor.action.smartSelect.grow"
+                },
+                {
+                    "key": "V",
+                    "name": "Shrink selection",
+                    "icon": "remove",
+                    "type": "command",
+                    "command": "editor.action.smartSelect.shrink"
+                }
+            ]
+        },
+        // #endregion
+        // #region Open
+        {
+            "key": "o",
+            "name": "Open...",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "p",
+                    "name": "Show Problems",
+                    "type": "command",
+                    "command": "workbench.actions.view.problems"
+                },
+                {
+                    "key": "o",
+                    "name": "Show output",
+                    "type": "command",
+                    "command": "workbench.action.output.toggleOutput"
+                },
+                {
+                    "key": "d",
+                    "name": "Show debug",
+                    "type": "command",
+                    "command": "workbench.debug.action.toggleRepl"
+                },
+                {
+                    "key": "g",
+                    "name": "Show source control",
+                    "type": "command",
+                    "command": "workbench.view.scm"
+                },
+                {
+                    "key": "t",
+                    "name": "Toggle Terminal",
+                    "type": "command",
+                    "command": "workbench.action.terminal.toggleTerminal"
+                },
+                {
+                    "key": "e",
+                    "name": "Show tree/explorer view",
+                    "type": "conditional",
+                    "bindings": [
+                        {
+                            "key": "",
+                            "name": "default",
+                            "type": "command",
+                            "command": "workbench.view.explorer"
+                        },
+                        {
+                            "key": "when:sideBarVisible && explorerViewletVisible",
+                            "name": "Hide explorer",
+                            "type": "command",
+                            "command": "workbench.action.toggleSidebarVisibility"
+                        }
+                    ]
+                },
+                {
+                    "key": "a",
+                    "name": "Outline",
+                    "type": "command",
+                    "command": "workbench.action.toggleAuxiliaryBar"
+                },
+                {
+                    "key": "f",
+                    "name": "This file",
+                    "type": "command",
+                    "command": "git.openFile"
+                }
+            ]
+        },
+        // #endregion
+        // #region Fold
+        {
+            "key": "z",
+            "name": "+Fold",
+            "icon": "fold",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "a",
+                    "name": "Toggle: around a point",
+                    "icon": "selection",
+                    "type": "command",
+                    "command": "editor.toggleFold"
+                },
+                {
+                    "key": "b",
+                    "name": "Close: all block comments",
+                    "icon": "fold",
+                    "type": "command",
+                    "command": "editor.foldAllBlockComments"
+                },
+                {
+                    "key": "c",
+                    "name": "Close: at a point",
+                    "icon": "fold",
+                    "type": "command",
+                    "command": "editor.fold"
+                },
+                {
+                    "key": "g",
+                    "name": "Close: all regions",
+                    "icon": "fold",
+                    "type": "command",
+                    "command": "editor.foldAllMarkerRegions"
+                },
+                {
+                    "key": "m",
+                    "name": "Close: all",
+                    "icon": "fold",
+                    "type": "command",
+                    "command": "editor.foldAll"
+                },
+                {
+                    "key": "o",
+                    "name": "Open: at a point",
+                    "icon": "unfold",
+                    "type": "command",
+                    "command": "editor.unfold"
+                },
+                {
+                    "key": "r",
+                    "name": "Open: all",
+                    "icon": "unfold",
+                    "type": "command",
+                    "command": "editor.unfoldAll"
+                },
+                {
+                    "key": "G",
+                    "name": "Open: all regions",
+                    "icon": "unfold",
+                    "type": "command",
+                    "command": "editor.unfoldAllMarkerRegions"
+                },
+                {
+                    "key": "O",
+                    "name": "Open: recursively",
+                    "icon": "unfold",
+                    "type": "command",
+                    "command": "editor.unfoldRecursively"
+                }
+            ]
+        },
+        // endregion
+        // #region Terminal
+        {
+            "key": "t",
+            "name": "Terminal",
+            "icon": "terminal",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "f",
+                    "name": "Focus terminal",
+                    "icon": "terminal",
+                    "type": "command",
+                    "command": "workbench.action.terminal.focus"
+                },
+                {
+                    "key": "n",
+                    "name": "Open new terminal",
+                    "icon": "chevron-right",
+                    "type": "command",
+                    "command": "workbench.action.terminal.new"
+                }
+            ]
+        },
+        // #endregion
+        // #region Format
+        {
+            "key": "=",
+            "name": "+Format",
+            "icon": "list-flat",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "=",
+                    "name": "Format region or buffer",
+                    "icon": "list-flat",
+                    "type": "command",
+                    "command": "editor.action.format"
+                },
+                {
+                    "key": "b",
+                    "name": "Format buffer",
+                    "icon": "file",
+                    "type": "command",
+                    "command": "editor.action.formatDocument"
+                },
+                {
+                    "key": "c",
+                    "name": "Format changes",
+                    "icon": "diff",
+                    "type": "command",
+                    "command": "editor.action.formatChanges"
+                },
+                {
+                    "key": "s",
+                    "name": "Format selection",
+                    "icon": "selection",
+                    "type": "command",
+                    "command": "editor.action.formatSelection"
+                },
+                {
+                    "key": "B",
+                    "name": "+Format buffer with formatter",
+                    "icon": "file",
+                    "type": "command",
+                    "command": "editor.action.formatDocument.multiple"
+                },
+                {
+                    "key": "S",
+                    "name": "+Format selection with formatter",
+                    "icon": "selection",
+                    "type": "command",
+                    "command": "editor.action.formatSelection.multiple"
+                }
+            ]
+        }
+        // #endregion
     ]
-// #endregion
+    // #endregion
 }

@@ -5,7 +5,6 @@ vscode-icons-team.vscode-icons
 alefragnani.Bookmarks
 AykutSarac.jsoncrack-vscode
 bierner.markdown-mermaid
-Codeium.codeium
 eamodio.gitlens
 formulahendry.auto-rename-tag
 Gruntfuggly.todo-tree
@@ -34,3 +33,5 @@ ryuta46.multi-command
 sandcastle.vscode-open
 shd101wyy.markdown-preview-enhanced
 techer.open-in-browser
+GitHub.copilot
+GitHub.copilot-chat
