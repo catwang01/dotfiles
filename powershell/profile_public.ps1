@@ -109,7 +109,7 @@ Function gig {
 }
 
 
-Import-Module ZLocation;
+Import-Module ZLocation
 
 # Anaconda3
 $env:ANACONDA3_HOME = "$HOME\Anaconda3"
@@ -118,3 +118,9 @@ $env:Path += ";$env:ANACONDA3_HOME"
 # unison
 $env:UNISON_HOME = "$HOME\source\Notes\Softwares\unison"
 $env:Path += ";$env:UNISON_HOME\bin"
+
+
+$env:Path += ";$env:LOCALAPPDATA\Microsoft\WinGet\Packages\rsteube.Carapace_Microsoft.Winget.Source_8wekyb3d8bbwe\"
+Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+carapace _carapace | Out-String | Invoke-Expression

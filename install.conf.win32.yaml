@@ -28,6 +28,15 @@
 
 #endregion
 
+# region carapace, autocomplete for powershell
+- crossplatform-shell:
+    - command: "powershell.exe setup_scripts/win32/setup_carapace.ps1"
+      description: Setup carapace
+      platform: win32
+      shell: powershell
+
+# endregion
+
 #region vscode
 
 - crossplatform-link:
