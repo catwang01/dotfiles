@@ -92,6 +92,10 @@
     description: Install tldr
     platform: "!win32"
     shell: bash
+  - command: "setup_scripts/win32/setup_tldr.ps1"
+    description: Install tldr
+    platform: "win32"
+    shell: powershell
 
 ######################
 # tldr related end

@@ -3,13 +3,13 @@ $env:Path += ";$env:ProgramFiles\Git\usr\bin"
 
 # PSReadLine
 Import-Module PSReadline
-try{
+try {
   if ($host.Version.Major -eq 7) {
-      #only PS 7 supports HistoryAndPlug
-      Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+    #only PS 7 supports HistoryAndPlug
+    Set-PSReadLineOption -PredictionSource HistoryAndPlugin
   }
   else {
-      Set-PSReadLineOption -PredictionSource History
+    Set-PSReadLineOption -PredictionSource History
   }
 
   #add background color to the prediction preview
@@ -23,14 +23,14 @@ Set-PSReadLineOption -EditMode vi
 
 $ESC = "$([char]0x1b)"
 $OnViModeChange = [scriptblock] {
-    if ($args[0] -eq 'Command') {
-        # Set the cursor to a blinking block.
-        Write-Host -NoNewLine "${ESC}[1 q"
-    }
-    else {
-        # Set the cursor to a blinking line.
-        Write-Host -NoNewLine "${ESC}[5 q"
-    }
+  if ($args[0] -eq 'Command') {
+    # Set the cursor to a blinking block.
+    Write-Host -NoNewLine "${ESC}[1 q"
+  }
+  else {
+    # Set the cursor to a blinking line.
+    Write-Host -NoNewLine "${ESC}[5 q"
+  }
 }
 
 Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
@@ -58,23 +58,23 @@ Set-PSReadLineKeyHandler -Chord 'j' -ScriptBlock {
 }  
 
 if ($host.Version.Major -eq 7) {
-    #change the key to accept suggestions (default is right arrow)
-    Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'ctrl+l'
+  #change the key to accept suggestions (default is right arrow)
+  Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'ctrl+l'
 }
 
 #For PowerShell v3
 Function gig {
-    param(
-        [Parameter(Mandatory = $true)]
-        [string[]]$list
-    )
-    $params = ($list | ForEach-Object { [uri]::EscapeDataString($_) }) -join ","
-    Invoke-WebRequest -Uri "https://www.toptal.com/developers/gitignore/api/$params" | Select-Object -ExpandProperty content | Out-File -FilePath $(Join-Path -path $pwd -ChildPath ".gitignore") -Encoding ascii
+  param(
+    [Parameter(Mandatory = $true)]
+    [string[]]$list
+  )
+  $params = ($list | ForEach-Object { [uri]::EscapeDataString($_) }) -join ","
+  Invoke-WebRequest -Uri "https://www.toptal.com/developers/gitignore/api/$params" | Select-Object -ExpandProperty content | Out-File -FilePath $(Join-Path -path $pwd -ChildPath ".gitignore") -Encoding ascii
 }
 
 function _sudo {
-    $ss = "$args ; pause"
-    Start-Process powershell -Verb runAs -ArgumentList $ss
+  $ss = "$args ; pause"
+  Start-Process powershell -Verb runAs -ArgumentList $ss
 }
 set-alias -name sudo -value _sudo
 
@@ -92,6 +92,8 @@ $env:Path += ";$HOME\AppData\Local\Programs\oh-my-posh\bin\"
 # add the path of thems, will be used in the next sections
 $env:POSH_THEMES_PATH = "$HOME\AppData\Local\Programs\oh-my-posh\themes\"
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\stelbent-compact.minimal.omp.json" | Invoke-Expression
+$env:POSH_GIT_ENABLED = $true
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\emodipt-extend.omp.json" | Invoke-Expression
 
 $env:Path += ";$env:ProgramFiles\Neovim\bin\"
 
@@ -99,7 +101,7 @@ $env:Path += ";$env:ProgramFiles\Neovim\bin\"
 #For PowerShell v3
 Function gig {
   param(
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory = $true)]
     [string[]]$list
   )
   $params = ($list | ForEach-Object { [uri]::EscapeDataString($_) }) -join ","
@@ -107,10 +109,7 @@ Function gig {
 }
 
 
-if (Get-Module ZLocation)
-{
-    Import-Module ZLocation;
-}
+Import-Module ZLocation;
 
 # Anaconda3
 $env:ANACONDA3_HOME = "$HOME\Anaconda3"

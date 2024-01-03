@@ -14,7 +14,10 @@
 #region PSReadLine
 
 - crossplatform-shell:
-    - [Install-Module PSReadLine -MinimumVersion 2.2.6 -Force, Setup PSReadLine]
+    - command: "if (Get-Module PSReadLine) { echo 'PSReadLine is installed!' } else { Install-Module PSReadLine -MinimumVersion 2.2.6 -Force }"
+      description: Install PSReadLine
+      platform: win32
+      shell: powershell
 
 #endregion
 
@@ -78,7 +81,11 @@
 
 - crossplatform-shell:
     - [ Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force ]
-    - [ Install-Module ZLocation -Scope CurrentUser -Force, Setup z-location ]
+    - command: "if (Get-Module ZLocation) { echo 'ZLocation is installed!' } else { Install-Module ZLocation -Scope CurrentUser -Force }"
+      description: Setup z-location
+      platform: win32
+      shell: powershell
+
 
 #endregion
 
@@ -107,10 +114,14 @@
 ######################
 
 - crossplatform-shell:
-  - command: npm install -g tldr
+  - command: tldr -v || npm install -g tldr
     description: Install tldr
     platform: "!win32"
     shell: bash
+  - command: "setup_scripts/win32/setup_tldr.ps1"
+    description: Install tldr
+    platform: "win32"
+    shell: powershell
 
 ######################
 # tldr related end
