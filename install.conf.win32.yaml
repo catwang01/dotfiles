@@ -101,3 +101,17 @@
 
 - crossplatform-shell:
     - [powershell.exe setup_scripts/win32/setup_obsidian.ps1, "Setup obsidian"]
+
+######################
+# tldr related start
+######################
+
+- crossplatform-shell:
+  - command: npm install -g tldr
+    description: Install tldr
+    platform: "!win32"
+    shell: bash
+
+######################
+# tldr related end
+######################
