@@ -2,64 +2,69 @@ Set-Alias -Name git -Value "$Env:ProgramFiles\Git\bin\git.exe"
 $env:Path += ";$env:ProgramFiles\Git\usr\bin"
 
 # PSReadLine
-Import-Module PSReadline
-try {
-  if ($host.Version.Major -eq 7) {
-    #only PS 7 supports HistoryAndPlug
-    Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+if (Get-InstalledModule PSReadLine) {
+  Import-Module PSReadline
+  try {
+    if ($host.Version.Major -eq 7) {
+      #only PS 7 supports HistoryAndPlug
+      Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+    }
+    else {
+      Set-PSReadLineOption -PredictionSource History
+    }
+
+    #add background color to the prediction preview
+    Set-PSReadLineOption -Colors @{InlinePrediction = "$([char]0x1b)[36;7;238m]" }
   }
-  else {
-    Set-PSReadLineOption -PredictionSource History
+  catch {
+    # Write-Error "run into error"
   }
 
-  #add background color to the prediction preview
-  Set-PSReadLineOption -Colors @{InlinePrediction = "$([char]0x1b)[36;7;238m]" }
-}
-catch {
-  # Write-Error "run into error"
-}
+  Set-PSReadLineOption -EditMode vi
 
-Set-PSReadLineOption -EditMode vi
-
-$ESC = "$([char]0x1b)"
-$OnViModeChange = [scriptblock] {
-  if ($args[0] -eq 'Command') {
-    # Set the cursor to a blinking block.
-    Write-Host -NoNewLine "${ESC}[1 q"
+  $ESC = "$([char]0x1b)"
+  $OnViModeChange = [scriptblock] {
+    if ($args[0] -eq 'Command') {
+      # Set the cursor to a blinking block.
+      Write-Host -NoNewLine "${ESC}[1 q"
+    }
+    else {
+      # Set the cursor to a blinking line.
+      Write-Host -NoNewLine "${ESC}[5 q"
+    }
   }
-  else {
-    # Set the cursor to a blinking line.
-    Write-Host -NoNewLine "${ESC}[5 q"
-  }
-}
 
-Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
+  Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
 
-$global:prevKeyPressTime = 0  
+  $global:prevKeyPressTime = 0  
   
-Set-PSReadLineKeyHandler -Chord 'j' -ScriptBlock {  
-  $currentTime = [System.DateTime]::Now.Ticks  
-  $timeDifference = $currentTime - $global:prevKeyPressTime  
-  $global:prevKeyPressTime = $currentTime  
+  Set-PSReadLineKeyHandler -Chord 'j' -ScriptBlock {  
+    $currentTime = [System.DateTime]::Now.Ticks  
+    $timeDifference = $currentTime - $global:prevKeyPressTime  
+    $global:prevKeyPressTime = $currentTime  
   
-  if ([Microsoft.PowerShell.PSConsoleReadLine]::InViInsertMode() -and $timeDifference -gt 1000000) {  
-    $key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")  
-    if ($key.Character -eq 'k') {  
-      [Microsoft.PowerShell.PSConsoleReadLine]::ViCommandMode()  
+    if ([Microsoft.PowerShell.PSConsoleReadLine]::InViInsertMode() -and $timeDifference -gt 1000000) {  
+      $key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")  
+      if ($key.Character -eq 'k') {  
+        [Microsoft.PowerShell.PSConsoleReadLine]::ViCommandMode()  
+      }  
+      else {  
+        [Microsoft.Powershell.PSConsoleReadLine]::Insert('j')  
+        [Microsoft.Powershell.PSConsoleReadLine]::Insert($key.Character)  
+      }  
     }  
     else {  
       [Microsoft.Powershell.PSConsoleReadLine]::Insert('j')  
-      [Microsoft.Powershell.PSConsoleReadLine]::Insert($key.Character)  
     }  
   }  
-  else {  
-    [Microsoft.Powershell.PSConsoleReadLine]::Insert('j')  
-  }  
-}  
 
-if ($host.Version.Major -eq 7) {
-  #change the key to accept suggestions (default is right arrow)
-  Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'ctrl+l'
+  if ($host.Version.Major -eq 7) {
+    #change the key to accept suggestions (default is right arrow)
+    Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'ctrl+l'
+  }
+}
+else {
+  Write-Debug "PSReadLine not installed"
 }
 
 #For PowerShell v3
@@ -109,7 +114,12 @@ Function gig {
 }
 
 
-Import-Module ZLocation
+if (Get-InstalledModule ZLocation) {
+  Import-Module ZLocation
+}
+else {
+  Write-Debug "ZLocation not installed"
+}
 
 # Anaconda3
 $env:ANACONDA3_HOME = "$HOME\Anaconda3"
@@ -119,8 +129,9 @@ $env:Path += ";$env:ANACONDA3_HOME"
 $env:UNISON_HOME = "$HOME\source\Notes\Softwares\unison"
 $env:Path += ";$env:UNISON_HOME\bin"
 
-
-$env:Path += ";$env:LOCALAPPDATA\Microsoft\WinGet\Packages\rsteube.Carapace_Microsoft.Winget.Source_8wekyb3d8bbwe\"
-Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-carapace _carapace | Out-String | Invoke-Expression
+if (Get-Command -v carapace) {
+  $env:Path += ";$env:LOCALAPPDATA\Microsoft\WinGet\Packages\rsteube.Carapace_Microsoft.Winget.Source_8wekyb3d8bbwe\"
+  Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+  Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+  carapace _carapace | Out-String | Invoke-Expression
+}
