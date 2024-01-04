@@ -30,6 +30,7 @@ nnoremap <leader>re :vsc EditorContextMenus.CodeWindow.QuickActionsForPosition<C
 
 nnoremap <C-Space> :vsc Edit.CompleteWord<CR>
 nnoremap <leader>ei :vsc Edit.QuickInfo<CR>
+nnoremap <leader>ed :vsc Edit.PeekDefinition<CR>
 nnoremap <leader>ep :vsc Edit.ParameterInfo<CR>
 nnoremap <leader>ef :vsc Edit.FindAllReferences<CR>
 

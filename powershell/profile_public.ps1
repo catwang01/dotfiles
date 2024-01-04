@@ -1,8 +1,11 @@
+# $DebugPreference = 'Continue'
+
 Set-Alias -Name git -Value "$Env:ProgramFiles\Git\bin\git.exe"
 $env:Path += ";$env:ProgramFiles\Git\usr\bin"
 
 # PSReadLine
 if (Get-InstalledModule PSReadLine) {
+  Write-Debug "PSReadLine is installed"
   Import-Module PSReadline
   try {
     if ($host.Version.Major -eq 7) {
@@ -93,12 +96,16 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
-$env:Path += ";$HOME\AppData\Local\Programs\oh-my-posh\bin\"
-# add the path of thems, will be used in the next sections
-$env:POSH_THEMES_PATH = "$HOME\AppData\Local\Programs\oh-my-posh\themes\"
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\stelbent-compact.minimal.omp.json" | Invoke-Expression
-$env:POSH_GIT_ENABLED = $true
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\emodipt-extend.omp.json" | Invoke-Expression
+if (Get-Command oh-my-posh) {
+  Write-Debug "oh-my-posh is installed"
+  $env:Path += ";$HOME\AppData\Local\Programs\oh-my-posh\bin\"
+  # add the path of thems, will be used in the next sections
+  $env:POSH_THEMES_PATH = "$HOME\AppData\Local\Programs\oh-my-posh\themes\"
+  oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\stelbent-compact.minimal.omp.json" | Invoke-Expression
+  # $env:POSH_GIT_ENABLED = $true
+} else {
+  Write-Debug "oh-my-posh is not installed"
+}
 
 $env:Path += ";$env:ProgramFiles\Neovim\bin\"
 
@@ -115,6 +122,7 @@ Function gig {
 
 
 if (Get-InstalledModule ZLocation) {
+  Write-Debug "ZLocation is installed"
   Import-Module ZLocation
 }
 else {
@@ -129,9 +137,12 @@ $env:Path += ";$env:ANACONDA3_HOME"
 $env:UNISON_HOME = "$HOME\source\Notes\Softwares\unison"
 $env:Path += ";$env:UNISON_HOME\bin"
 
-if (Get-Command -v carapace) {
+if (Get-Command carapace) {
+  Write-Debug "carapace is installed"
   $env:Path += ";$env:LOCALAPPDATA\Microsoft\WinGet\Packages\rsteube.Carapace_Microsoft.Winget.Source_8wekyb3d8bbwe\"
-  Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+  # Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
   Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-  carapace _carapace | Out-String | Invoke-Expression
+  # carapace _carapace | Out-String | Invoke-Expression
+} else {
+  Write-Debug "carapace not installed"
 }
