@@ -1,7 +1,11 @@
 # $DebugPreference = 'Continue'
 
-Set-Alias -Name git -Value "$Env:ProgramFiles\Git\bin\git.exe"
 $env:Path += ";$env:ProgramFiles\Git\usr\bin"
+Set-Alias -Name git -Value "$Env:ProgramFiles\Git\bin\git.exe"
+
+if (Get-Module -ListAvailable PowershellGet) {
+  Import-Module PowerShellGet
+}
 
 # PSReadLine
 if (Get-InstalledModule PSReadLine) {
@@ -103,7 +107,8 @@ if (Get-Command oh-my-posh) {
   $env:POSH_THEMES_PATH = "$HOME\AppData\Local\Programs\oh-my-posh\themes\"
   oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\stelbent-compact.minimal.omp.json" | Invoke-Expression
   # $env:POSH_GIT_ENABLED = $true
-} else {
+}
+else {
   Write-Debug "oh-my-posh is not installed"
 }
 
@@ -140,9 +145,13 @@ $env:Path += ";$env:UNISON_HOME\bin"
 if (Get-Command carapace) {
   Write-Debug "carapace is installed"
   $env:Path += ";$env:LOCALAPPDATA\Microsoft\WinGet\Packages\rsteube.Carapace_Microsoft.Winget.Source_8wekyb3d8bbwe\"
-  # Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
   Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
-  # carapace _carapace | Out-String | Invoke-Expression
-} else {
+  # carapace only support PS 7
+  if ($host.Version.Major -eq 7) {
+    Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+    carapace _carapace | Out-String | Invoke-Expression
+  }
+}
+else {
   Write-Debug "carapace not installed"
 }
