@@ -1,7 +1,7 @@
 # $DebugPreference = 'Continue'
 
+$env:Path += ";$env:ProgramFiles\Git\bin"
 $env:Path += ";$env:ProgramFiles\Git\usr\bin"
-Set-Alias -Name git -Value "$Env:ProgramFiles\Git\bin\git.exe"
 
 if (Get-Module -ListAvailable PowershellGet) {
   Import-Module PowerShellGet
