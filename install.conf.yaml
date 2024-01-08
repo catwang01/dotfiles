@@ -100,3 +100,21 @@
 ######################
 # tldr related end
 ######################
+
+######################
+# tldr related start
+######################
+
+- crossplatform-shell:
+  - command: pip install thefuck
+    description: Install thefuck
+    platform: "!win32"
+    shell: bash
+  - command: pip install thefuck
+    description: Install thefuck
+    platform: "win32"
+    shell: powershell
+
+######################
+# tldr related end
+######################

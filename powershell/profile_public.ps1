@@ -155,3 +155,6 @@ if (Get-Command carapace) {
 else {
   Write-Debug "carapace not installed"
 }
+
+$env:PYTHONIOENCODING="utf-8"
+iex $($(thefuck --alias) | Out-String)
