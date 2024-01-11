@@ -158,3 +158,5 @@ else {
 
 $env:PYTHONIOENCODING="utf-8"
 iex $($(thefuck --alias) | Out-String)
+
+$env:Path += "${env:ProgramFiles(x86)}\WinMerge\"
