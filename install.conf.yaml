@@ -102,7 +102,7 @@
 ######################
 
 ######################
-# tldr related start
+# thefuck related start
 ######################
 
 - crossplatform-shell:
@@ -116,5 +116,24 @@
     shell: powershell
 
 ######################
-# tldr related end
+# thefuck related end
+######################
+
+######################
+# atuin related start
+######################
+
+- crossplatform-shell:
+  - command: command -v atuin || brew install atuin
+    description: Install atuin
+    platform: "darwin"
+    shell: bash
+  - command: command -v atuin || apt install atuin
+    description: Install atuin
+    platform: "linux"
+    shell: bash
+
+
+######################
+# atuin related end
 ######################

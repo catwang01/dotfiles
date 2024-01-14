@@ -434,31 +434,22 @@
     },
     "editor.wordWrap": "on",
     "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
-    "codeium.enableConfig": {
-        "*": true,
-        "log": true,
-        "jsonc": false
-    },
-    // #region python related
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
-    // "python.linting.pylintPath": "backend/.venv/bin/pylint",
-    // use the following ways to disable checkings you don't want to have
-    "python.linting.pylintArgs": [
+    "pylint.path": [
+        "backend/.venv/bin/pylint"
+    ],
+    "pylint.args": [
         "--max-line-length=120",
         "--disable=C0103,C0114,C0115,C0116,W1203,W0621,C0304"
     ],
-    "python.linting.mypyEnabled": true,
-    "python.linting.mypyArgs": [
+    "mypy-type-checker.args": [
         "--ignore-missing-imports",
         "--show-column-numbers",
         "--check-untyped-defs"
     ],
-    // "python.linting.mypyPath": "backend/.venv/bin/mypy",
+    "mypy-type-checker.path": [],
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
     },
-    "python.formatting.provider": "black",
     // #endregion
     "files.watcherExclude": {
         "**/.venv/**": true,
@@ -853,6 +844,12 @@
                         {
                             "key": "languageId:typescript",
                             "name": "Sort typescript Imports",
+                            "type": "command",
+                            "command": "multiCommand.typescript.sortImports"
+                        },
+                        {
+                            "key": "languageId:typescriptreact",
+                            "name": "Sort typescript react Imports",
                             "type": "command",
                             "command": "multiCommand.typescript.sortImports"
                         }
