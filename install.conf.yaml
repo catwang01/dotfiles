@@ -106,7 +106,7 @@
 ######################
 
 - crossplatform-shell:
-  - command: pip install thefuck
+  - command: pip3 install thefuck
     description: Install thefuck
     platform: "!win32"
     shell: bash
