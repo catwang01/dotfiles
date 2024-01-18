@@ -156,7 +156,12 @@ else {
   Write-Debug "carapace not installed"
 }
 
-$env:PYTHONIOENCODING="utf-8"
-iex $($(thefuck --alias) | Out-String)
+try {
+  $env:PYTHONIOENCODING="utf-8"
+  iex $($(thefuck --alias) | Out-String)
+}
+catch {
+  Write-Debug "thefuck is not installed"
+}
 
 $env:Path += "${env:ProgramFiles(x86)}\WinMerge\"
