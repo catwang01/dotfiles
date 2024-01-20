@@ -155,7 +155,7 @@
 ######################
 
 - crossplatform-shell:
-  - command: setup_scripts/win32/setup_winmerge.ps1"
+  - command: setup_scripts/win32/setup_winmerge.ps1
     description: Install winmerge
     platform: "win32"
     shell: powershell
