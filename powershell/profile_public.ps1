@@ -3,12 +3,15 @@
 $env:Path += ";$env:ProgramFiles\Git\bin"
 $env:Path += ";$env:ProgramFiles\Git\usr\bin"
 
-if (Get-Module -ListAvailable PowershellGet) {
+try {
   Import-Module PowerShellGet
+}
+catch {
+  Write-Debug "PowerShellGet not installed"
 }
 
 # PSReadLine
-if (Get-InstalledModule PSReadLine) {
+try {
   Write-Debug "PSReadLine is installed"
   Import-Module PSReadline
   try {
@@ -70,18 +73,8 @@ if (Get-InstalledModule PSReadLine) {
     Set-PSReadLineKeyHandler -Function AcceptSuggestion -Key 'ctrl+l'
   }
 }
-else {
+catch {
   Write-Debug "PSReadLine not installed"
-}
-
-#For PowerShell v3
-Function gig {
-  param(
-    [Parameter(Mandatory = $true)]
-    [string[]]$list
-  )
-  $params = ($list | ForEach-Object { [uri]::EscapeDataString($_) }) -join ","
-  Invoke-WebRequest -Uri "https://www.toptal.com/developers/gitignore/api/$params" | Select-Object -ExpandProperty content | Out-File -FilePath $(Join-Path -path $pwd -ChildPath ".gitignore") -Encoding ascii
 }
 
 function _sudo {
@@ -100,7 +93,7 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
-if (Get-Command oh-my-posh) {
+try {
   Write-Debug "oh-my-posh is installed"
   $env:Path += ";$HOME\AppData\Local\Programs\oh-my-posh\bin\"
   # add the path of thems, will be used in the next sections
@@ -108,7 +101,7 @@ if (Get-Command oh-my-posh) {
   oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\stelbent-compact.minimal.omp.json" | Invoke-Expression
   # $env:POSH_GIT_ENABLED = $true
 }
-else {
+catch {
   Write-Debug "oh-my-posh is not installed"
 }
 
@@ -126,11 +119,11 @@ Function gig {
 }
 
 
-if (Get-InstalledModule ZLocation) {
+try {
   Write-Debug "ZLocation is installed"
   Import-Module ZLocation
-}
-else {
+} 
+catch {
   Write-Debug "ZLocation not installed"
 }
 
@@ -142,7 +135,7 @@ $env:Path += ";$env:ANACONDA3_HOME"
 $env:UNISON_HOME = "$HOME\source\Notes\Softwares\unison"
 $env:Path += ";$env:UNISON_HOME\bin"
 
-if (Get-Command carapace) {
+try {
   Write-Debug "carapace is installed"
   $env:Path += ";$env:LOCALAPPDATA\Microsoft\WinGet\Packages\rsteube.Carapace_Microsoft.Winget.Source_8wekyb3d8bbwe\"
   Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
@@ -152,12 +145,12 @@ if (Get-Command carapace) {
     carapace _carapace | Out-String | Invoke-Expression
   }
 }
-else {
+catch {
   Write-Debug "carapace not installed"
 }
 
 try {
-  $env:PYTHONIOENCODING="utf-8"
+  $env:PYTHONIOENCODING = "utf-8"
   iex $($(thefuck --alias) | Out-String)
 }
 catch {
