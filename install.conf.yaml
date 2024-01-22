@@ -124,15 +124,10 @@
 ######################
 
 - crossplatform-shell:
-  - command: command -v atuin || brew install atuin
+  - command: command -v atuin || setup_scripts/linux/setup_atuin.sh
     description: Install atuin
-    platform: "darwin"
+    platform: "!win32"
     shell: bash
-  - command: command -v atuin || apt install atuin
-    description: Install atuin
-    platform: "linux"
-    shell: bash
-
 
 ######################
 # atuin related end

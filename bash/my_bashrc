@@ -1,2 +1,4 @@
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash)"
+if (command -v atuin) ; then
+  eval "$(atuin init zsh)"
+fi
