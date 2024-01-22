@@ -1527,6 +1527,11 @@
                 "folders"
             ]
         },
-    ]
+    ],
+    "markdown-preview-enhanced.enablePreviewZenMode": true,
+    "pasteImage.basePath": "${projectRoot}",
+    "markdown-preview-enhanced.previewTheme": "atom-light.css",
+    "pasteImage.path": "${projectRoot}/Images",
+    "pasteImage.prefix": "/"
     // #endregion
 }
