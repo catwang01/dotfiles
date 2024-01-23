@@ -1528,10 +1528,19 @@
             ]
         },
     ],
+    // #endregion
+
+    // #region markdown
     "markdown-preview-enhanced.enablePreviewZenMode": true,
     "pasteImage.basePath": "${projectRoot}",
     "markdown-preview-enhanced.previewTheme": "atom-light.css",
     "pasteImage.path": "${projectRoot}/Images",
-    "pasteImage.prefix": "/"
+    "pasteImage.prefix": "/",
+    "markdown.validate.enabled": true,
+    "markdown.updateLinksOnFileMove.enabled": "always",
+    "markdown.updateLinksOnFileMove.include": [
+        "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
+        "**/*.{jpg,jpe,jpeg,png,bmp,gif,ico,webp,avif,tiff,svg,mp4,sql}"
+    ]
     // #endregion
 }
