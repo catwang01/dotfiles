@@ -168,12 +168,27 @@
 # autohotkeys related start
 ######################
 
+# - crossplatform-shell:
+#   - command: setup_scripts/win32/setup_autohotkey.ps1
+#     description: Install autohotkey
+#     platform: "win32"
+#     shell: powershell
+
+######################
+# autohotkeys related end
+######################
+
+
+######################
+# kabana related start
+######################
+
 - crossplatform-shell:
-  - command: setup_scripts/win32/setup_autohotkey.ps1
-    description: Install autohotkey
+  - command: setup_scripts/win32/setup_kabana.ps1
+    description: Install setup_kabana
     platform: "win32"
     shell: powershell
 
 ######################
-# autohotkeys related end
+# kabana related end
 ######################

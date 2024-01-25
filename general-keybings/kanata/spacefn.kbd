@@ -1,0 +1,52 @@
+;; -----------------------------------------------------------------------------
+;; 必须的配置条目 defcfg
+;; -----------------------------------------------------------------------------
+
+(defcfg
+    process-unmapped-keys yes
+    sequence-timeout 500
+    windows-altgr add-lctl-release
+)
+
+;; -------------------------------------------------------------------------------------------------
+;; 配置文件必须只有一个 defsrc 条目
+;; 1. defsrc 条目由 defsrc 和键名组成, 键名之间用空格分隔
+;; 2. defsrc 条目被视为一个长序列, 空格 (空格, 制表符, 换行符) 的数量是不相关的, 您可以使用空格, 制表符或换行符来分
+;;    隔键名和键值
+;; -------------------------------------------------------------------------------------------------
+
+(defsrc
+    grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+    tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+    caps a    s    d    f    g    h    j    k    l    ;    '    ret
+    lsft z    x    c    v    b    n    m    ,    .    /    rsft
+    lctl lmet lalt           spc            ralt rmet rctl
+)
+
+;; -------------------------------------------------------------------------------------------------
+;; defalias
+;; -------------------------------------------------------------------------------------------------
+(defalias
+    ;; space 切换到 space 层
+    space (tap-hold 50 200 spc (layer-while-held editor_layer))
+)
+
+;; -------------------------------------------------------------------------------------------------
+;; 配置文件必须至少有一个 deflayer 条目, 这定义了当 kanata 运行时, desrc 中映射的每个物理键的行为
+;; 1. deflayer 中的键 / 动作的顺序对应于 defsrc 中定义的相同序列位置中的物理键
+;; -------------------------------------------------------------------------------------------------
+(deflayer start
+	grv  1    2     3    4    5    6    7    8    9    0    -    =    bspc
+	tab  q    w     e    r    t    y    u    i    o    p    [    ]    \
+	caps a    s     d    f    g    h    j    k    l    ;    '    ret
+	lsft z    x     c    v    b    n    m    ,    .    /    rsft
+	lctl lmet    lalt           @space            ralt rmet rctl
+)
+
+(deflayer editor_layer
+	grv     f1    f2     f3   f4   f5   f6    f7      f8     f9     f10    f11   f12   XX
+	tab     XX    XX     esc  XX   XX   pgup  home    end    pgdn   XX     XX    XX    XX
+    caps    XX    spc    XX   XX   XX   left  down    up     rght   bspc   XX    ret
+	lsft    C-z   XX     XX   XX   spc  XX    =        -     `     \    rsft
+	lctl    lmet    lalt               XX                  ralt    rmet  rctl
+)
