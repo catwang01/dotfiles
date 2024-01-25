@@ -163,3 +163,17 @@
 ######################
 # winmerge related end
 ######################
+
+######################
+# autohotkeys related start
+######################
+
+- crossplatform-shell:
+  - command: setup_scripts/win32/setup_autohotkey.ps1
+    description: Install autohotkey
+    platform: "win32"
+    shell: powershell
+
+######################
+# autohotkeys related end
+######################
