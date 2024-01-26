@@ -46,7 +46,7 @@
 (deflayer editor_layer
 	grv     f1    f2     f3   f4   f5   f6    f7      f8     f9     f10    f11   f12   XX
 	tab     XX    XX     esc  XX   XX   pgup  home    end    pgdn   XX     XX    XX    XX
-    caps    XX    spc    XX   XX   XX   left  down    up     rght   bspc   XX    ret
-	lsft    C-z   XX     XX   XX   spc  XX    =        -     `     \    rsft
+    caps    XX    XX    XX   XX   XX   left  down    up     rght   bspc   XX    ret
+	lsft    C-z   C-x     C-c   C-v   spc  XX    =        -     `     \    rsft
 	lctl    lmet    lalt               XX                  ralt    rmet  rctl
 )

@@ -1,4 +1,5 @@
 using namespace System.IO;
+. .\utils.ps1
 
 $targetDir = [System.IO.Path]::Combine($PSScriptRoot, "..", "..", "general-keybings", "kanata")
 $exePath  = [System.IO.Path]::Combine($targetDir, "kanata.exe")
@@ -32,9 +33,10 @@ if (Test-Path $startupPath)
         $isScheduledJobExists = $false
         Write-Host "Scheduled Job doesn't exist, register it!"
         $trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30
-        Register-ScheduledJob -Trigger $trigger `
-                            -FilePath $startupPath `
-                            -Name $scheduleJobName
+        EasyRegistry-Job -jobName $scheduleJobName `
+                            -triggerName $trigger `
+                            -filePath $startupPath `
+                            -workdingDirectory $targetDir
     }
     if ($isScheduledJobExists)
     {
