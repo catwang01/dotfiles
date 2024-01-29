@@ -1,4 +1,6 @@
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+#!/bin/bash
+
 if (command -v atuin) ; then
   eval "$(atuin init zsh)"
 fi
+export PATH="$PATH:$HOME/.cargo/bin/"

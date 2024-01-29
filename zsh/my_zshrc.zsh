@@ -121,7 +121,3 @@ bindkey '^L' autosuggest-accept
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-if (command -v atuin) ; then
-  eval "$(atuin init zsh)"
-fi

@@ -4,7 +4,7 @@
 
 (defcfg
     process-unmapped-keys yes
-    sequence-timeout 500
+    sequence-timeout 100
     windows-altgr add-lctl-release
 )
 
@@ -28,7 +28,7 @@
 ;; -------------------------------------------------------------------------------------------------
 (defalias
     ;; space 切换到 space 层
-    space (tap-hold 50 200 spc (layer-while-held editor_layer))
+    space (multi f24 (tap-hold 0 200 spc (layer-while-held editor_layer)))
 )
 
 ;; -------------------------------------------------------------------------------------------------
@@ -36,17 +36,17 @@
 ;; 1. deflayer 中的键 / 动作的顺序对应于 defsrc 中定义的相同序列位置中的物理键
 ;; -------------------------------------------------------------------------------------------------
 (deflayer start
-	grv  1    2     3    4    5    6    7    8    9    0    -    =    bspc
-	tab  q    w     e    r    t    y    u    i    o    p    [    ]    \
-	caps a    s     d    f    g    h    j    k    l    ;    '    ret
-	lsft z    x     c    v    b    n    m    ,    .    /    rsft
-	lctl lmet    lalt           @space            ralt rmet rctl
+   grv  1    2     3    4    5    6    7    8    9    0    -    =    bspc
+   tab  q    w     e    r    t    y    u    i    o    p    [    ]    \
+   caps a    s     d    f    g    h    j    k    l    ;    '    ret
+   lsft z    x     c    v    b    n    m    ,    .    /    rsft
+   lctl lmet    lalt           @space            ralt rmet rctl
 )
 
 (deflayer editor_layer
-	grv     f1    f2     f3   f4   f5   f6    f7      f8     f9     f10    f11   f12   XX
-	tab     XX    XX     esc  XX   XX   pgup  home    end    pgdn   XX     XX    XX    XX
-    caps    XX    XX    XX   XX   XX   left  down    up     rght   bspc   XX    ret
-	lsft    C-z   C-x     C-c   C-v   spc  XX    =        -     `     \    rsft
-	lctl    lmet    lalt               XX                  ralt    rmet  rctl
+   grv     f1    f2     f3   f4   f5   f6    f7      f8     f9     f10    f11   f12   XX
+   tab     XX    XX     esc  lrld XX   pgup  home    end    pgdn   XX     [     XX    XX
+   caps    XX    XX    XX   XX   XX   left  down    up     rght   bspc   XX    ret
+   lsft    C-z   C-x     C-c   C-v   spc  XX    =        -     `     \    rsft
+   lctl    lmet    lalt               XX                  ralt    rmet  rctl
 )
