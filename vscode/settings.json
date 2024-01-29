@@ -435,7 +435,7 @@
     "editor.wordWrap": "on",
     "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
     "pylint.path": [
-        "backend/.venv/bin/pylint"
+        ".venv/bin/pylint"
     ],
     "pylint.args": [
         "--max-line-length=120",
@@ -446,7 +446,6 @@
         "--show-column-numbers",
         "--check-untyped-defs"
     ],
-    "mypy-type-checker.path": [],
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8"
     },

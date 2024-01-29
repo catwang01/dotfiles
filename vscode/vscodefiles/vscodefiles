@@ -12,6 +12,7 @@ hbenl.vscode-test-explorer
 mechatroner.rainbow-csv
 ms-python.black-formatter
 ms-python.isort
+ms-python.mypy-type-checker
 ms-python.pylint
 ms-python.python
 ms-python.vscode-pylance
