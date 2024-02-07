@@ -11,7 +11,7 @@
         "statusBar.border": "#333a48"
     },
     "editor.cursorBlinking": "smooth",
-    // "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorSmoothCaretAnimation": "off",
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
     "vim.surround": true,
@@ -1530,7 +1530,6 @@
     // #endregion
 
     // #region markdown
-    "markdown-preview-enhanced.enablePreviewZenMode": true,
     "pasteImage.basePath": "${projectRoot}",
     "markdown-preview-enhanced.previewTheme": "atom-light.css",
     "pasteImage.path": "${projectRoot}/Images",
@@ -1540,6 +1539,11 @@
     "markdown.updateLinksOnFileMove.include": [
         "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
         "**/*.{jpg,jpe,jpeg,png,bmp,gif,ico,webp,avif,tiff,svg,mp4,sql}"
-    ]
+    ],
+    "powermode.enabled": true,
+    "powermode.presets": "particles",
+    "powermode.shake.enabled": false,
+    "powermode.explosions.frequency": 5,
+    "editor.accessibilitySupport": "off"
     // #endregion
 }
