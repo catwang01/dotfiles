@@ -180,15 +180,21 @@
 
 
 ######################
-# kabana related start
+# kanata related start
 ######################
 
 - crossplatform-shell:
-  - command: setup_scripts/win32/setup_kabana.ps1
-    description: Install setup_kabana
+  - command: setup_scripts/win32/setup_kanata.ps1
+    description: Install setup_kanata
     platform: "win32"
     shell: powershell
+  - command: setup_scripts/macos/setup_kanata.ps1
+    description: Install setup_kanata
+    platform: "darwin"
+  - command: setup_scripts/linux/setup_kanata.ps1
+    description: Install setup_kanata
+    platform: "linux"
 
 ######################
-# kabana related end
+# kanata related end
 ######################
