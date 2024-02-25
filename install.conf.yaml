@@ -22,7 +22,7 @@
 #region oh-my-posh
 
 - crossplatform-shell:
-    - command: powershell.exe setup_scripts/win32/setup_oh_my_posh.ps1 
+    - command: setup_scripts/win32/setup_oh_my_posh.ps1 
       description: Setup oh-my-posh
       platform: win32
 
@@ -111,7 +111,7 @@
 #endregion 
 
 - crossplatform-shell:
-    - command: powershell.exe setup_scripts/win32/setup_edge.ps1
+    - command: setup_scripts/win32/setup_edge.ps1
       description: Setup edge
       platform: win32
           
@@ -187,7 +187,7 @@
 #endregion
 
 - crossplatform-shell:
-    - command: powershell.exe setup_scripts/win32/setup_snipaste.ps1
+    - command: setup_scripts/win32/setup_snipaste.ps1
       description: "Setup snipaste"
       platform: win32
     
@@ -197,7 +197,7 @@
       platform: win32
 
 - crossplatform-shell:
-    - command: powershell.exe setup_scripts/win32/setup_obsidian.ps1
+    - command: setup_scripts/win32/setup_obsidian.ps1
       description: "Setup obsidian"
       platform: win32
 
