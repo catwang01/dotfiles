@@ -1,40 +1,72 @@
+#region general settings
+
 - defaults:
     crossplatform-link:
         create: true
         relink: true
         glob: true
-    shell:
+    crossplatform-shell:
         stdout: true
         stderr: true
+#endregion
 
-- shell:
-  - [git submodule update --init --recursive, install modules]
+#region PSReadLine
 
-- shell:
-  - [setup_scripts/linux/setup_neovim.sh, install neovim]
+- crossplatform-shell:
+    - command: "if (Get-Module PSReadLine) { echo 'PSReadLine is installed!' } else { Install-Module PSReadLine -MinimumVersion 2.2.6 -Force }"
+      description: Install PSReadLine
+      platform: win32
+
+#endregion
+
+#region oh-my-posh
+
+- crossplatform-shell:
+    - command: powershell.exe setup_scripts/win32/setup_oh_my_posh.ps1 
+      description: Setup oh-my-posh
+      platform: win32
+
+#endregion
+
+- crossplatform-shell:
+  - command: git submodule update --init --recursive
+    description: Install modules
 
 ######################
 # zsh related start
 ######################
 
-- shell:
-    - [setup_scripts/linux/setup_bash.sh, Backup bashrc to private]
-    - [setup_scripts/linux/setup_zsh.sh, Install zsh]
+- crossplatform-shell:
+    - command: setup_scripts/linux/setup_bash.sh
+      description: Backup bashrc to private
+      platform: "!win32"
+    - command: setup_scripts/linux/setup_zsh.sh
+      description: Install zsh
+      platform: "!win32"
 
 - crossplatform-link:
     ~/.zshrc:
+        platform: "!win32"
     ~/.zsh:
-    ~/.oh-my-zsh: ohmyzsh
+        platform: "!win32"
+    ~/.oh-my-zsh: 
+        path: ohmyzsh
+        platform: "!win32"
     ~/.oh-my-zsh/custom/plugins: 
         path: zsh/plugins
         force: true
-    ~/.bash/: bash/*
+        platform: "!win32"
+    ~/.bash/: 
+        path: bash/*
+        platform: "!win32"
     ~/.bashrc:
+        platform: "!win32"
 
 - crossplatform-shell:
     - command: 'sudo chsh -s `which zsh`'
       description: Use zsh as default shell
       environment: "!SHELL=/bin/zsh" 
+      platform: "!win32"
 
 ######################
 # zsh related end
@@ -53,6 +85,14 @@
         path: vscode/*
         exclude: [ vscode/vscvimrc ]
         platform: darwin
+    ~/AppData/Roaming/Code/User/:
+        path: vscode/*
+        exclude: [ vscode/vscvimrc ]
+        platform: win32
+    ~/AppData/Roaming/Code - Insiders/User/:
+        path: vscode/*
+        exclude: [ vscode/vscvimrc ]
+        platform: win32
     ~/.vscvimrc: vscode/vscvimrc 
 
 - vscodefile:
@@ -62,6 +102,18 @@
 - vscodefile:
     file: vscode/vscodefiles/vscodefiles
     insiders: false
+
+#region visualstudio
+
+- crossplatform-link:
+    ~/.vsvimrc: visualstudio/vsvim/.vsvimrc
+
+#endregion 
+
+- crossplatform-shell:
+    - command: powershell.exe setup_scripts/win32/setup_edge.ps1
+      description: Setup edge
+      platform: win32
           
 ######################
 # vscode related end
@@ -71,17 +123,83 @@
 # neovim related start
 ######################
 
+- crossplatform-shell:
+  - command: setup_scripts/linux/setup_neovim.sh
+    description: Setup neovim
+    platform: "!win32"
+  - command: setup_scripts/win32/setup_neovim.ps1
+    description: Setup neovim
+    platform: "win32"
+
 - crossplatform-link:
     ~/.config/nvim: 
         path: neovim/nvchad
-
-- crossplatform-link:
+        platform: "!win32"
     ~/.config/nvim/lua/custom: 
         path: neovim/nvim/lua/custom
+        platform: "!win32"
+    ~/AppData/Local/nvim: 
+        path: neovim/nvchad
+        platform: "win32"
+    ~/AppData/Local/nvim/lua/custom: 
+        path: neovim/nvim/lua/custom
+        platform: "win32"
+
 
 ######################
 # neovim related end
 ######################
+
+#region win-vind
+- crossplatform-link:
+    ~/.win-vind/.vindrc:
+      path: win-vind/vindrc
+      platform: win32
+
+#endregion
+
+#region z-location
+
+- crossplatform-shell:
+    - command: Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+      platform: win32
+    - command: "if (Get-Module ZLocation) { echo 'ZLocation is installed!' } else { Install-Module ZLocation -Scope CurrentUser -Force }"
+      description: Setup z-location
+      platform: win32
+
+
+#endregion
+
+#region powershell
+- crossplatform-link:
+# for new versions of powershell
+    ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1:
+        path: powershell/profile.ps1
+        platform: win32
+# for old versions of powershell
+    ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1:
+        path: powershell/profile.ps1
+        platform: win32
+    ~/.config/profiles/: 
+        path: powershell/*
+        exclude: [ powershell/profile.ps1 ]
+        platform: win32
+#endregion
+
+- crossplatform-shell:
+    - command: powershell.exe setup_scripts/win32/setup_snipaste.ps1
+      description: "Setup snipaste"
+      platform: win32
+    
+- crossplatform-shell:
+    - command: setup_scripts/win32/setup_listary.ps1
+      description: "Setup listary"
+      platform: win32
+
+- crossplatform-shell:
+    - command: powershell.exe setup_scripts/win32/setup_obsidian.ps1
+      description: "Setup obsidian"
+      platform: win32
 
 ######################
 # tldr related start
@@ -91,11 +209,9 @@
   - command: tldr -v || npm install -g tldr
     description: Install tldr
     platform: "!win32"
-    shell: bash
   - command: "setup_scripts/win32/setup_tldr.ps1"
     description: Install tldr
     platform: "win32"
-    shell: powershell
 
 ######################
 # tldr related end
@@ -109,14 +225,25 @@
   - command: pip3 install thefuck
     description: Install thefuck
     platform: "!win32"
-    shell: bash
   - command: pip install thefuck
     description: Install thefuck
     platform: "win32"
-    shell: powershell
 
 ######################
 # thefuck related end
+######################
+
+######################
+# winmerge related end
+######################
+
+- crossplatform-shell:
+  - command: setup_scripts/win32/setup_winmerge.ps1
+    description: Install winmerge
+    platform: "win32"
+
+######################
+# winmerge related end
 ######################
 
 ######################
@@ -127,8 +254,27 @@
   - command: command -v atuin || setup_scripts/linux/setup_atuin.sh
     description: Install atuin
     platform: "!win32"
-    shell: bash
 
 ######################
 # atuin related end
+######################
+
+
+######################
+# kanata related start
+######################
+
+- crossplatform-shell:
+  - command: setup_scripts/win32/setup_kanata.ps1
+    description: Install setup_kanata
+    platform: "win32"
+  - command: setup_scripts/macos/setup_kanata.sh
+    description: Install setup_kanata
+    platform: "darwin"
+  - command: setup_scripts/linux/setup_kanata.sh
+    description: Install setup_kanata
+    platform: "linux"
+
+######################
+# kanata related end
 ######################
