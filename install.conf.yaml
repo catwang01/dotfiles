@@ -28,13 +28,7 @@
 
 #endregion
 
-- crossplatform-shell:
-  - command: git submodule update --init --recursive
-    description: Install modules
-
-######################
-# zsh related start
-######################
+#region zsh related start
 
 - crossplatform-shell:
     - command: setup_scripts/linux/setup_bash.sh
@@ -68,14 +62,9 @@
       environment: "!SHELL=/bin/zsh" 
       platform: "!win32"
 
-######################
-# zsh related end
-######################
+#endregion
           
-######################
-# vscode related start
-######################
-
+#region vscode related start
 - crossplatform-link:
     ~/Library/Application Support/Code/User/: 
         path: vscode/*
@@ -102,6 +91,7 @@
 - vscodefile:
     file: vscode/vscodefiles/vscodefiles
     insiders: false
+#endregion
 
 #region visualstudio
 
@@ -110,18 +100,14 @@
 
 #endregion 
 
+#region edge
 - crossplatform-shell:
     - command: setup_scripts/win32/setup_edge.ps1
       description: Setup edge
       platform: win32
-          
-######################
-# vscode related end
-######################
+#endregion
 
-######################
-# neovim related start
-######################
+#region neovim related start
 
 - crossplatform-shell:
   - command: setup_scripts/linux/setup_neovim.sh
@@ -145,10 +131,7 @@
         path: neovim/nvim/lua/custom
         platform: "win32"
 
-
-######################
-# neovim related end
-######################
+#endregion
 
 #region win-vind
 - crossplatform-link:
@@ -186,24 +169,30 @@
         platform: win32
 #endregion
 
+#region snipaste related start
 - crossplatform-shell:
     - command: setup_scripts/win32/setup_snipaste.ps1
       description: "Setup snipaste"
       platform: win32
+#endregion
     
+#region lisary related start
 - crossplatform-shell:
     - command: setup_scripts/win32/setup_listary.ps1
       description: "Setup listary"
       platform: win32
+#endregion
+
+#region obsidian related start
 
 - crossplatform-shell:
     - command: setup_scripts/win32/setup_obsidian.ps1
       description: "Setup obsidian"
       platform: win32
 
-######################
-# tldr related start
-######################
+#endregion
+
+#region tldr related start
 
 - crossplatform-shell:
   - command: tldr -v || npm install -g tldr
@@ -213,13 +202,9 @@
     description: Install tldr
     platform: "win32"
 
-######################
-# tldr related end
-######################
+#endregion
 
-######################
-# thefuck related start
-######################
+#region thefuck related start
 
 - crossplatform-shell:
   - command: pip3 install thefuck
@@ -229,40 +214,27 @@
     description: Install thefuck
     platform: "win32"
 
-######################
-# thefuck related end
-######################
+#endregion
 
-######################
-# winmerge related end
-######################
+#region winmerge related end
 
 - crossplatform-shell:
   - command: setup_scripts/win32/setup_winmerge.ps1
     description: Install winmerge
     platform: "win32"
 
-######################
-# winmerge related end
-######################
+#endregion
 
-######################
-# atuin related start
-######################
+#region atuin related start
 
 - crossplatform-shell:
   - command: command -v atuin || setup_scripts/linux/setup_atuin.sh
     description: Install atuin
     platform: "!win32"
 
-######################
-# atuin related end
-######################
+#endregion
 
-
-######################
-# kanata related start
-######################
+#region kanata related start
 
 - crossplatform-shell:
   - command: setup_scripts/win32/setup_kanata.ps1
@@ -275,6 +247,4 @@
     description: Install setup_kanata
     platform: "linux"
 
-######################
-# kanata related end
-######################
+#endregion
