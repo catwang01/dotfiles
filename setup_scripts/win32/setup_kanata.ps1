@@ -1,7 +1,7 @@
 using namespace System.IO;
 . .\utils.ps1
 
-$targetDir = [System.IO.Path]::Combine($PSScriptRoot, "..", "..", "general-keybings", "kanata")
+$targetDir = [System.IO.Path]::Combine($PSScriptRoot, "..", "..", "general-keybindings", "kanata")
 $exePath  = [System.IO.Path]::Combine($targetDir, "kanata.exe")
 $downloadUrl = "https://github.com/jtroo/kanata/releases/download/v1.5.0/kanata.exe"
 if (Test-Path $exePath) 

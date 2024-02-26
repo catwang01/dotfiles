@@ -3,7 +3,7 @@
 winget-install Autohotkey.Autohotkey
 
 $jobName = "Dotfile-Autohotkey"
-$path = ".\general-keybings\autohotkeys\run-autohotkeys.ps1"
+$path = ".\general-keybindings\autohotkeys\run-autohotkeys.ps1"
 
 $jobExists = $false
 try 
