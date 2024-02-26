@@ -1,5 +1,5 @@
 using namespace System.IO;
-. .\utils.ps1
+. "$PSScriptRoot\utils.ps1"
 
 $targetDir = [System.IO.Path]::Combine($PSScriptRoot, "..", "..", "general-keybindings", "kanata")
 $exePath  = [System.IO.Path]::Combine($targetDir, "kanata.exe")
@@ -36,7 +36,7 @@ if (Test-Path $startupPath)
         EasyRegistry-Job -jobName $scheduleJobName `
                             -triggerName $trigger `
                             -filePath $startupPath `
-                            -workdingDirectory $targetDir
+                            -workingDirectory $targetDir
     }
     if ($isScheduledJobExists)
     {

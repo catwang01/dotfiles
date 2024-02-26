@@ -27,25 +27,7 @@ function EasyRegistry-Job
         [Parameter(Mandatory)]
         $filePath,
         $options,
-        [string]$workdingDirectory=$null
+        [string]$workingDirectory=$null
     )
-    Register-ScheduledJob -FilePath $filePath -Name $jobName  -RunNow
-
-    $CurrentAction = (Get-ScheduledTask -TaskName $jobName).actions
-
-    $Params = @{
-        Id               = $CurrentAction.Id
-        Argument         = $CurrentAction.Arguments
-        Execute          = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
-    }
-
-    if ($null -ne $workdingDirectory) {
-        $Params.Add('WorkingDirectory', $workdingDirectory)
-    }
-
-    $NewAction = New-ScheduledTaskAction @Params
-
-    $NewAction.Id = $CurrentAction.Id
-
-    Set-ScheduledTask -TaskName $jobName -TaskPath '\Microsoft\Windows\PowerShell\ScheduledJobs\' -Action $NewAction
+    Register-ScheduledJob -InitializationScript { Set-Location $workingDirectory }  -FilePath $filePath -Name $jobName  -RunNow
 }
