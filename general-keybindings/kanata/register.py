@@ -29,6 +29,8 @@ def generate_plist(template_path: str, output_path: str):
 
     with open(output_path, 'wb') as f:
         plistlib.dump(plist, f)
+    
+    shutil.chown(output_path, user='root')
 
 def move_to_dir(output_file_name: str, dir_path: Path):
     shutil.move(output_file_name, dir_path)
