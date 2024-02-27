@@ -1516,7 +1516,7 @@
     "compareHelper.externalTools": [
         {
             "name": "winmerge",
-            "path": "C:\\Program Files (x86)\\WinMerge\\WinMergeU.exe",
+            "path": "C:\\Users\\zhenwang\\AppData\\Local\\Programs\\WinMerge\\WinMergeU.exe",
             "args": [
                 "${FOLDER_ITEM_1}",
                 "${FOLDER_ITEM_2}"
