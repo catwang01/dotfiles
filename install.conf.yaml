@@ -176,10 +176,17 @@
       platform: win32
 #endregion
     
-#region lisary related start
+#region listary related start
 - crossplatform-shell:
     - command: setup_scripts/win32/setup_listary.ps1
       description: "Setup listary"
+      platform: win32
+#endregion
+
+#region altdrag related start
+- crossplatform-shell:
+    - command: setup_scripts/win32/setup_altdrag.ps1
+      description: "Setup altdrag"
       platform: win32
 #endregion
 

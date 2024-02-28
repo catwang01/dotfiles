@@ -23,29 +23,10 @@ Write-Host "The current startup script is $startupPath"
 if (Test-Path $startupPath)
 {
     Write-Host "kanata startup script is found, try to register it"
-    $isScheduledJobExists = $true
-    try
-    {
-        Get-ScheduledJob $scheduleJobName -ErrorAction Stop
-    }
-    catch
-    {
-        $isScheduledJobExists = $false
-        Write-Host "Scheduled Job doesn't exist, register it!"
-        $trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30
-        EasyRegistry-Job -jobName $scheduleJobName `
-                            -triggerName $trigger `
-                            -filePath $startupPath `
-                            -workingDirectory $targetDir
-    }
-    if ($isScheduledJobExists)
-    {
-        Write-Host "Scheduled Job already exists, no need to create it"
-    }
-    else
-    {
-        Write-Host "Scheduled Job is registered successfully"
-    }
+    Register-StartUp -startupPath $startupPath `
+            -scheduleJobName $scheduleJobName `
+            -workingDirectory $targetDir
+    # Create-StartupScript -FilePath $startupPath -SymbolName $scheduleJobName
 }
 else
 {
