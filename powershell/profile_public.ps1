@@ -47,7 +47,7 @@ try {
   Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
 
   $global:prevKeyPressTime = 0  
-  
+
   Set-PSReadLineKeyHandler -Chord 'j' -ScriptBlock {  
     $currentTime = [System.DateTime]::Now.Ticks  
     $timeDifference = $currentTime - $global:prevKeyPressTime  
@@ -78,8 +78,7 @@ catch {
 }
 
 function _sudo {
-  $ss = "$args ; pause"
-  Start-Process powershell -Verb runAs -ArgumentList $ss
+  Start-Process powershell -Verb RunAs -ArgumentList "cd $pwd; $args; pause"
 }
 set-alias -name sudo -value _sudo
 
