@@ -1,15 +1,24 @@
+#region vim related start
 vscodevim.vim
 VSpaceCode.whichkey
-usernamehw.errorlens
-vscode-icons-team.vscode-icons
-alefragnani.Bookmarks
+mushan.vscode-paste-image
+ryuta46.multi-command
+#endregion
+
+#region other format related start
 AykutSarac.jsoncrack-vscode
-bierner.markdown-mermaid
-eamodio.gitlens
-formulahendry.auto-rename-tag
-Gruntfuggly.todo-tree
-hbenl.vscode-test-explorer
 mechatroner.rainbow-csv
+redhat.vscode-xml
+redhat.vscode-yaml
+timonwong.shellcheck
+#endregion
+
+#region beautify related start
+vscode-icons-team.vscode-icons
+hoovercj.vscode-power-mode
+#endregion
+
+#region python related start
 ms-python.black-formatter
 ms-python.isort
 ms-python.mypy-type-checker
@@ -20,6 +29,8 @@ ms-toolsai.jupyter
 ms-toolsai.jupyter-renderers
 ms-toolsai.vscode-jupyter-cell-tags
 ms-toolsai.vscode-jupyter-slideshow
+#endregion
+
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
@@ -29,17 +40,31 @@ ms-vscode.js-debug-nightly
 ms-vscode.remote-explorer
 ms-vscode.remote-server
 ms-vscode.test-adapter-converter
-mushan.vscode-paste-image
-ryuta46.multi-command
-sandcastle.vscode-open
+
+#region mardown related start
+bierner.markdown-mermaid
 shd101wyy.markdown-preview-enhanced
-techer.open-in-browser
+#endregion
+
+#region comparison related start
+moshfeu.compare-folders
+keewek.compare-helper
+#endregion
+
+#region git related start
+eamodio.gitlens
+#endregion
+
+#region copilot related start
 GitHub.copilot
 GitHub.copilot-chat
-redhat.vscode-xml
-redhat.vscode-yaml
-keewek.compare-helper
-timonwong.shellcheck
-hoovercj.vscode-power-mode
+#endregion
+
+sandcastle.vscode-open
+techer.open-in-browser
 maptz.regionfolder
-moshfeu.compare-folders
+usernamehw.errorlens
+alefragnani.Bookmarks
+formulahendry.auto-rename-tag
+Gruntfuggly.todo-tree
+hbenl.vscode-test-explorer
