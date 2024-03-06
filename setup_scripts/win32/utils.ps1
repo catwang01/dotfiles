@@ -21,7 +21,6 @@ function EasyRegistry-Job
     Param(
         [Parameter(Mandatory)]
         [string]$jobName,
-        # make this required
         [Parameter(Mandatory)]
         $trigger,
         $options,
@@ -50,6 +49,12 @@ function EasyRegistry-Job
     else {
         Register-ScheduledJob -InitializationScript $initBlock -ScriptBlock $scriptBlock -Name $jobName -RunNow -Trigger $trigger -ScheduledJobOption $options
     }
+
+    $principal = New-ScheduledTaskPrincipal -UserId (Get-CimInstance -ClassName Win32_ComputerSystem | Select-Object -expand UserName)
+
+    $psJobsPathInScheduler = "\Microsoft\Windows\PowerShell\ScheduledJobs";
+    $someResult = Set-ScheduledTask -TaskPath $psJobsPathInScheduler `
+        -TaskName $jobName -Principal $principal
 }
 
 function Register-StartUp
