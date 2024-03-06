@@ -1544,6 +1544,26 @@
     "powermode.presets": "particles",
     "powermode.shake.enabled": false,
     "powermode.explosions.frequency": 5,
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "Windows PowerShell": {
+            "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+        }
+    }
     // #endregion
 }

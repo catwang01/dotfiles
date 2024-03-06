@@ -134,9 +134,38 @@ function Create-StartupScript
     Write-Host "Startup script shortcut created: $ShortcutPath"
 }
 
-# Example usage:
-# Either provide a file path:
-# Create-StartupScript -FilePath 'C:\Path\To\Your\Script.ps1'
+function ConvertTo-SilientTask
+{
+  [cmdletbinding()]
+  Param(
+    [Parameter(Mandatory=$true)]
+    [string]$jobName
+  )
+  $task = get-ScheduledTask -TaskName $jobName
+  $action = $task.Actions[0]
+  $myScheduledTaskPath = 'C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\MyScheduledJobs\'
 
-# Or provide a script block:
-# Create-StartupScript -ScriptBlock { Write-Host "Hello, World!" }
+  mkdir "$myScheduledTaskPath\$jobName" -Force
+
+  # write ps file
+  $psPath = "$myScheduledTaskPath\$jobName\run.ps1"
+  $psScriptContent = @"
+Import-Module PSScheduledJob;
+`$jobDef = [Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition]::LoadFromStore('${jobName}', '${HOME}\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs');
+`$jobDef.Run()
+"@
+  $psScriptContent | Out-File $psPath -Force
+
+  # write vbs file
+  $vbsPath = "$myScheduledTaskPath\$jobName\run.vbs"
+  $vbsContent = "CreateObject(`"Wscript.Shell`").Run `"powershell.exe ${psPath}`",0,True"
+  $vbsContent | Out-File $vbsPath -Force
+  $newAction = New-ScheduledTaskAction `
+            -Id "StartPowershellJobByVbs" `
+            -Execute $vbsPath
+            # -Execute $cscriptPath `
+            # -Argument $vbsPath
+    
+  Set-ScheduledTask -TaskPath $psJobsPathInScheduler `
+      -TaskName $jobName -Action $newAction
+}
