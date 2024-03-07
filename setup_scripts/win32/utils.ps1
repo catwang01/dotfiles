@@ -141,8 +141,6 @@ function ConvertTo-SilientTask
     [Parameter(Mandatory=$true)]
     [string]$jobName
   )
-  $task = get-ScheduledTask -TaskName $jobName
-  $action = $task.Actions[0]
   $myScheduledTaskPath = 'C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\MyScheduledJobs\'
 
   mkdir "$myScheduledTaskPath\$jobName" -Force
