@@ -1,32 +1,28 @@
-function winget-install
-{
+function winget-install {
     Param(
         [string]$package_name
     )
     $res = winget list $package_name
-    if ([System.String]::Join("", $res).Contains("No installed package"))
-    {
+    if ([System.String]::Join("", $res).Contains("No installed package")) {
         Write-Host "$package_name is not installed, installing..."
         winget install $package_name
         Write-Host "$package_name is installed"
     }
-    else
-    {
+    else {
         Write-Host "$package_name is already installed"
     }
 }
 
-function EasyRegistry-Job
-{
+function EasyRegistry-Job {
     Param(
         [Parameter(Mandatory)]
         [string]$jobName,
         [Parameter(Mandatory)]
         $trigger,
         $options,
-        [scriptblock]$scriptBlock=$null,
-        [string]$filePath=$null,
-        [string]$workingDirectory=$null
+        [scriptblock]$scriptBlock = $null,
+        [string]$filePath = $null,
+        [string]$workingDirectory = $null
     )
 
     $initBlock = [scriptblock]::Create(@" 
@@ -35,12 +31,10 @@ function EasyRegistry-Job
         } 
         # echo "The working directory is `$pwd" | Out-File -Append -FilePath "C:\Users\Public\Documents\log.txt"
 "@)
-    if ("" -eq $filePath -and $null -eq $scriptBlock)
-    {
+    if ("" -eq $filePath -and $null -eq $scriptBlock) {
         throw "Either filePath or scriptBlock is required, no one is provided"
     }
-    elseif ("" -ne $filePath -and $null -ne $scriptBlock)
-    {
+    elseif ("" -ne $filePath -and $null -ne $scriptBlock) {
         throw "Either filePath or scriptBlock is required, both are provided: filePath=$filePath, scriptBlock=$scriptBlock"
     }
     elseif ("" -ne $filePath) {
@@ -53,58 +47,52 @@ function EasyRegistry-Job
     $principal = New-ScheduledTaskPrincipal -UserId (Get-CimInstance -ClassName Win32_ComputerSystem | Select-Object -expand UserName)
 
     $psJobsPathInScheduler = "\Microsoft\Windows\PowerShell\ScheduledJobs";
-    $someResult = Set-ScheduledTask -TaskPath $psJobsPathInScheduler `
+    Set-ScheduledTask -TaskPath $psJobsPathInScheduler `
         -TaskName $jobName -Principal $principal
 }
 
-function Register-StartUp
-{
+function Register-StartUp {
     Param(
-        [string]$startupPath=$null,
-        [scriptblock]$scriptBlock=$null,
+        [string]$startupPath = $null,
+        [scriptblock]$scriptBlock = $null,
         [Parameter(Mandatory)]
         [string]$scheduleJobName,
         [Parameter(Mandatory)]
         [string]$workingDirectory
     )
     $isScheduledJobExists = $true
-    try
-    {
+    try {
         Get-ScheduledJob $scheduleJobName -ErrorAction Stop
     }
-    catch
-    {
+    catch {
         Write-Host "Working Directory: $workingDirectory"
         $isScheduledJobExists = $false
         Write-Host "Scheduled Job doesn't exist, register it!"
         $jobOptions = New-ScheduledJobOption -RunElevated -ContinueIfGoingOnBattery -StartIfOnBattery
         $trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30
         EasyRegistry-Job -jobName $scheduleJobName `
-                            -trigger $trigger `
-                            -options $jobOptions `
-                            -filePath $startupPath `
-                            -scriptBlock $scriptBlock `
-                            -workingDirectory $workingDirectory
+            -trigger $trigger `
+            -options $jobOptions `
+            -filePath $startupPath `
+            -scriptBlock $scriptBlock `
+            -workingDirectory $workingDirectory
     }
-    if ($isScheduledJobExists)
-    {
+    if ($isScheduledJobExists) {
         Write-Host "Scheduled Job already exists, no need to create it"
     }
-    else
-    {
+    else {
         Write-Host "Scheduled Job is registered successfully"
     }
 }
-function Create-StartupScript 
-{
+function Create-StartupScript {
     param(
-        [parameter(Mandatory=$true, Position=0, ParameterSetName='FilePath')]
+        [parameter(Mandatory = $true, Position = 0, ParameterSetName = 'FilePath')]
         [string]$FilePath,
 
-        [parameter(Mandatory=$true, Position=0, ParameterSetName='ScriptBlock')]
+        [parameter(Mandatory = $true, Position = 0, ParameterSetName = 'ScriptBlock')]
         [scriptblock]$ScriptBlock,
 
-        [parameter(Mandatory=$true)]
+        [parameter(Mandatory = $true)]
         [string]$SymbolName
     )
 
@@ -122,9 +110,10 @@ function Create-StartupScript
     $Shortcut = $Shell.CreateShortcut($ShortcutPath)
     $Shortcut.TargetPath = "powershell.exe"
     
-    if ($ScriptPath -ne $null) {
+    if ($null -ne $ScriptPath) {
         $Shortcut.Arguments = "-NoProfile -NonInterative -ExecutionPolicy Bypass -File `"$ScriptPath`""
-    } else {
+    }
+    else {
         $EncodedScriptBlock = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($ScriptBlock.ToString()))
         $Shortcut.Arguments = "-NoProfile -NonInterative -ExecutionPolicy Bypass -EncodedCommand $EncodedScriptBlock"
     }
@@ -134,36 +123,43 @@ function Create-StartupScript
     Write-Host "Startup script shortcut created: $ShortcutPath"
 }
 
-function ConvertTo-SilientTask
-{
-  [cmdletbinding()]
-  Param(
-    [Parameter(Mandatory=$true)]
-    [string]$jobName
-  )
-  $myScheduledTaskPath = 'C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\MyScheduledJobs\'
+function ConvertTo-SilientTask {
+    [cmdletbinding()]
+    Param(
+        [Parameter(Mandatory = $true)]
+        [string]$jobName
+    )
 
-  mkdir "$myScheduledTaskPath\$jobName" -Force
+    try {
+        Get-ScheduledJob $jobName
+    }
+    catch {
+        Write-Error "$jobName is not a scheduled job"
+        return 
+    }
 
-  # write ps file
-  $psPath = "$myScheduledTaskPath\$jobName\run.ps1"
-  $psScriptContent = @"
+    $myScheduledTaskPath = 'C:\Windows\System32\Tasks\Microsoft\Windows\PowerShell\MyScheduledJobs\'
+
+    mkdir "$myScheduledTaskPath\$jobName" -Force
+
+    # write ps file
+    $psPath = "$myScheduledTaskPath\$jobName\run.ps1"
+    $psScriptContent = @"
 Import-Module PSScheduledJob;
 `$jobDef = [Microsoft.PowerShell.ScheduledJob.ScheduledJobDefinition]::LoadFromStore('${jobName}', '${HOME}\AppData\Local\Microsoft\Windows\PowerShell\ScheduledJobs');
 `$jobDef.Run()
 "@
-  $psScriptContent | Out-File $psPath -Force
+    $psScriptContent | Out-File $psPath -Force
 
-  # write vbs file
-  $vbsPath = "$myScheduledTaskPath\$jobName\run.vbs"
-  $vbsContent = "CreateObject(`"Wscript.Shell`").Run `"powershell.exe ${psPath}`",0,True"
-  $vbsContent | Out-File $vbsPath -Force
-  $newAction = New-ScheduledTaskAction `
-            -Id "StartPowershellJobByVbs" `
-            -Execute $vbsPath
-            # -Execute $cscriptPath `
-            # -Argument $vbsPath
+    # write vbs file
+    $vbsPath = "$myScheduledTaskPath\$jobName\run.vbs"
+    $vbsContent = "CreateObject(`"Wscript.Shell`").Run `"powershell.exe ${psPath}`",0,True"
+    $vbsContent | Out-File $vbsPath -Force
+    $newAction = New-ScheduledTaskAction `
+        -Id "StartPowershellJobByVbs" `
+        -Execute $vbsPath
     
-  Set-ScheduledTask -TaskPath $psJobsPathInScheduler `
-      -TaskName $jobName -Action $newAction
+    $psJobsPathInScheduler = "\Microsoft\Windows\PowerShell\ScheduledJobs";
+    Set-ScheduledTask -TaskPath $psJobsPathInScheduler `
+        -TaskName $jobName -Action $newAction
 }
