@@ -26,4 +26,4 @@ set easyclick_fontcolor=#000000
 set easyclick_bgcolor=#fae26b
 
 set cmd_fadeout=3600
-set cursor_accel=30
+set cursor_accel=20
