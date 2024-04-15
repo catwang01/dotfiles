@@ -69,7 +69,8 @@ function Register-StartUp {
         $isScheduledJobExists = $false
         Write-Host "Scheduled Job doesn't exist, register it!"
         $jobOptions = New-ScheduledJobOption -RunElevated -ContinueIfGoingOnBattery -StartIfOnBattery
-        $trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30
+        # $trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30
+        $trigger = New-JobTrigger -Once -At "01/01/2000 00:00:00" -RepetitionInterval (New-TimeSpan -Minutes 2) -RepetitionDuration ([TimeSpan]::MaxValue)
         EasyRegistry-Job -jobName $scheduleJobName `
             -trigger $trigger `
             -options $jobOptions `

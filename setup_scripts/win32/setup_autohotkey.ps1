@@ -12,7 +12,7 @@ try
 }
 catch
 {
-    $trigger = New-JobTrigger -AtStartup -RandomDelay 00:00:30
+    $trigger = New-JobTrigger -Once -At "09/12/2013 1:00:00" -RepetitionInterval (New-TimeSpan -Minutes 2) -RepetitionDuration (New-Timespan -Hours 48)
     Register-ScheduledJob -Trigger $trigger -FilePath $path -Name Dotfile-Autohotkey
     Write-Host "Schedule job ${jobName} is registered successfully"
     $jobExists = $true
