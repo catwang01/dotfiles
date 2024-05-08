@@ -1,5 +1,4 @@
 #region general settings
-
 - defaults:
     crossplatform-link:
         create: true
@@ -8,6 +7,14 @@
     crossplatform-shell:
         stdout: true
         stderr: true
+#endregion
+
+#region git related start
+- crossplatform-shell:
+  - command: setup_scripts/win32/setup_git_custom.ps1
+    description: Install git custom commands
+    platform: win32
+
 #endregion
 
 #region PSReadLine
