@@ -17,12 +17,20 @@ function ExistsOnRemote
 
 function gitWorkTreeAdd
 {
+    [CmdletBinding(SupportsShouldProcess=$true)]
     Param(
         [Parameter(Mandatory=$true)]
-        $branchName,
-        [Parameter(Mandatory=$true)]
-        $rootDirectory
+        [string]$branchName,
+        [string]$rootDirectory
     )
+
+    if ([System.String]::IsNullOrEmpty($rootDirectory))
+    {
+        $currentDirectory = git rev-parse --show-toplevel
+        $directoryName = [System.IO.Path]::GetFileNameWithoutExtension($currentDirectory);
+        $rootDirectory = [System.IO.Path]::Combine($currentDirectory, "..", "workspace-$directoryName")
+        Write-Host "No root directory provided, using $rootDirectory as root directory"
+    }
 
     if ($branchName.Contains("/"))
     {
@@ -55,7 +63,9 @@ function gitWorkTreeAdd
     if ($PSCmdlet.ShouldProcess($command, "Run command"))
     {
         Invoke-Command -ScriptBlock $command
-        cd "$worktreeDirectory"
+        Write-Host ""
+        Write-Host "The branch $branchName is created at $worktreeDirectory"
+        Set-Location "$worktreeDirectory"
     }
 }
 
