@@ -2,7 +2,7 @@
 
 install_zsh()
 {
-    sudo apt-get install zsh
+    sudo apt-get install -y zsh
 }
 
 if [ `cat /etc/shells | grep zsh | wc -l` -eq 0 ]; 
