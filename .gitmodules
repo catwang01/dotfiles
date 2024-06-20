@@ -40,3 +40,6 @@
 [submodule "dotbot_plugins/dotbot-vscode"]
 	path = dotbot_plugins/dotbot-vscode
 	url = https://github.com/catwang01/dotbot-vscode
+[submodule "git/git-secrets"]
+	path = git/git-secrets
+	url = https://github.com/awslabs/git-secrets
