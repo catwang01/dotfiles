@@ -14,8 +14,15 @@
   - command: setup_scripts/win32/setup_git_custom.ps1
     description: Install git custom commands
     platform: win32
+  - command: cd git/git-secrets; ./install.ps1
+    platform: win32
+  - command: cd git/git-secrets && make install
+    description: Install git secrets
+    description: Install git secrets
+    platform: linux
 
 #endregion
+
 
 #region PSReadLine
 
