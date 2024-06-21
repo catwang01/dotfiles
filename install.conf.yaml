@@ -18,7 +18,6 @@
     platform: win32
   - command: cd git/git-secrets && make install
     description: Install git secrets
-    description: Install git secrets
     platform: linux
 
 #endregion
