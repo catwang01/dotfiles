@@ -159,5 +159,7 @@ try {
 catch {
   Write-Debug "thefuck is not installed"
 }
+$env:Path += ";${env:ProgramFiles(x86)}\WinMerge\"
 
-$env:Path += "${env:ProgramFiles(x86)}\WinMerge\"
+$outputPath = Get-ChildItem "${env:ProgramFiles(x86)}\azcopy*"
+$env:Path += ";$outputPath"
