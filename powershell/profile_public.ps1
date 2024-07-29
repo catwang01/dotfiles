@@ -46,27 +46,42 @@ try {
 
   Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $OnViModeChange
 
-  $global:prevKeyPressTime = 0  
-
   Set-PSReadLineKeyHandler -Chord 'j' -ScriptBlock {  
-    $currentTime = [System.DateTime]::Now.Ticks  
-    $timeDifference = $currentTime - $global:prevKeyPressTime  
-    $global:prevKeyPressTime = $currentTime  
-  
-    if ([Microsoft.PowerShell.PSConsoleReadLine]::InViInsertMode() -and $timeDifference -gt 1000000) {  
+    if ([Microsoft.PowerShell.PSConsoleReadLine]::InViInsertMode()) {
+      $currentTime = [System.DateTime]::Now.Ticks  
       $key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")  
-      if ($key.Character -eq 'k') {  
-        [Microsoft.PowerShell.PSConsoleReadLine]::ViCommandMode()  
-      }  
-      else {  
+      $nextTime = [System.DateTime]::Now.Ticks  
+      $timeDifference = $nextTime - $currentTime
+      if ($timeDifference -lt 1000000) {  
+        if ($key.Character -eq 'k') {  
+          [Microsoft.PowerShell.PSConsoleReadLine]::ViCommandMode()  
+        }  
+        else
+        {
+          [Microsoft.Powershell.PSConsoleReadLine]::Insert('j')  
+          [Microsoft.Powershell.PSConsoleReadLine]::Insert($key.Character)  
+        }
+      } 
+      else
+      {
         [Microsoft.Powershell.PSConsoleReadLine]::Insert('j')  
         [Microsoft.Powershell.PSConsoleReadLine]::Insert($key.Character)  
-      }  
-    }  
-    else {  
-      [Microsoft.Powershell.PSConsoleReadLine]::Insert('j')  
+      }
     }  
   }  
+
+  # Define the custom paste handler function
+  function CustomPasteHandler {
+      param($key, $arg)
+      Add-Type -AssemblyName System.Windows.Forms
+      $clipboardContent = [System.Windows.Forms.Clipboard]::GetText()
+      [Microsoft.PowerShell.PSConsoleReadLine]::Insert($clipboardContent)
+  }
+
+  # Bind the custom paste handler to Ctrl+v
+  Set-PSReadLineKeyHandler -Chord "Ctrl+p" -ScriptBlock {
+      CustomPasteHandler
+  }
 
   if ($host.Version.Major -eq 7) {
     #change the key to accept suggestions (default is right arrow)
