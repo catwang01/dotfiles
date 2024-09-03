@@ -3,7 +3,7 @@ choco install altdrag -y
 
 $altDragHome = "$env:APPDATA\AltDrag"
 $exePath = "$altDragHome\AltDrag.exe"
-$scriptBlock = [scriptblock]::Create("& $exePath; while (`$true) { Start-Sleep -Seconds 30000 }")
+$scriptBlock = [scriptblock]::Create("& $exePath;")
 
 &$scriptBlock
 
