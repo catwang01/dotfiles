@@ -48,6 +48,15 @@
 
 #endregion
 
+#region window terminal
+
+- crossplatform-link:
+    ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json:
+      path: configs\win\window-terminal\settings.json
+      platform: "win32"
+      force: true
+#endregion
+
 #region zsh related start
 
 - crossplatform-shell:

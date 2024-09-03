@@ -1564,6 +1564,7 @@
         "Windows PowerShell": {
             "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
         }
-    }
+    },
+    "security.workspace.trust.untrustedFiles": "open"
     // #endregion
 }
