@@ -138,8 +138,8 @@ Function gig {
 
 
 try {
-  Write-Debug "ZLocation is installed"
   Import-Module ZLocation
+  Write-Debug "ZLocation is installed"
 } 
 catch {
   Write-Debug "ZLocation not installed"
@@ -167,13 +167,14 @@ catch {
   Write-Debug "carapace not installed"
 }
 
-try {
-  $env:PYTHONIOENCODING = "utf-8"
-  iex $($(thefuck --alias) | Out-String)
-}
-catch {
-  Write-Debug "thefuck is not installed"
-}
+# try {
+#   $env:PYTHONIOENCODING = "utf-8"
+#   iex $($(thefuck --alias) | Out-String)
+# }
+# catch {
+#   Write-Debug "thefuck is not installed"
+# }
+
 $env:Path += ";${env:ProgramFiles(x86)}\WinMerge\"
 
 $outputPath = Get-ChildItem "${env:ProgramFiles(x86)}\azcopy*"

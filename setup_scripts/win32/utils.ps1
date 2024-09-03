@@ -5,7 +5,7 @@ function winget-install {
     $res = winget list $package_name
     if ([System.String]::Join("", $res).Contains("No installed package")) {
         Write-Host "$package_name is not installed, installing..."
-        winget install $package_name
+        winget install $package_name --disable-interactivity
         Write-Host "$package_name is installed"
     }
     else {

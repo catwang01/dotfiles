@@ -173,12 +173,9 @@
 #region z-location
 
 - crossplatform-shell:
-    - command: Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
-      platform: win32
-    - command: "if (Get-Module ZLocation) { echo 'ZLocation is installed!' } else { Install-Module ZLocation -Scope CurrentUser -Force }"
+    - command: setup_scripts/win32/setup_zlocation.ps1
       description: Setup z-location
       platform: win32
-
 
 #endregion
 
