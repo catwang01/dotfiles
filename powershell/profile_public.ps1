@@ -150,7 +150,7 @@ $env:ANACONDA3_HOME = "$HOME\Anaconda3"
 $env:Path += ";$env:ANACONDA3_HOME"
 
 # unison
-$env:UNISON_HOME = "$HOME\source\Notes\Softwares\unison"
+$env:UNISON_HOME = "C:\ProgramData\chocolatey\lib\unison\tools"
 $env:Path += ";$env:UNISON_HOME\bin"
 
 try {
