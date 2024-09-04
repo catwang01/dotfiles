@@ -34,8 +34,16 @@ function gitWorkTreeAdd
 
     if ($branchName.Contains("/"))
     {
-        $branchNameStem = $branchName.Split("/")[-1]
-        $worktreeDirectory = [System.IO.Path]::Combine($rootDirectory, $branchNameStem)
+        if ($branchName.StartsWith("users"))
+        {
+            $branchNameStem = $branchName.Split("/")[-1]
+            $worktreeDirectory = [System.IO.Path]::Combine($rootDirectory, $branchNameStem)
+        }
+        else
+        {
+            $branchNameStem = $branchName.Replace("/", "-")
+            $worktreeDirectory = [System.IO.Path]::Combine($rootDirectory, $branchNameStem)
+        }
     }
     else
     {

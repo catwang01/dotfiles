@@ -447,7 +447,7 @@
         "--check-untyped-defs"
     ],
     "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     // #endregion
     "files.watcherExclude": {
@@ -1565,6 +1565,6 @@
             "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
         }
     },
-    "security.workspace.trust.untrustedFiles": "open"
+    "powershell.scriptAnalysis.enable": true
     // #endregion
 }
