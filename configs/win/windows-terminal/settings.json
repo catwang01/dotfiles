@@ -16,6 +16,10 @@
             "keys": "ctrl+v"
         },
         {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
             "command": 
             {
                 "action": "splitPane",
@@ -25,12 +29,26 @@
             "keys": "alt+shift+d"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "keys": "alt+t"
         },
-        { "command": "newTab", "keys": "alt+t" },
-        { "command": "nextTab", "keys": "alt+right" },
-        { "command": "prevTab", "keys": "alt+left" }
+        {
+            "command": 
+            {
+                "action": "nextTab"
+            },
+            "keys": "alt+right"
+        },
+        {
+            "command": 
+            {
+                "action": "prevTab"
+            },
+            "keys": "alt+left"
+        }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
@@ -73,16 +91,10 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{ba4dcb8b-9651-5245-9379-f1a5d9975a58}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{2da3b106-e56d-5e28-bbf3-a14d2a21cbf7}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
+                "guid": "{17bf3de4-5353-5709-bcf9-835bd952a95e}",
+                "hidden": true,
+                "name": "Ubuntu-22.04",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
@@ -271,6 +283,29 @@
             "selectionBackground": "#FFFFFF",
             "white": "#D3D7CF",
             "yellow": "#C4A000"
+        },
+        {
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-20.04-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
         },
         {
             "background": "#300A24",

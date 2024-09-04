@@ -49,6 +49,8 @@ function EasyRegistry-Job {
     $psJobsPathInScheduler = "\Microsoft\Windows\PowerShell\ScheduledJobs";
     Set-ScheduledTask -TaskPath $psJobsPathInScheduler `
         -TaskName $jobName -Principal $principal
+
+    ConvertTo-SilientTask -jobName $jobName 
 }
 
 function Register-StartUp {
@@ -85,6 +87,7 @@ function Register-StartUp {
         Write-Host "Scheduled Job is registered successfully"
     }
 }
+
 function Create-StartupScript {
     param(
         [parameter(Mandatory = $true, Position = 0, ParameterSetName = 'FilePath')]
