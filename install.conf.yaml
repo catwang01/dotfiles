@@ -48,11 +48,11 @@
 
 #endregion
 
-#region window terminal
+#region windows terminal
 
 - crossplatform-link:
     ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json:
-      path: configs\win\window-terminal\settings.json
+      path: configs\win\windows-terminal\settings.json
       platform: "win32"
       force: true
 #endregion
