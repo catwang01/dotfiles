@@ -6,4 +6,11 @@ if ('' -eq $root -or $null -eq $root)
 $exePath = [System.IO.Path]::Combine($root, "kanata.exe")
 $configPath = [System.IO.Path]::Combine($root, "spacefn.kbd")
 
-& $exePath --cfg $configPath
+if (@(Get-Process | Where-Object { $_.Name -eq 'kanata' }).Count -gt 0)
+{
+    Write-Host "kanata is already running"
+}
+else
+{
+    & $exePath --cfg $configPath
+}

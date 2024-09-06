@@ -3,7 +3,16 @@ choco install altdrag -y
 
 $altDragHome = "$env:APPDATA\AltDrag"
 $exePath = "$altDragHome\AltDrag.exe"
-$scriptBlock = [scriptblock]::Create("& $exePath;")
+$scriptBlock = [scriptblock]::Create(@"
+        if (Get-Process | Where-Object { \$_.Name -eq 'AltDrag' })
+        {
+            Write-Host "AltDrag is already running"
+        }
+        else
+        {
+            & $exePath
+        }
+"@)
 
 &$scriptBlock
 
