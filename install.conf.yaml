@@ -288,3 +288,12 @@
     platform: "linux"
 
 #endregion
+
+#region keyviz related start
+
+- crossplatform-shell:
+  - command: setup_scripts/win32/setup_keyviz.ps1
+    description: Install setup_kanata
+    platform: "win32"
+
+#endregion
