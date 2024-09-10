@@ -29,6 +29,13 @@
     platform: win32
 #endregion
 
+#region unison related
+- crossplatform-shell:
+  - command: setup_scripts/win32/setup_unison.ps1
+    description: Install unison
+    platform: win32
+#endregion
+
 
 #region PSReadLine
 
