@@ -19,7 +19,7 @@ else
 }
 
 $scriptBlock = [scriptblock]::Create(@"
-    if (Get-Process | Where-Object { \$_.Name -eq 'Keyviz' })
+    if (Get-Process | Where-Object { `$_.Name -eq 'Keyviz' })
     {
         Write-Host "Keyviz is already running"
     }
@@ -33,4 +33,4 @@ $scriptBlock = [scriptblock]::Create(@"
 
 Register-StartUp -scriptBlock $scriptBlock `
         -scheduleJobName "dotfile-Keyviz" `
-        -workingDirectory $altDragHome
+        -workingDirectory $keyVizHome
