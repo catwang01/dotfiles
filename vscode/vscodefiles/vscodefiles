@@ -59,9 +59,14 @@ eamodio.gitlens
 GitHub.copilot
 GitHub.copilot-chat
 #endregion
+#
 
+#region better open
 sandcastle.vscode-open
+kevinchatham.openwithcode
 techer.open-in-browser
+#endregion
+
 maptz.regionfolder
 usernamehw.errorlens
 alefragnani.Bookmarks
