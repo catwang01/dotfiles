@@ -22,6 +22,14 @@
         {
             "command": 
             {
+                "action": "newTab"
+            },
+            "id": "User.newTab.5DEADB41",
+            "keys": "alt+t"
+        },
+        {
+            "command": 
+            {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"

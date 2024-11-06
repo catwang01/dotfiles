@@ -433,5 +433,12 @@
     {
         "key": "ctrl+;",
         "command": "whichkey.show"
-    }
+    },
+
+    // jupyter related
+    {
+        "key": "m",
+        "command": "notebook.cell.changeToMarkdown",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused && activeEditor == 'workbench.editor.notebook'"
+    },
 ]

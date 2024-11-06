@@ -1564,6 +1564,8 @@
         "Windows PowerShell": {
             "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
         }
-    }
+    },
+    "powershell.scriptAnalysis.enable": true,
+    "extensions.autoUpdate": false
     // #endregion
 }
