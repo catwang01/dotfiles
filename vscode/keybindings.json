@@ -434,11 +434,32 @@
         "key": "ctrl+;",
         "command": "whichkey.show"
     },
-
     // jupyter related
     {
         "key": "m",
         "command": "notebook.cell.changeToMarkdown",
         "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "y",
+        "command": "notebook.cell.changeToCode",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused && activeEditor == 'workbench.editor.notebook'"
+    },
+    // vim like navigation
+    {
+        "key": "G G",
+        "when": "notebookEditorFocused && !inputFocus",
+        "command": "list.focusFirst"
+    },
+    {
+        "key": "shift+G",
+        "when": "notebookEditorFocused && !inputFocus",
+        "command": "list.focusLast"
+    },
+    // split cell in vim mode, this requires the vim extension
+    {
+        "key": "-",
+        "command": "notebook.cell.split",
+        "when": "vim.mode == 'Normal' && editorTextFocus && notebookCellEditable && notebookEditable && notebookEditorFocused"
     },
 ]
