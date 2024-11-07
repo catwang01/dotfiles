@@ -70,6 +70,11 @@ nnoremap cm :vsc File.OpenContainingFolder<CR>
 " find in all files
 nnoremap <leader>fs :vsc Edit.FindinFiles<CR>
 
+" close current tab
+nnoremap <leader>q :vsc File.Close<CR>
+" close all tabs
+nnoremap <leader>qa :vsc Window.CloseAllDocuments<CR>
+
 " open solution explorer
 nnoremap <leader>o :vsc View.SolutionExplorer<CR>
 
