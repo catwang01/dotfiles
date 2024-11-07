@@ -175,7 +175,9 @@ catch {
 #   Write-Debug "thefuck is not installed"
 # }
 
+# adding possible path for winmerge into the $env:PATH
 $env:Path += ";${env:ProgramFiles(x86)}\WinMerge\"
+$env:Path += ";$HOME\AppData\Local\Programs\WinMerge\"
 
 $outputPath = Get-ChildItem "${env:ProgramFiles(x86)}\azcopy*"
 $env:Path += ";$outputPath"
