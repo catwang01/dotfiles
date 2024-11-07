@@ -527,6 +527,39 @@
             "command": "whichkey.searchBindings"
         },
         {
+            "key": "q",
+            "name": "-Close buffers",
+            "icon": "file",
+            "type": "bindings",
+            "bindings": [
+                {
+                    "key": "q",
+                    "name": "Close active buffer",
+                    "icon": "x",
+                    "type": "command",
+                    "command": "workbench.action.closeActiveEditor"
+                },
+                {
+                    "key": "a",
+                    "name": "Close all buffers",
+                    "icon": "close-all",
+                    "type": "commands",
+                    "commands": [
+                        "workbench.action.closeAllEditors",
+                        // focus on explorer after closing all editors
+                        "workbench.view.explorer"
+                    ]
+                },
+                {
+                    "key": "o",
+                    "name": "Close other buffers",
+                    "icon": "close-all",
+                    "type": "command",
+                    "command": "workbench.action.closeOtherEditors"
+                }
+            ]
+        },
+        {
             "key": "*",
             "name": "Search in project with selection",
             "icon": "search",
@@ -569,6 +602,7 @@
             "icon": "file",
             "type": "bindings",
             "bindings": [
+                // #region Buffer > Buffer Navigation
                 {
                     "key": "r",
                     "name": "Last active buffer",
@@ -594,12 +628,20 @@
                     "command": "workbench.action.firstEditorInGroup"
                 },
                 {
-                    "key": "d",
-                    "name": "Close active buffer",
-                    "icon": "x",
+                    "key": "n",
+                    "name": "Next buffer",
+                    "icon": "arrow-down",
                     "type": "command",
-                    "command": "workbench.action.closeActiveEditor"
+                    "command": "workbench.action.nextEditor"
                 },
+                {
+                    "key": "p",
+                    "name": "Previous buffer",
+                    "icon": "arrow-up",
+                    "type": "command",
+                    "command": "workbench.action.previousEditor"
+                },
+                // #endregion
                 {
                     "key": "h",
                     "name": "Move buffer into left window",
@@ -629,20 +671,6 @@
                     "command": "workbench.action.moveEditorToRightGroup"
                 },
                 {
-                    "key": "n",
-                    "name": "Next buffer",
-                    "icon": "arrow-down",
-                    "type": "command",
-                    "command": "workbench.action.nextEditor"
-                },
-                {
-                    "key": "p",
-                    "name": "Previous buffer",
-                    "icon": "arrow-up",
-                    "type": "command",
-                    "command": "workbench.action.previousEditor"
-                },
-                {
                     "key": "s",
                     "name": "Scratch buffer",
                     "icon": "note",
@@ -655,6 +683,13 @@
                     "icon": "pin",
                     "type": "command",
                     "command": "workbench.action.pinEditor"
+                },
+                {
+                    "key": "T",
+                    "name": "Unpin buffer",
+                    "icon": "pinned",
+                    "type": "command",
+                    "command": "workbench.action.unpinEditor"
                 },
                 {
                     "key": "u",
@@ -699,35 +734,11 @@
                     "command": "workbench.action.moveEditorToRightGroup"
                 },
                 {
-                    "key": "M",
-                    "name": "Close other buffers",
-                    "icon": "close-all",
-                    "type": "command",
-                    "command": "workbench.action.closeOtherEditors"
-                },
-                {
-                    "key": "P",
-                    "name": "Paste clipboard to buffer",
-                    "icon": "clippy",
-                    "type": "commands",
-                    "commands": [
-                        "editor.action.selectAll",
-                        "editor.action.clipboardPasteAction"
-                    ]
-                },
-                {
                     "key": "R",
                     "name": "Revert the current buffer",
                     "icon": "discard",
                     "type": "command",
                     "command": "workbench.action.files.revert"
-                },
-                {
-                    "key": "T",
-                    "name": "Unpin buffer",
-                    "icon": "pinned",
-                    "type": "command",
-                    "command": "workbench.action.unpinEditor"
                 },
                 {
                     "key": "N",
@@ -889,7 +900,7 @@
                 {
                     "key": "b",
                     "name": "Found in all buffers",
-                    "icon": "files",
+                    "icon": "search",
                     "type": "command",
                     "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
                 },
@@ -1528,7 +1539,6 @@
         },
     ],
     // #endregion
-
     // #region markdown
     "pasteImage.basePath": "${projectRoot}",
     "markdown-preview-enhanced.previewTheme": "atom-light.css",
