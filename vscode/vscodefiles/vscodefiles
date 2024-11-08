@@ -6,7 +6,7 @@ ryuta46.multi-command
 #endregion
 
 #region other format related start
-AykutSarac.jsoncrack-vscode
+# AykutSarac.jsoncrack-vscode
 mechatroner.rainbow-csv
 redhat.vscode-xml
 redhat.vscode-yaml
@@ -69,7 +69,7 @@ techer.open-in-browser
 
 maptz.regionfolder
 usernamehw.errorlens
-alefragnani.Bookmarks
-formulahendry.auto-rename-tag
+# alefragnani.Bookmarks
+# formulahendry.auto-rename-tag
 Gruntfuggly.todo-tree
 hbenl.vscode-test-explorer
