@@ -457,7 +457,6 @@
         "**/.git/subtree-cache/**": true,
         "**/.hg/store/**": true
     },
-    "workbench.iconTheme": "vscode-icons",
     "editor.guides.bracketPairs": true,
     // #region multi command
     "multiCommand.commands": [
@@ -672,7 +671,14 @@
                 },
                 {
                     "key": "s",
-                    "name": "Scratch buffer",
+                    "name": "Search among active buffers in current Windows",
+                    "icon": "files",
+                    "type": "command",
+                    "command": "workbench.action.showEditorsInActiveGroup"
+                },
+                {
+                    "key": "n",
+                    "name": "Open a new buffer",
                     "icon": "note",
                     "type": "command",
                     "command": "workbench.action.files.newUntitledFile"
@@ -697,13 +703,6 @@
                     "icon": "history",
                     "type": "command",
                     "command": "workbench.action.reopenClosedEditor"
-                },
-                {
-                    "key": "B",
-                    "name": "Show all buffers in active window",
-                    "icon": "files",
-                    "type": "command",
-                    "command": "workbench.action.showEditorsInActiveGroup"
                 },
                 {
                     "key": "H",
@@ -1443,7 +1442,7 @@
         // #region Terminal
         {
             "key": "t",
-            "name": "Terminal",
+            "name": "+Terminal",
             "icon": "terminal",
             "type": "bindings",
             "bindings": [
@@ -1460,6 +1459,17 @@
                     "icon": "chevron-right",
                     "type": "command",
                     "command": "workbench.action.terminal.new"
+                },
+                // from https://stackoverflow.com/questions/71194528/vs-code-open-terminal-in-current-directory
+                {
+                    "key": "c",
+                    "name": "Open new terminal in the Current file directory",
+                    "type": "command",
+                    "icon": "chevron-right",
+                    "command": "workbench.action.terminal.newWithCwd",
+                    "args": {
+                        "cwd": "${fileDirname}"
+                    },
                 }
             ]
         },
