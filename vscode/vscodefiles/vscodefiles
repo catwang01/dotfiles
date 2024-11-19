@@ -31,15 +31,17 @@ ms-toolsai.vscode-jupyter-cell-tags
 ms-toolsai.vscode-jupyter-slideshow
 #endregion
 
+#region remote related
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vscode-remote.remote-wsl
 ms-vscode-remote.vscode-remote-extensionpack
-ms-vscode.js-debug-nightly
+# ms-vscode.js-debug-nightly
 ms-vscode.remote-explorer
 ms-vscode.remote-server
 ms-vscode.test-adapter-converter
+#endregion
 
 #region mardown related start
 bierner.markdown-mermaid
@@ -59,7 +61,6 @@ eamodio.gitlens
 GitHub.copilot
 GitHub.copilot-chat
 #endregion
-#
 
 #region better open
 sandcastle.vscode-open
@@ -73,3 +74,8 @@ usernamehw.errorlens
 # formulahendry.auto-rename-tag
 Gruntfuggly.todo-tree
 hbenl.vscode-test-explorer
+
+
+#region extension management
+Soulcode.vscode-unwanted-extensions
+#endregion

@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "vscodevim.vim",
+        "VSpaceCode.whichkey",
+        "Soulcode.vscode-unwanted-extensions"
+    ],
+    "unwantedRecommendations": [
+
+    ]
+}
