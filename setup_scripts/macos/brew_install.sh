@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # parse 3 arguments
-if [ "$#" -ne 3 ]; then
+if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <program_name> [<use_case>]"
     exit 1
 fi

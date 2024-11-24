@@ -4,3 +4,5 @@ if (command -v atuin) ; then
   eval "$(atuin init zsh)"
 fi
 export PATH="$PATH:$HOME/.cargo/bin/"
+
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"

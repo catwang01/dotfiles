@@ -13,7 +13,7 @@
     <string>com.dotfiles.kanata.local</string>
     <key>ProgramArguments</key>
     <array>
-        <string>./run.sh</string>
+		<string>general-keybindings/kanata/run.sh</string>
     </array>
 </dict>
 </plist>

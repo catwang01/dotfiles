@@ -12,7 +12,12 @@ else
     log info "Karabiner-VirtualHIDDevice-Daemon is already running"
 fi
 
-# KANATA_PATH=$(which 'kanata')
 KANATA_PATH="/usr/local/bin/kanata"
 log info "Kanata path: $KANATA_PATH"
-sudo "$KANATA_PATH" --cfg "$this_dir/spacefn.kbd"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    log info "macOS detected"
+    sudo "$KANATA_PATH" --cfg "$this_dir/spacefn-mac.kbd"
+else
+    log info "Non macOS detected"
+    sudo "$KANATA_PATH" --cfg "$this_dir/spacefn.kbd"
+fi
