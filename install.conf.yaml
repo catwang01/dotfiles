@@ -9,6 +9,16 @@
         stderr: true
 #endregion
 
+#region brew
+- crossplatform-shell:
+  - command: setup_scripts/linux/setup_xcode.sh
+    description: Install xcode...
+    platform: darwin
+  - command: setup_scripts/macos/setup_brew.sh
+    description: Install brew...
+    platform: darwin
+#endregion
+
 #region git related start
 - crossplatform-shell:
   - command: setup_scripts/win32/setup_git_custom.ps1
@@ -35,7 +45,6 @@
     description: Install unison
     platform: win32
 #endregion
-
 
 #region PSReadLine
 
@@ -207,6 +216,9 @@
     - command: setup_scripts/win32/setup_snipaste.ps1
       description: "Setup snipaste"
       platform: win32
+    - command: setup_scripts/macos/setup_snipaste.sh
+      description: "Setup snipaste"
+      platform: darwin
 #endregion
     
 #region listary related start

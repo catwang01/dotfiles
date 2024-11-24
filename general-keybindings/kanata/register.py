@@ -22,7 +22,7 @@ def generate_plist(template_path: str, output_path: str):
     with open(template_path, 'rb') as f:
         plist = plistlib.load(f)
 
-    plist['WorkingDirectory'] = str(this_dir)
+    plist['WorkingDirectory'] = str(this_dir / '..' / '..') 
     plist['ProgramArguments'] = ['./run.sh']
     plist['StandardErrorPath'] = str(this_dir / 'kanata-error.log')
     plist['StandardOutPath'] = str(this_dir / 'kanata-local.log')

@@ -1,3 +1,9 @@
+#!/bin/bash
+
+if [ -f ~/.bash_profile ]; then
+    source ~/.bash_profile
+fi
+
 if [ -f ~/.bash/my_bashrc ]; then
     source ~/.bash/my_bashrc
 fi
@@ -9,3 +15,4 @@ fi
 if [ -f ~/.bash/my_bashrc_original ]; then
     source ~/.bash/my_bashrc_original
 fi
+. "$HOME/.cargo/env"
