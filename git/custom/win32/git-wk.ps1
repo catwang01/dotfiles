@@ -24,6 +24,7 @@ function gitWorkTreeAdd
         [string]$rootDirectory
     )
 
+    git fetch
     if ([System.String]::IsNullOrEmpty($rootDirectory))
     {
         $currentDirectory = git rev-parse --show-toplevel
