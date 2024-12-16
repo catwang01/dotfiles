@@ -67,8 +67,9 @@ nnoremap <leader>rs :vsc Edit.RemoveAndSort<CR>
 noremap <space> za
 "打开所在文件夹"
 nnoremap cm :vsc File.OpenContainingFolder<CR>
+
 " find in all files
-nnoremap <leader>fF :vsc Edit.FindinFiles<CR>
+nnoremap <leader>fs :vsc Edit.FindinFiles<CR>
 
 " https://learn.microsoft.com/en-us/visualstudio/ide/go-to?view=vs-2022"
 " find files
