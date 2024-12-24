@@ -318,3 +318,12 @@
       platform: "darwin"
       force: true
 #endregion
+
+#region cheatsheet related start
+
+- crossplatform-shell:
+  - command: setup_scripts/win32/setup_cheatsheet.ps1
+    description: Install cheatsheet
+    platform: "darwin"
+
+#endregion

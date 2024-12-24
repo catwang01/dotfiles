@@ -1586,6 +1586,7 @@
         }
     },
     "powershell.scriptAnalysis.enable": true,
-    "extensions.autoUpdate": false
+    "extensions.autoUpdate": false,
+    "security.workspace.trust.untrustedFiles": "open"
     // #endregion
 }
