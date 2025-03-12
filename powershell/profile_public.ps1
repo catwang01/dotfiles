@@ -10,6 +10,8 @@ catch {
   Write-Debug "PowerShellGet not installed"
 }
 
+$env:Path += ";$HOME\AppData\Local\Programs\Microsoft VS Code\bin"
+
 # PSReadLine
 try {
   Write-Debug "PSReadLine is installed"

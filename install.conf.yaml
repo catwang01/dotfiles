@@ -9,6 +9,13 @@
         stderr: true
 #endregion
 
+#region chocolatey
+- crossplatform-shell:
+  - command: setup_scripts/win32/setup_chocolatey.ps1
+    description: Install chocolatey...
+    platform: win32
+#endregion
+
 #region brew
 - crossplatform-shell:
   - command: setup_scripts/linux/setup_xcode.sh
