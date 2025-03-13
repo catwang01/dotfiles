@@ -63,7 +63,7 @@
 #region PSReadLine
 
 - crossplatform-shell:
-    - command: "if (Get-Module PSReadLine) { echo 'PSReadLine is installed!' } else { Install-Module PSReadLine -MinimumVersion 2.2.6 -Force }"
+    - command: "setup_scripts/win32/setup_psreadline.ps1"
       description: Install PSReadLine
       platform: win32
 
