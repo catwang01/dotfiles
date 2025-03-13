@@ -9,6 +9,13 @@
         stderr: true
 #endregion
 
+#region terminal
+- crossplatform-shell:
+  - command: setup_scripts/win32/setup_terminal.ps1
+    description: Install Windows terminal...
+    platform: win32
+#endregion
+
 #region chocolatey
 - crossplatform-shell:
   - command: setup_scripts/win32/setup_chocolatey.ps1
