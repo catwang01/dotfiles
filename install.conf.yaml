@@ -251,34 +251,34 @@
 
 #region obsidian related start
 
-- crossplatform-shell:
-    - command: setup_scripts/win32/setup_obsidian.ps1
-      description: "Setup obsidian"
-      platform: win32
+# - crossplatform-shell:
+#     - command: setup_scripts/win32/setup_obsidian.ps1
+#       description: "Setup obsidian"
+#       platform: win32
 
 #endregion
 
 #region tldr related start
 
-- crossplatform-shell:
-  - command: tldr -v || npm install -g tldr
-    description: Install tldr
-    platform: "!win32"
-  - command: "setup_scripts/win32/setup_tldr.ps1"
-    description: Install tldr
-    platform: "win32"
+# - crossplatform-shell:
+#   - command: tldr -v || npm install -g tldr
+#     description: Install tldr
+#     platform: "!win32"
+#   - command: "setup_scripts/win32/setup_tldr.ps1"
+#     description: Install tldr
+#     platform: "win32"
 
 #endregion
 
 #region thefuck related start
 
-- crossplatform-shell:
-  - command: pip3 install thefuck
-    description: Install thefuck
-    platform: "!win32"
-  - command: pip install thefuck
-    description: Install thefuck
-    platform: "win32"
+# - crossplatform-shell:
+#   - command: pip3 install thefuck
+#     description: Install thefuck
+#     platform: "!win32"
+#   - command: pip install thefuck
+#     description: Install thefuck
+#     platform: "win32"
 
 #endregion
 
