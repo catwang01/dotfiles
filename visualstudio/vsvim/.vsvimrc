@@ -35,7 +35,7 @@ nnoremap <C-Space> :vsc Edit.CompleteWord<CR>
 nnoremap <leader>ei :vsc Edit.QuickInfo<CR>
 nnoremap <leader>ed :vsc Edit.PeekDefinition<CR>
 nnoremap <leader>ep :vsc Edit.ParameterInfo<CR>
-nnoremap <leader>ef :vsc Edit.FindAllReferences<CR>
+nnoremap <leader>er :vsc Edit.FindAllReferences<CR>
 
 " 代码格式format
 nnoremap <leader>== :vsc Edit.FormatDocument<CR>
@@ -80,6 +80,8 @@ nnoremap <leader>ff :vsc Edit.GoToAll<CR>
 nnoremap <leader>qq :vsc File.Close<CR>
 " close all tabs
 nnoremap <leader>qa :vsc Window.CloseAllDocuments<CR>
+" close other tables
+nnoremap <leader>qo :vsc File.CloseOtherTabs<CR>
 
 " open solution explorer
 nnoremap <leader>o :vsc View.SolutionExplorer<CR>
