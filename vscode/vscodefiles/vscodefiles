@@ -10,7 +10,7 @@ ryuta46.multi-command
 mechatroner.rainbow-csv
 redhat.vscode-xml
 redhat.vscode-yaml
-timonwong.shellcheck
+# timonwong.shellcheck
 #endregion
 
 #region beautify related start
