@@ -242,6 +242,13 @@
       platform: win32
 #endregion
 
+#region powertoys related start
+- crossplatform-shell:
+    - command: setup_scripts/win32/setup_powertoys.ps1
+      description: "Setup powertoys"
+      platform: win32
+#endregion
+
 #region altdrag related start
 - crossplatform-shell:
     - command: setup_scripts/win32/setup_altdrag.ps1
