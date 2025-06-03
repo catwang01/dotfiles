@@ -1587,6 +1587,27 @@
     },
     "powershell.scriptAnalysis.enable": true,
     "extensions.autoUpdate": false,
-    "security.workspace.trust.untrustedFiles": "open"
+    "markdown-ado-sync.processType": "Scrum",
+    "markdown-ado-sync.adoOrganization": "microsoft",
+    "markdown-ado-sync.scanPaths": [
+        "c:\\Users\\zhenwang\\source\\Notes\\Exp",
+        "c:\\Users\\zhenwang\\source\\Notes\\SFI",
+        "c:\\Users\\zhenwang\\source\\Notes\\LLM"
+    ],
+    "markdown-ado-sync.adoProject": "Edge",
+    "markdown-ado-sync.resourceRoot": "c:\\Users\\zhenwang\\source\\Notes",
+    "@azure.argTenant": "",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "remote.SSH.remotePlatform": {
+        "52.156.137.44": "linux"
+    },
+    "haystack.search.maxResults": 50000,
+    "mcp": {
+        "servers": {
+            "my-mcp-server-577bb44a": {
+                "url": "http://localhost:13135/mcp/sse"
+            },
+        }
+    }
     // #endregion
 }

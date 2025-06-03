@@ -1,14 +1,16 @@
 # $DebugPreference = 'Continue'
 
+# Measure-Script {
+
 $env:Path += ";$env:ProgramFiles\Git\bin"
 $env:Path += ";$env:ProgramFiles\Git\usr\bin"
 
-try {
-  Import-Module PowerShellGet
-}
-catch {
-  Write-Debug "PowerShellGet not installed"
-}
+# try {
+#   Import-Module PowerShellGet
+# }
+# catch {
+#   Write-Debug "PowerShellGet not installed"
+# }
 
 $env:Path += ";$HOME\AppData\Local\Programs\Microsoft VS Code\bin"
 
@@ -139,13 +141,13 @@ Function gig {
 }
 
 
-try {
-  Import-Module ZLocation
-  Write-Debug "ZLocation is installed"
-} 
-catch {
-  Write-Debug "ZLocation not installed"
-}
+# try {
+#   Import-Module ZLocation
+#   Write-Debug "ZLocation is installed"
+# } 
+# catch {
+#   Write-Debug "ZLocation not installed"
+# }
 
 # Anaconda3
 $env:ANACONDA3_HOME = "$HOME\Anaconda3"
@@ -187,3 +189,4 @@ $env:Path += ";$outputPath"
 function mydebugpy {
   python -m debugpy --listen 5678 --wait-for-client $args
 }
+# }
