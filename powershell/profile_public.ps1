@@ -186,6 +186,8 @@ $env:Path += ";$HOME\AppData\Local\Programs\WinMerge\"
 $outputPath = Get-ChildItem "${env:ProgramFiles(x86)}\azcopy*"
 $env:Path += ";$outputPath"
 
+$env:Path += ';C:\Program Files\nodejs\'
+
 function mydebugpy {
   python -m debugpy --listen 5678 --wait-for-client $args
 }
