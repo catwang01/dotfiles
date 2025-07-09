@@ -216,6 +216,10 @@
         path: powershell/profile.ps1
         platform: win32
 # for old versions of powershell
+    ~/WindowsPowerShell/Microsoft.PowerShell_profile.ps1:
+        path: powershell/profile.ps1
+        platform: win32
+# for old versions of powershell
     ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1:
         path: powershell/profile.ps1
         platform: win32

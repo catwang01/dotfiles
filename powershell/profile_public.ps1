@@ -191,4 +191,5 @@ $env:Path += ';C:\Program Files\nodejs\'
 function mydebugpy {
   python -m debugpy --listen 5678 --wait-for-client $args
 }
-# }
+
+$env:Path  += ";$HOME\AppData\Local\miniconda3\Scripts\"
