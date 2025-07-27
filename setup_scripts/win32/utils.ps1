@@ -167,3 +167,90 @@ Import-Module PSScheduledJob;
     Set-ScheduledTask -TaskPath $psJobsPathInScheduler `
         -TaskName $jobName -Action $newAction
 }
+
+function Register-AsStartUpTask
+{
+    Param(
+        [Parameter(Mandatory)]
+        [string]$TaskName,
+        [string]$ExecutablePath = $null,
+        [string]$FilePath = $null,
+        [scriptblock]$ScriptBlock = $null,
+        [string]$WorkingDirectory = $null,
+        [string]$Description = "Startup task created by dotfiles",
+        [switch]$Force = $false,
+        [switch]$AsAdmin = $false,
+        [ValidateSet('Interactive', 'Password', 'S4U', 'ServiceAccount')]
+        [string]$LogonType = 'Interactive',
+        [string]$TaskPath = '\dotfiles\',
+        [string]$UserId = "$env:USERDOMAIN\$env:USERNAME"
+    )
+
+    # 检查任务是否已存在
+    $existingTask = Get-ScheduledTask -TaskName $TaskName -TaskPath $TaskPath -ErrorAction SilentlyContinue
+    if ($existingTask) {
+        if ($Force) {
+            Write-Host "Task '$TaskName' already exists in path '$TaskPath', removing it due to -Force parameter..."
+            Unregister-ScheduledTask -TaskName $TaskName -TaskPath $TaskPath -Confirm:$false
+        }
+        else {
+            Write-Host "Task '$TaskName' already exists in path '$TaskPath', skipping... Use -Force to recreate it."
+            return
+        }
+    }
+
+    # 创建任务触发器（开机启动）
+    $trigger = New-ScheduledTaskTrigger -AtStartup -RandomDelay 00:00:30
+
+    # 创建任务动作
+    if ($ExecutablePath) {
+        if ($WorkingDirectory) {
+            $action = New-ScheduledTaskAction -Execute $ExecutablePath -WorkingDirectory $WorkingDirectory
+        }
+        else {
+            $action = New-ScheduledTaskAction -Execute $ExecutablePath
+        }
+    }
+    elseif ($FilePath) {
+        if ($WorkingDirectory) {
+            $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -NonInteractive -ExecutionPolicy Bypass -File `"$FilePath`"" -WorkingDirectory $WorkingDirectory
+        }
+        else {
+            $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -NonInteractive -ExecutionPolicy Bypass -File `"$FilePath`""
+        }
+    }
+    elseif ($ScriptBlock) {
+        $encodedScript = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($ScriptBlock.ToString()))
+        if ($WorkingDirectory) {
+            $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -NonInteractive -ExecutionPolicy Bypass -EncodedCommand $encodedScript" -WorkingDirectory $WorkingDirectory
+        }
+        else {
+            $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -NonInteractive -ExecutionPolicy Bypass -EncodedCommand $encodedScript"
+        }
+    }
+    else {
+        throw "Either ExecutablePath, FilePath, or ScriptBlock must be provided"
+    }
+
+    # 创建任务主体
+    if ($AsAdmin) {
+        $principal = New-ScheduledTaskPrincipal -UserId $UserId -LogonType $LogonType -RunLevel Highest
+    }
+    else {
+        $principal = New-ScheduledTaskPrincipal -UserId $UserId -LogonType $LogonType -RunLevel Limited
+    }
+
+    # 注册任务
+    Register-ScheduledTask -TaskName $TaskName -TaskPath $TaskPath -Trigger $trigger -Action $action -Principal $principal -Description $Description
+
+    Write-Host "Startup task '$TaskName' registered successfully in path '$TaskPath'"
+}
+
+
+function Get-ChocoInstallPath {
+    Param(
+        [Parameter(Mandatory)]
+        [string]$PackageName
+    )
+    python "$PSScriptRoot\get_choco_install_path.py" $PackageName
+}

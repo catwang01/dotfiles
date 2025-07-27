@@ -40,3 +40,4 @@ shell_private
 my_zshrc_private.zsh
 my_bashrc_private
 profile_private.ps1
+.stfolder
