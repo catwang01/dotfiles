@@ -60,7 +60,7 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
    grv     f1    f2     f3   f4    f5   f6    f7      f8     f9     f10    f11   f12   XX
    M-tab   XX    XX     esc  lrld  XX   pgup  home    end    pgdn   XX     [     XX    XX
-   caps    C-a    C-s    XX   C-f   XX   left  down    up     rght   bspc   XX    ret
+   caps    C-a    C-s    del   C-f   XX   left  down    up     rght   bspc   XX    ret
    lsft    C-z   C-x     C-c   C-v   spc  XX    =        -     `     \    rsft
    fn lctl    lmet    lalt               XX                  ralt    rmet  rctl
 )
