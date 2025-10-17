@@ -15,4 +15,3 @@ fi
 if [ -f ~/.bash/my_bashrc_original ]; then
     source ~/.bash/my_bashrc_original
 fi
-. "$HOME/.cargo/env"

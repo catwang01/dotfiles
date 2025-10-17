@@ -8,3 +8,7 @@ export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 alias mydebugpy="python -m debugpy --listen 5678 --wait-for-client"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+. "$HOME/.cargo/env"
